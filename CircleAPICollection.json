@@ -1,0 +1,3551 @@
+{
+	"info": {
+		"_postman_id": "138fd5e6-3154-4398-afbc-3013acd91dde",
+		"name": "Circle API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17833796"
+	},
+	"item": [
+		{
+			"name": "General API",
+			"item": [
+				{
+					"name": "Health",
+					"item": [
+						{
+							"name": "/ping",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://api-sandbox.circle.com/ping",
+									"protocol": "https",
+									"host": [
+										"api-sandbox",
+										"circle",
+										"com"
+									],
+									"path": [
+										"ping"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Management",
+					"item": [
+						{
+							"name": "/configuration",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/configuration",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"configuration"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Encryption",
+					"item": [
+						{
+							"name": "/encryption/public",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/encryption/public",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"encryption",
+										"public"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Subscriptions",
+					"item": [
+						{
+							"name": "/notifications/subscriptions",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/notifications/subscriptions",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"notifications",
+										"subscriptions"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/notifications/subscriptions",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"endpoint\": \"<string>\"\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/notifications/subscriptions",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"notifications",
+										"subscriptions"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/notifications/subscriptions",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/notifications/subscriptions/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"notifications",
+										"subscriptions",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1dace69c-7365-4d3d-95f5-f043f6f5ee55"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Channels",
+					"item": [
+						{
+							"name": "/channels",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/channels",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"channels"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Stablecoins",
+					"item": [
+						{
+							"name": "/stablecoins",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/stablecoins",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"stablecoins"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Core API",
+			"item": [
+				{
+					"name": "Balances",
+					"item": [
+						{
+							"name": "/businessAccount/balances",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/businessAccount/balances",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"businessAccount",
+										"balances"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Payouts",
+					"item": [
+						{
+							"name": "/businessAccount/payouts",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/businessAccount/payouts",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"businessAccount",
+										"payouts"
+									],
+									"query": [
+										{
+											"key": "from",
+											"value": "<date-time>",
+											"disabled": true
+										},
+										{
+											"key": "to",
+											"value": "<date-time>",
+											"disabled": true
+										},
+										{
+											"key": "pageBefore",
+											"value": "<string>",
+											"disabled": true
+										},
+										{
+											"key": "pageAfter",
+											"value": "<string>",
+											"disabled": true
+										},
+										{
+											"key": "pageSize",
+											"value": "<integer>",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/businessAccount/payouts",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"idempotencyKey\": \"{{$randomUUID}}\",\n  \"destination\": {\n    \"type\": \"wire\",\n    \"id\": \"<string>\"\n  },\n  \"amount\": {\n    \"amount\": \"1\",\n    \"currency\": \"USD\"\n  }\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/businessAccount/payouts",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"businessAccount",
+										"payouts"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/businessAccount/payouts/:id",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/businessAccount/payouts/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"businessAccount",
+										"payouts",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "<string>",
+											"description": "(Required)"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Bank Accounts",
+					"item": [
+						{
+							"name": "Wires",
+							"item": [
+								{
+									"name": "/businessAccount/banks/wires",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"idempotencyKey\": \"{{$randomUUID}}\",\n  \"beneficiaryName\": \"John Smith\",\n  \"accountNumber\": \"123456789\",\n  \"routingNumber\": \"021000021\",\n  \"billingDetails\": {\n    \"name\": \"John Smith\",\n    \"city\": \"Boston\",\n    \"country\": \"US\",\n    \"line1\": \"1 Main Street\",\n    \"district\": \"MA\",\n    \"postalCode\": \"02201\"\n  },\n  \"bankAddress\": {\n    \"country\": \"US\"\n  }\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/businessAccount/banks/wires",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"businessAccount",
+												"banks",
+												"wires"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/businessAccount/banks/wires",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/businessAccount/banks/wires",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"businessAccount",
+												"banks",
+												"wires"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/businessAccount/banks/wires/:id",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/businessAccount/banks/wires/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"businessAccount",
+												"banks",
+												"wires",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "<string>",
+													"description": "(Required)"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/businessAccount/banks/wires/:id/insructions",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/businessAccount/banks/wires/:id/instructions",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"businessAccount",
+												"banks",
+												"wires",
+												":id",
+												"instructions"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "<string>",
+													"description": "(Required)"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Signet",
+							"item": [
+								{
+									"name": "/businessAccount/banks/signet",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"idempotencyKey\": \"{{$randomUUID}}\",\n  \"walletAddress\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/businessAccount/banks/signet",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"businessAccount",
+												"banks",
+												"signet"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/businessAccount/banks/signet",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/businessAccount/banks/signet",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"businessAccount",
+												"banks",
+												"signet"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/businessAccount/banks/signet Copy",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/businessAccount/banks/signet/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"businessAccount",
+												"banks",
+												"signet",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "<string>",
+													"description": "(Required)"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/businessAccount/banks/signet Copy 2",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/businessAccount/banks/signet/:id/instructions",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"businessAccount",
+												"banks",
+												"signet",
+												":id",
+												"instructions"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "<string>",
+													"description": "(Required)"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Transfers",
+					"item": [
+						{
+							"name": "/businessAccount/transfers",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"idempotencyKey\": \"{{$randomUUID}}\",\n  \"destination\": {\n    \"type\": \"verified_blockchain\",\n    \"addressId\": \"<string>\"\n  },\n  \"amount\": {\n    \"amount\": \".05\",\n    \"currency\": \"USD\"\n  }\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/businessAccount/transfers",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"businessAccount",
+										"transfers"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/businessAccount/transfers",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/businessAccount/transfers",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"businessAccount",
+										"transfers"
+									],
+									"query": [
+										{
+											"key": "from",
+											"value": "<date-time>",
+											"disabled": true
+										},
+										{
+											"key": "to",
+											"value": "<date-time>",
+											"disabled": true
+										},
+										{
+											"key": "pageBefore",
+											"value": "<string>",
+											"disabled": true
+										},
+										{
+											"key": "pageAfter",
+											"value": "<string>",
+											"disabled": true
+										},
+										{
+											"key": "pageSize",
+											"value": "<integer>",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/businessAccount/transfers/:id",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/businessAccount/transfers/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"businessAccount",
+										"transfers",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "<string>",
+											"description": "(Required)"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Addresses",
+					"item": [
+						{
+							"name": "Deposit",
+							"item": [
+								{
+									"name": "/businessAccount/wallets/addresses/deposit",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"idempotencyKey\": \"{{$randomUUID}}\",\n  \"currency\": \"ETH\",\n  \"chain\": \"ETH\"\n}"
+										},
+										"url": {
+											"raw": "{{baseUrl}}/businessAccount/wallets/addresses/deposit",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"businessAccount",
+												"wallets",
+												"addresses",
+												"deposit"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/businessAccount/wallets/addresses/deposit",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/businessAccount/wallets/addresses/deposit",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"businessAccount",
+												"wallets",
+												"addresses",
+												"deposit"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Recipient",
+							"item": [
+								{
+									"name": "/businessAccount/wallets/addresses/recipient",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"idempotencyKey\": \"{{$randomUUID}}\",\n  \"address\": \"<string>\",\n  \"chain\": \"ETH\",\n  \"currency\": \"USD\",\n  \"description\": \"Metamask Goerli\"\n}"
+										},
+										"url": {
+											"raw": "{{baseUrl}}/businessAccount/wallets/addresses/recipient",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"businessAccount",
+												"wallets",
+												"addresses",
+												"recipient"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/businessAccount/wallets/addresses/recipient",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/businessAccount/wallets/addresses/recipient",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"businessAccount",
+												"wallets",
+												"addresses",
+												"recipient"
+											],
+											"query": [
+												{
+													"key": "from",
+													"value": "<date-time>",
+													"disabled": true
+												},
+												{
+													"key": "to",
+													"value": "<date-time>",
+													"disabled": true
+												},
+												{
+													"key": "pageBefore",
+													"value": "<string>",
+													"disabled": true
+												},
+												{
+													"key": "pageAfter",
+													"value": "<string>",
+													"disabled": true
+												},
+												{
+													"key": "pageSize",
+													"value": "<integer>",
+													"disabled": true
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Deposits",
+					"item": [
+						{
+							"name": "/businessAccount/deposits",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/businessAccount/deposits",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"businessAccount",
+										"deposits"
+									],
+									"query": [
+										{
+											"key": "type",
+											"value": "<string>",
+											"disabled": true
+										},
+										{
+											"key": "from",
+											"value": "<date-time>",
+											"disabled": true
+										},
+										{
+											"key": "to",
+											"value": "<date-time>",
+											"disabled": true
+										},
+										{
+											"key": "pageBefore",
+											"value": "<string>",
+											"disabled": true
+										},
+										{
+											"key": "pageAfter",
+											"value": "<string>",
+											"disabled": true
+										},
+										{
+											"key": "pageSize",
+											"value": "<integer>",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Payments API",
+			"item": [
+				{
+					"name": "Payments",
+					"item": [
+						{
+							"name": "/payments",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/payments",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"payments"
+									],
+									"query": [
+										{
+											"key": "settlementId",
+											"value": "<string>",
+											"disabled": true
+										},
+										{
+											"key": "from",
+											"value": "<date-time>",
+											"disabled": true
+										},
+										{
+											"key": "to",
+											"value": "<date-time>",
+											"disabled": true
+										},
+										{
+											"key": "pageBefore",
+											"value": "<string>",
+											"disabled": true
+										},
+										{
+											"key": "pageAfter",
+											"value": "<string>",
+											"disabled": true
+										},
+										{
+											"key": "pageSize",
+											"value": "<integer>",
+											"disabled": true
+										},
+										{
+											"key": "status",
+											"value": "<string>",
+											"disabled": true
+										},
+										{
+											"key": "type",
+											"value": "<string>",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/payments",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"idempotencyKey\": \"{{$randomUUID}}\",\n  \"amount\": {\n    \"amount\": \"10.00\",\n    \"currency\": \"USD\"\n  },\n  \"source\": {\n    \"id\": \"<string>\",\n    \"type\": \"<string>\"\n  },\n  \"description\": \"\",\n  \"autoCapture\": false,\n  \"verificationSuccessUrl\": \"\",\n  \"verificationFailureUrl\": \"\",\n  \"metadata\": {\n    \"email\": \"test@email.com\",\n    \"sessionId\": \"xxx\",\n    \"ipAddress\": \"172.33.222.1\"\n  },\n  \"channel\": \"\",\n  \"verification\": \"cvv\",\n  \"encryptedData\": \"<string>\",\n  \"keyId\": \"<string>\"\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/payments",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"payments"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/payments/:id",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/payments/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"payments",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "<string>",
+											"description": "(Required)"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/payments/:id/capture",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"idempotencyKey\": \"{{$randomUUID}}\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/payments/:id/capture",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"payments",
+										":id",
+										"capture"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "<string>",
+											"description": "(Required)"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/payments/:id/cancel",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"idempotencyKey\": \"{{$randomUUID}}\",\n  \"reason\": \"requested_by_customer\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/payments/:id/cancel",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"payments",
+										":id",
+										"cancel"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "<string>",
+											"description": "(Required)"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/payments/:id/refund",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"idempotencyKey\": \"{{$randomUUID}}\",\n  \"amount\": {\n    \"amount\": \"3.14\",\n    \"currency\": \"USD\"\n  },\n  \"reason\": \"requested_by_customer\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/payments/:id/refund",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"payments",
+										":id",
+										"refund"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "<string>",
+											"description": "(Required)"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/mocks/payments/wire",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"trackingRef\": \"{{wireTrackingRefId}}\",\n  \"amount\": {\n    \"amount\": \"3.14\",\n    \"currency\": \"USD\"\n  }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/mocks/payments/wire",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"mocks",
+										"payments",
+										"wire"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/mocks/payments/sepa",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Content-type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer $YOUR_API_KEY"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"trackingRef\": \"{{sepaTrackingRefId}}\",\n  \"amount\": {\n    \"amount\": \"1000.00\",\n    \"currency\": \"EUR\"\n  }\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/mocks/payments/sepa",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"mocks",
+										"payments",
+										"sepa"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Cards",
+					"item": [
+						{
+							"name": "/cards",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"idempotencyKey\": \"{{$randomUUID}}\",\n  \"expMonth\": 1,\n  \"expYear\": 2025,\n  \"keyId\": \"<string>\",\n  \"encryptedData\": \"<string>\",\n  \"billingDetails\": {\n    \"name\": \"Customer 0001\",\n    \"country\": \"US\",\n    \"district\": \"MA\",\n    \"line1\": \"Test\",\n    \"line2\": \"\",\n    \"city\": \"Test City\",\n    \"postalCode\": \"11111\"\n  },\n  \"metadata\": {\n    \"email\": \"customer-0001@circle.com\",\n    \"phoneNumber\": \"+12025550180\",\n    \"sessionId\": \"xxx\",\n    \"ipAddress\": \"172.33.222.1\"\n  },\n  \"channel\": \"Trial\"\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/cards",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"cards"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/cards",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/cards",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"cards"
+									],
+									"query": [
+										{
+											"key": "pageBefore",
+											"value": "<string>",
+											"disabled": true
+										},
+										{
+											"key": "pageAfter",
+											"value": "<string>",
+											"disabled": true
+										},
+										{
+											"key": "pageSize",
+											"value": "<integer>",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/cards/:id",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/cards/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"cards",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "<string>",
+											"description": "(Required)"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/cards/:id",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"keyId\": \"<string>\",\n  \"encryptedData\": \"<string>\",\n  \"expMonth\": 1,\n  \"expYear\": 2020\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/cards/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"cards",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "<string>",
+											"description": "(Required)"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Bank accounts",
+					"item": [
+						{
+							"name": "Wires",
+							"item": [
+								{
+									"name": "/banks/wires",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"idempotencyKey\": \"{{$randomUUID}}\",\n  \"beneficiaryName\": \"John Smith\",\n  \"accountNumber\": \"123456789\",\n  \"routingNumber\": \"021000021\",\n  \"billingDetails\": {\n    \"name\": \"John Smith\",\n    \"city\": \"Boston\",\n    \"country\": \"US\",\n    \"line1\": \"1 Main Street\",\n    \"district\": \"MA\",\n    \"postalCode\": \"02201\"\n  },\n  \"bankAddress\": {\n    \"country\": \"US\"\n  }\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/banks/wires",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"banks",
+												"wires"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/banks/wires/:id",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/banks/wires/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"banks",
+												"wires",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "<string>",
+													"description": "(Required)"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/banks/wires/id/insructions",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/banks/wires/:id/instructions",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"banks",
+												"wires",
+												":id",
+												"instructions"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "<string>",
+													"description": "(Required)"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "ACH",
+							"item": [
+								{
+									"name": "/banks/ach",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "  {\n  \"idempotencyKey\": \"{{$randomUUID}}\",\n  \"plaidProcessorToken\": \"<string>\",\n  \"billingDetails\": {\n    \"name\": \"Satoshi Nakamoto\"\n  },\n  \"metadata\": {\n    \"email\": \"satoshi@circle.com\"\n  }\n}"
+										},
+										"url": {
+											"raw": "{{baseUrl}}/banks/ach",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"banks",
+												"ach"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/banks/ach/:id",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/banks/ach/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"banks",
+												"ach",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "<string>",
+													"description": "(Required)"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/mocks/ach/accounts",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"account\": {\n    \"accountNumber\": \"123456789\",\n    \"routingNumber\": \"011000028\",\n    \"description\": \"My ACH account\"\n  },\n  \"balance\": {\n    \"amount\": \"1000.00\",\n    \"currency\": \"USD\"\n  }\n}"
+										},
+										"url": {
+											"raw": "{{baseUrl}}/mocks/ach/accounts",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"mocks",
+												"ach",
+												"accounts"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "SEPA",
+							"item": [
+								{
+									"name": "/banks/sepa",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"idempotencyKey\": \"{{$randomUUID}}\",\n    \"iban\": \"DE31100400480532013000\",\n    \"billingDetails\": {\n        \"name\": \"Satoshi Nakamoto\",\n        \"city\": \"Dublin\",\n        \"country\": \"IE\",\n        \"line1\": \"1 Dublin Street\",\n        \"postalCode\": \"D01 AY67\"\n    }\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/banks/sepa",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"banks",
+												"sepa"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/banks/sepa/:id",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/banks/sepa/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"banks",
+												"sepa",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "<string>",
+													"description": "(Required)"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/banks/sepa/:id/insructions",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/banks/sepa/:id/instructions",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"banks",
+												"sepa",
+												":id",
+												"instructions"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "<string>",
+													"description": "(Required)"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "On-chain payments",
+					"item": [
+						{
+							"name": "/wallets",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/wallets",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"wallets"
+									],
+									"query": [
+										{
+											"key": "from",
+											"value": "<date-time>",
+											"disabled": true
+										},
+										{
+											"key": "to",
+											"value": "<date-time>",
+											"disabled": true
+										},
+										{
+											"key": "pageBefore",
+											"value": "<string>",
+											"disabled": true
+										},
+										{
+											"key": "pageAfter",
+											"value": "<string>",
+											"disabled": true
+										},
+										{
+											"key": "pageSize",
+											"value": "<integer>",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/wallets/:id",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/wallets/:walletId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"wallets",
+										":walletId"
+									],
+									"variable": [
+										{
+											"key": "walletId",
+											"value": "<string>",
+											"description": "(Required)"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/wallets/:id/addresses",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"idempotencyKey\": \"{{$randomUUID}}\",\n    \"currency\": \"USD\",\n    \"chain\": \"ETH\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/wallets/:walletId/addresses",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"wallets",
+										":walletId",
+										"addresses"
+									],
+									"variable": [
+										{
+											"key": "walletId",
+											"value": "<string>",
+											"description": "(Required)"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/wallets/:id/addresses",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/wallets/:walletId/addresses",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"wallets",
+										":walletId",
+										"addresses"
+									],
+									"variable": [
+										{
+											"key": "walletId",
+											"value": "<string>",
+											"description": "(Required)"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Settlements",
+					"item": [
+						{
+							"name": "/settlements",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/settlements",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"settlements"
+									],
+									"query": [
+										{
+											"key": "from",
+											"value": "<date-time>",
+											"disabled": true
+										},
+										{
+											"key": "to",
+											"value": "<date-time>",
+											"disabled": true
+										},
+										{
+											"key": "pageBefore",
+											"value": "<string>",
+											"disabled": true
+										},
+										{
+											"key": "pageAfter",
+											"value": "<string>",
+											"disabled": true
+										},
+										{
+											"key": "pageSize",
+											"value": "<integer>",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/settlements/:id",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/settlements/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"settlements",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "<string>",
+											"description": "(Required)"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Chargebacks",
+					"item": [
+						{
+							"name": "/chargebacks",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/chargebacks",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"chargebacks"
+									],
+									"query": [
+										{
+											"key": "paymentId",
+											"value": "<string>",
+											"disabled": true
+										},
+										{
+											"key": "category",
+											"value": "<string>",
+											"disabled": true
+										},
+										{
+											"key": "from",
+											"value": "<date-time>",
+											"disabled": true
+										},
+										{
+											"key": "to",
+											"value": "<date-time>",
+											"disabled": true
+										},
+										{
+											"key": "pageBefore",
+											"value": "<string>",
+											"disabled": true
+										},
+										{
+											"key": "pageAfter",
+											"value": "<string>",
+											"disabled": true
+										},
+										{
+											"key": "pageSize",
+											"value": "<integer>",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/chargebacks/:id",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/chargebacks/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"chargebacks",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "<string>",
+											"description": "(Required)"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/mocks/cards/chargebacks",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"paymentId\": \"<string>\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/mocks/cards/chargebacks",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"mocks",
+										"cards",
+										"chargebacks"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Reversals",
+					"item": [
+						{
+							"name": "/reversals",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/reversals",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"reversals"
+									],
+									"query": [
+										{
+											"key": "from",
+											"value": "<date-time>",
+											"disabled": true
+										},
+										{
+											"key": "to",
+											"value": "<date-time>",
+											"disabled": true
+										},
+										{
+											"key": "pageBefore",
+											"value": "<string>",
+											"disabled": true
+										},
+										{
+											"key": "pageAfter",
+											"value": "<string>",
+											"disabled": true
+										},
+										{
+											"key": "pageSize",
+											"value": "<integer>",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Balances",
+					"item": [
+						{
+							"name": "/balances",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/balances",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"balances"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Payouts API",
+			"item": [
+				{
+					"name": "Payouts",
+					"item": [
+						{
+							"name": "/payouts",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/payouts",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"payouts"
+									],
+									"query": [
+										{
+											"key": "from",
+											"value": "<date-time>",
+											"disabled": true
+										},
+										{
+											"key": "to",
+											"value": "<date-time>",
+											"disabled": true
+										},
+										{
+											"key": "pageBefore",
+											"value": "<string>",
+											"disabled": true
+										},
+										{
+											"key": "pageAfter",
+											"value": "<string>",
+											"disabled": true
+										},
+										{
+											"key": "pageSize",
+											"value": "<integer>",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/payouts",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"idempotencyKey\": \"{{$randomUUID}}\",\n  \"source\": {\n    \"type\": \"wallet\",\n    \"id\": \"<string>\"\n  },\n  \"destination\": {\n    \"type\": \"wire\",\n    \"id\": \"<string>\"\n  },\n  \"amount\": {\n    \"amount\": \"3.14\",\n    \"currency\": \"USD\"\n  },\n  \"metadata\": {\n    \"beneficiaryEmail\": \"satoshi@circle.com\"\n  }\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/payouts",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"payouts"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/payouts/:id",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/payouts/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"payouts",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "<string>",
+											"description": "(Required)"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Bank accounts",
+					"item": [
+						{
+							"name": "Wire",
+							"item": [
+								{
+									"name": "/banks/wires",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"idempotencyKey\": \"{{$randomUUID}}\",\n  \"beneficiaryName\": \"John Smith\",\n  \"accountNumber\": \"123456789\",\n  \"routingNumber\": \"021000021\",\n  \"billingDetails\": {\n    \"name\": \"John Smith\",\n    \"city\": \"Boston\",\n    \"country\": \"US\",\n    \"line1\": \"1 Main Street\",\n    \"district\": \"MA\",\n    \"postalCode\": \"02201\"\n  },\n  \"bankAddress\": {\n    \"country\": \"US\"\n  }\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/banks/wires",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"banks",
+												"wires"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/banks/wires/:id",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/banks/wires/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"banks",
+												"wires",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "<string>",
+													"description": "(Required)"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "ACH",
+							"item": [
+								{
+									"name": "/banks/ach",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"idempotencyKey\": \"{{$randomUUID}}\",\n  \"plaidProcessorToken\": \"<string>\",\n  \"billingDetails\": {\n    \"name\": \"Satoshi Nakamoto\"\n  },\n  \"metadata\": {\n    \"email\": \"satoshi@circle.com\"\n  }\n}"
+										},
+										"url": {
+											"raw": "{{baseUrl}}/banks/ach",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"banks",
+												"ach"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/banks/ach/:id",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/banks/ach/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"banks",
+												"ach",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "{{achId}}"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/mocks/ach/accounts",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"account\": {\n    \"accountNumber\": \"123456789\",\n    \"description\": \"My ACH account\"\n  },\n  \"balance\": {\n    \"amount\": \"3.14\",\n    \"currency\": \"USD\"\n  }\n}"
+										},
+										"url": {
+											"raw": "{{baseUrl}}/mocks/ach/accounts",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"mocks",
+												"ach",
+												"accounts"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "SEPA",
+							"item": [
+								{
+									"name": "/banks/sepa",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"idempotencyKey\": \"{{$randomUUID}}\",\n    \"iban\": \"DE31100400480532013000\",\n    \"billingDetails\": {\n        \"name\": \"Satoshi Nakamoto\",\n        \"city\": \"Dublin\",\n        \"country\": \"IE\",\n        \"line1\": \"1 Dublin Street\",\n        \"postalCode\": \"D01 AY67\"\n    }\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/banks/sepa",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"banks",
+												"sepa"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "/banks/sepa/:id",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/banks/sepa/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"banks",
+												"sepa",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "<string>",
+													"description": "(Required)"
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Transfers",
+					"item": [
+						{
+							"name": "/transfers",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n \"idempotencyKey\": \"{{$randomUUID}}\",\n  \"source\": {\n    \"type\": \"wallet\",\n    \"id\": \"<string>\"\n  },\n  \"destination\": {\n    \"type\": \"blockchain\",\n    \"address\":\"<string>\",\n    \"chain\": \"ETH\"\n  },\n  \"amount\": {\n    \"amount\": \"3.14\",\n    \"currency\": \"USD\"\n  }\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/transfers",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"transfers"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/transfers",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/transfers",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"transfers"
+									],
+									"query": [
+										{
+											"key": "walletId",
+											"value": "<string>",
+											"disabled": true
+										},
+										{
+											"key": "sourceWalletId",
+											"value": "<string>",
+											"disabled": true
+										},
+										{
+											"key": "destinationWalletId",
+											"value": "<string>",
+											"disabled": true
+										},
+										{
+											"key": "from",
+											"value": "<date-time>",
+											"disabled": true
+										},
+										{
+											"key": "to",
+											"value": "<date-time>",
+											"disabled": true
+										},
+										{
+											"key": "pageBefore",
+											"value": "<string>",
+											"disabled": true
+										},
+										{
+											"key": "pageAfter",
+											"value": "<string>",
+											"disabled": true
+										},
+										{
+											"key": "pageSize",
+											"value": "<integer>",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/transfers/:id",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/transfers/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"transfers",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "<string>",
+											"description": "(Required)"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Returns",
+					"item": [
+						{
+							"name": "/returns",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/returns",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"returns"
+									],
+									"query": [
+										{
+											"key": "from",
+											"value": "<date-time>",
+											"disabled": true
+										},
+										{
+											"key": "to",
+											"value": "<date-time>",
+											"disabled": true
+										},
+										{
+											"key": "pageBefore",
+											"value": "<string>",
+											"disabled": true
+										},
+										{
+											"key": "pageAfter",
+											"value": "<string>",
+											"disabled": true
+										},
+										{
+											"key": "pageSize",
+											"value": "<integer>",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Accounts API",
+			"item": [
+				{
+					"name": "Wallets",
+					"item": [
+						{
+							"name": "/wallets",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"idempotencyKey\": \"{{$randomUUID}}\",\n  \"description\": \"Treasury Wallet\"\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/wallets",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"wallets"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/wallets",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/wallets",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"wallets"
+									],
+									"query": [
+										{
+											"key": "from",
+											"value": "<date-time>",
+											"disabled": true
+										},
+										{
+											"key": "to",
+											"value": "<date-time>",
+											"disabled": true
+										},
+										{
+											"key": "pageBefore",
+											"value": "<string>",
+											"disabled": true
+										},
+										{
+											"key": "pageAfter",
+											"value": "<string>",
+											"disabled": true
+										},
+										{
+											"key": "pageSize",
+											"value": "<integer>",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/wallets/:walletId",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/wallets/:walletId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"wallets",
+										":walletId"
+									],
+									"variable": [
+										{
+											"key": "walletId",
+											"value": "<string>",
+											"description": "(Required)"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/wallets/:walletId/addresses",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"idempotencyKey\": \"{{$randomUUID}}\",\n    \"currency\": \"USD\",\n    \"chain\": \"ETH\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/wallets/:walletId/addresses",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"wallets",
+										":walletId",
+										"addresses"
+									],
+									"variable": [
+										{
+											"key": "walletId",
+											"value": "<string>",
+											"description": "(Required)"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/wallets/:walletId/addresses",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/wallets/:walletId/addresses",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"wallets",
+										":walletId",
+										"addresses"
+									],
+									"variable": [
+										{
+											"key": "walletId",
+											"value": "<string>",
+											"description": "(Required)"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Transfers",
+					"item": [
+						{
+							"name": "/transfers",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n \"idempotencyKey\": \"{{$randomUUID}}\",\n  \"source\": {\n    \"type\": \"wallet\",\n    \"id\": \"<string>\"\n  },\n  \"destination\": {\n    \"type\": \"blockchain\",\n    \"address\":\"<string>\",\n    \"chain\": \"ETH\"\n  },\n  \"amount\": {\n    \"amount\": \"3.14\",\n    \"currency\": \"USD\"\n  }\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/transfers",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"transfers"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/transfers",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/transfers",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"transfers"
+									],
+									"query": [
+										{
+											"key": "walletId",
+											"value": "<string>",
+											"disabled": true
+										},
+										{
+											"key": "sourceWalletId",
+											"value": "<string>",
+											"disabled": true
+										},
+										{
+											"key": "destinationWalletId",
+											"value": "<string>",
+											"disabled": true
+										},
+										{
+											"key": "from",
+											"value": "<date-time>",
+											"disabled": true
+										},
+										{
+											"key": "to",
+											"value": "<date-time>",
+											"disabled": true
+										},
+										{
+											"key": "pageBefore",
+											"value": "<string>",
+											"disabled": true
+										},
+										{
+											"key": "pageAfter",
+											"value": "<string>",
+											"disabled": true
+										},
+										{
+											"key": "pageSize",
+											"value": "<integer>",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/transfers/:id",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/transfers/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"transfers",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "<string>",
+											"description": "(Required)"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "<Bearer Token>",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://api-sandbox.circle.com/v1",
+			"type": "string"
+		}
+	]
+}

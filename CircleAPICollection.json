@@ -3751,7 +3751,7 @@
 		"bearer": [
 			{
 				"key": "token",
-				"value": "{{bearerToken}}",
+				"value": "<Bearer Token>",
 				"type": "string"
 			}
 		]

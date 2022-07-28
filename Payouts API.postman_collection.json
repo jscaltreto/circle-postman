@@ -1,0 +1,926 @@
+{
+	"info": {
+		"_postman_id": "a1e15add-a225-478d-af94-9978353db1cd",
+		"name": "Payouts API",
+		"description": "#### Developer Guide\n\n[https://developers.circle.com/docs/getting-started-with-the-circle-payouts-api](https://developers.circle.com/docs/getting-started-with-the-circle-payouts-api)\n\n#### Description\n\nThe Circle Payouts API allows you to programmatically make fast, global payouts to your customers, vendors, and suppliers. Use traditional methods like bank wires and ACH, or make native USDC payouts on supported blockchains.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17833796"
+	},
+	"item": [
+		{
+			"name": "Payouts",
+			"item": [
+				{
+					"name": "/payouts (Wire)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Request-Id",
+								"value": "{{$guid}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n     \"source\": {\n          \"type\": \"wallet\",\n          \"id\": \"1000037212\"\n     },\n     \"destination\": {\n          \"type\": \"wire\",\n          \"id\": \"04fe765b-5d6c-491e-9fe6-55e7e17047d7\"\n     },\n     \"amount\": {\n          \"amount\": \"10\",\n          \"currency\": \"USD\"\n     },\n     \"metadata\": {\n          \"beneficiaryEmail\": \"satoshi@circle.com\"\n     },\n     \"idempotencyKey\": \"{{$guid}}\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/payouts",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"payouts"
+							]
+						},
+						"description": "#### Reference Pages\n\nhttps://developers.circle.com/reference/payouts-payouts-create\n\n#### Description\n\nCreate an ACH or wire payout.\n\n#### Body Params\n\n**idempotencyKey** *string* (REQUIRED)  \nUniversally unique identifier (UUID v4) idempotency key. This key is utilized to ensure exactly-once execution of mutating requests.\n\n**source** *object*\n\n*   **type** *string* (REQUIRED)\n*   **id** *string* (REQUIRED)  \n    The id of the wallet.\n    \n\n**destination** *object* (REQUIRED)\n\n*   **type** *string* (REQUIRED)  \n    The destination bank account type.\n*   **id** *string* (REQUIRED)  \n    Unique system generated identifier for the entity.\n    \n\n**amount** *object* (REQUIRED)\n\n*   **amount** *string* (REQUIRED)  \n    Magnitude of the amount, in units of the currency, with a `.`.\n*   **currency** *string* (REQUIRED)  \n    Currency code for the amount.\n    \n\n**metadata** *object* (REQUIRED)  \nAdditional properties related to the payout beneficiary.\n\n**beneficiaryEmail** *string* (REQUIRED)  \nEmail of the user."
+					},
+					"response": []
+				},
+				{
+					"name": "/payouts (ACH)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Request-Id",
+								"value": "{{$guid}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n     \"source\": {\n          \"type\": \"wallet\",\n          \"id\": \"1000037212\"\n     },\n     \"destination\": {\n          \"type\": \"ach\",\n          \"id\": \"645c7957-c48f-4d09-9926-7e499314f42f\"\n     },\n     \"amount\": {\n          \"amount\": \"7.33\",\n          \"currency\": \"USD\"\n     },\n     \"metadata\": {\n          \"beneficiaryEmail\": \"satoshi@circle.com\"\n     },\n     \"idempotencyKey\": \"{{$guid}}\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/payouts",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"payouts"
+							]
+						},
+						"description": "#### Reference Pages\n\nhttps://developers.circle.com/reference/payouts-payouts-create\n\n#### Description\n\nCreate an ACH or wire payout.\n\n#### Body Params\n\n**idempotencyKey** *string* (REQUIRED)  \nUniversally unique identifier (UUID v4) idempotency key. This key is utilized to ensure exactly-once execution of mutating requests.\n\n**source** *object*\n\n*   **type** *string* (REQUIRED)\n*   **id** *string* (REQUIRED)  \n    The id of the wallet.\n    \n\n**destination** *object* (REQUIRED)\n\n*   **type** *string* (REQUIRED)  \n    The destination bank account type.\n*   **id** *string* (REQUIRED)  \n    Unique system generated identifier for the entity.\n    \n\n**amount** *object* (REQUIRED)\n\n*   **amount** *string* (REQUIRED)  \n    Magnitude of the amount, in units of the currency, with a `.`.\n*   **currency** *string* (REQUIRED)  \n    Currency code for the amount.\n    \n\n**metadata** *object* (REQUIRED)  \nAdditional properties related to the payout beneficiary.\n\n**beneficiaryEmail** *string* (REQUIRED)  \nEmail of the user."
+					},
+					"response": []
+				},
+				{
+					"name": "/payouts (SEPA)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Request-Id",
+								"value": "{{$guid}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n     \"source\": {\n          \"type\": \"wallet\",\n          \"id\": \"1000037212\"\n     },\n     \"destination\": {\n          \"type\": \"sepa\",\n          \"id\": \"12331d20-9bcf-4bb7-a880-f7d2fe7f1e70\"\n     },\n     \"amount\": {\n          \"amount\": \"10\",\n          \"currency\": \"EUR\"\n     },\n     \"metadata\": {\n          \"beneficiaryEmail\": \"satoshi@circle.com\"\n     },\n     \"idempotencyKey\": \"{{$guid}}\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/payouts",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"payouts"
+							]
+						},
+						"description": "#### Reference Pages\n\nhttps://developers.circle.com/reference/payouts-payouts-create\n\n#### Description\n\nCreate an ACH or wire payout.\n\n#### Body Params\n\n**idempotencyKey** *string* (REQUIRED)  \nUniversally unique identifier (UUID v4) idempotency key. This key is utilized to ensure exactly-once execution of mutating requests.\n\n**source** *object*\n\n*   **type** *string* (REQUIRED)\n*   **id** *string* (REQUIRED)  \n    The id of the wallet.\n    \n\n**destination** *object* (REQUIRED)\n\n*   **type** *string* (REQUIRED)  \n    The destination bank account type.\n*   **id** *string* (REQUIRED)  \n    Unique system generated identifier for the entity.\n    \n\n**amount** *object* (REQUIRED)\n\n*   **amount** *string* (REQUIRED)  \n    Magnitude of the amount, in units of the currency, with a `.`.\n*   **currency** *string* (REQUIRED)  \n    Currency code for the amount.\n    \n\n**metadata** *object* (REQUIRED)  \nAdditional properties related to the payout beneficiary.\n\n**beneficiaryEmail** *string* (REQUIRED)  \nEmail of the user."
+					},
+					"response": []
+				},
+				{
+					"name": "/payouts",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Request-Id",
+								"value": "{{$guid}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://api-sandbox.circle.com/v1/payouts",
+							"protocol": "https",
+							"host": [
+								"api-sandbox",
+								"circle",
+								"com"
+							],
+							"path": [
+								"v1",
+								"payouts"
+							],
+							"query": [
+								{
+									"key": "source",
+									"value": "<string>",
+									"description": "Universally unique identifier (UUID v4) for the source wallet. Filters the results to fetch all payouts made from a source wallet. If not provided, payouts from all wallets will be returned.",
+									"disabled": true
+								},
+								{
+									"key": "type",
+									"value": "<array of strings>",
+									"description": "Destination bank account type. Filters the results to fetch all payouts made to a specified destination bank account type. This query parameter can be passed multiple times to fetch results matching multiple destination bank account types.",
+									"disabled": true
+								},
+								{
+									"key": "status",
+									"value": "<array of strings>",
+									"description": "Queries items with the specified status. Matches any status if unspecified.\n\n\n",
+									"disabled": true
+								},
+								{
+									"key": "destination",
+									"value": "<string>",
+									"description": "Universally unique identifier (UUID v4) for the destination bank account. Filters the results to fetch all payouts made to a destination bank account.",
+									"disabled": true
+								},
+								{
+									"key": "from",
+									"value": "<date-time>",
+									"description": "Queries items created since the specified date-time (inclusive).\n\n",
+									"disabled": true
+								},
+								{
+									"key": "to",
+									"value": "<date-time>",
+									"description": "Queries items created before the specified date-time (inclusive).\n\n",
+									"disabled": true
+								},
+								{
+									"key": "pageBefore",
+									"value": "<string>",
+									"description": "A collection ID value used for pagination.\n\nIt marks the exclusive end of a page. When provided, the collection resource will return the next n items before\nthe id, with n being specified by pageSize.\n\nThe items will be returned in the natural order of the collection.\n\nThe resource will return the first page if neither pageAfter nor pageBefore are specified.\n\nSHOULD NOT be used in conjuction with pageAfter.",
+									"disabled": true
+								},
+								{
+									"key": "pageAfter",
+									"value": "<string>",
+									"description": "A collection ID value used for pagination.\n\nIt marks the exclusive begin of a page. When provided, the collection resource will return the next n items after\nthe id, with n being specified by pageSize.\n\nThe items will be returned in the natural order of the collection.\n\nThe resource will return the first page if neither pageAfter nor pageBefore are specified.\n\nSHOULD NOT be used in conjuction with pageBefore.",
+									"disabled": true
+								},
+								{
+									"key": "pageSize",
+									"value": "<integer>",
+									"description": "Limits the number of items to be returned.\n\nSome collections have a strict upper bound that will disregard this value. In case the specified value is higher\nthan the allowed limit, the collection limit will be used.\n\nIf avoided, the collection will determine the page size itself.",
+									"disabled": true
+								}
+							]
+						},
+						"description": "#### Reference Pages\n\n[https://developers.circle.com/reference/payouts-payouts-get](Pageshttps://developers.circle.com/reference/payouts-payouts-getDescriptionGet)\n\n#### Description\n\nGet a list of ACH or wire payouts."
+					},
+					"response": []
+				},
+				{
+					"name": "/payouts/{id}",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Request-Id",
+								"value": "{{$guid}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/payouts/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"payouts",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "<string>",
+									"description": "(REQUIRED) Universally unique identifier (UUID v4) of a resource.\n\n"
+								}
+							]
+						},
+						"description": "#### Reference Pages\n\n[https://developers.circle.com/reference/payouts-payouts-get-id](https://developers.circle.com/reference/payouts-payouts-get-id)\n\n#### Description\n\nGet information on a given ACH or wire payout."
+					},
+					"response": []
+				}
+			],
+			"description": "Create and get information on wire and ACH payouts."
+		},
+		{
+			"name": "On-chain payouts",
+			"item": [
+				{
+					"name": "/transfers",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Request-Id",
+								"value": "{{$guid}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n     \"source\": {\n          \"id\": \"1000037212\",\n          \"type\": \"wallet\"\n     },\n     \"destination\": {\n          \"type\": \"blockchain\",\n          \"address\": \"0x8381470ED67C3802402dbbFa0058E8871F017A6F\",\n          \"chain\": \"ETH\"\n     },\n     \"amount\": {\n          \"amount\": \"3.14\",\n          \"currency\": \"USD\"\n     },\n     \"idempotencyKey\": \"{{$guid}}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/transfers",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"transfers"
+							]
+						},
+						"description": "#### Reference Pages\n\n[https://developers.circle.com/reference/payouts-transfers-create](https://developers.circle.com/reference/payouts-transfers-create)\n\n#### Description\n\nCreate a transfer.\n\nA transfer can be made from an existing funded wallet to a blockchain address or another wallet.\n\n#### Body Params\n\n**idempotencyKey** *string* (REQUIRED)  \nUniversally unique identifier (UUID v4) idempotency key. This key is utilized to ensure exactly-once execution of mutating requests.\n\n**source** *object* (REQUIRED)\n\n*   **type** *string* (REQUIRED)\n*   **id** *string* (REQUIRED)\n*   **identities** *object* (REQUIRED - ETH \"chain\" transfers > 3K only)\n    *   **type** *string* (REQUIRED)  \n        The type of identity for the originator.\n    *   **name** *string* (REQUIRED)  \n        Full name of the identity.\n    *   **addresses** *array of objects* (REQUIRED)\n        *   **line1** *string* (REQUIRED)  \n            Line one of the street address.\n        *   **line2** *string*  \n            *Line two of the street address.\n        *   **city** *string* (REQUIRED)  \n            City portion of the address.\n        *   **district** *string* (REQUIRED - US/CA only)  \n            State / County / Province / Region portion of the address. If the country is US or Canada, then district is required and should use the two-letter code for the subdivision.\n        *   **postalCode** *string* (REQUIRED)  \n            Postal / ZIP code of the address.\n        *   **country** *string* (REQUIRED)  \n            Country portion of the address. Formatted as a two-letter country code specified in ISO 3166-1 alpha-2.\n\n**destination** *object* (REQUIRED)  \nOption 1 - blockchain transfer\n\n*   **type** *string* (REQUIRED)\n*   **address** *string* (REQUIRED)  \n    The blockchain address.\n*   **addressTag** *string  \n    *The secondary identifier for a blockchain address. An example of this is the memo field on the Stellar network, which can be text, id, or hash format.\n*   **chain** *string* (REQUIRED)  \n    A blockchain that a given currency is available on.\n    \n\nOption 2 - wallet transfer\n\n*   **type** *string* (REQUIRED)\n*   **id** *string* (REQUIRED)  \n    The id of the wallet.\n    \n\n**amount** *object* (REQUIRED)\n\n*   **amount** *string* (REQUIRED)  \n    Magnitude of the amount, in units of the currency, with a `.`.\n*   **currency** *string* (REQUIRED)  \n    Currency code for the amount."
+					},
+					"response": []
+				},
+				{
+					"name": "/transfers",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Request-Id",
+								"value": "{{$guid}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/transfers",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"transfers"
+							],
+							"query": [
+								{
+									"key": "walletId",
+									"value": "<string>",
+									"description": "Unique identifier for the source or destination wallet of transfers, if any. May not be used in conjunction with destinationWalletId or sourceWalletId. Useful for fetching all transfers related to a wallet.",
+									"disabled": true
+								},
+								{
+									"key": "sourceWalletId",
+									"value": "<string>",
+									"description": "Unique identifier for the source wallet of transfers, if any.\n\n",
+									"disabled": true
+								},
+								{
+									"key": "destinationWalletId",
+									"value": "<string>",
+									"description": "Unique identifier for the destination wallet of transfers, if any.\n\n",
+									"disabled": true
+								},
+								{
+									"key": "returnIdentities",
+									"value": "<boolean>",
+									"description": "Specify if you would like to see identities in the response. Restricts maximum returned items to 5. By default returnIdentities is false, resulting in the response not returning data.source.identities.",
+									"disabled": true
+								},
+								{
+									"key": "from",
+									"value": "<date-time>",
+									"description": "Queries items created since the specified date-time (inclusive).\n\n",
+									"disabled": true
+								},
+								{
+									"key": "to",
+									"value": "<date-time>",
+									"description": "Queries items created before the specified date-time (inclusive).\n\n",
+									"disabled": true
+								},
+								{
+									"key": "pageBefore",
+									"value": "<string>",
+									"description": "A collection ID value used for pagination.\n\nIt marks the exclusive end of a page. When provided, the collection resource will return the next n items before\nthe id, with n being specified by pageSize.\n\nThe items will be returned in the natural order of the collection.\n\nThe resource will return the first page if neither pageAfter nor pageBefore are specified.\n\nSHOULD NOT be used in conjuction with pageAfter.",
+									"disabled": true
+								},
+								{
+									"key": "pageAfter",
+									"value": "<string>",
+									"description": "A collection ID value used for pagination.\n\nIt marks the exclusive begin of a page. When provided, the collection resource will return the next n items after\nthe id, with n being specified by pageSize.\n\nThe items will be returned in the natural order of the collection.\n\nThe resource will return the first page if neither pageAfter nor pageBefore are specified.\n\nSHOULD NOT be used in conjuction with pageBefore.",
+									"disabled": true
+								},
+								{
+									"key": "pageSize",
+									"value": "<integer>",
+									"description": "Limits the number of items to be returned.\n\nSome collections have a strict upper bound that will disregard this value. In case the specified value is higher\nthan the allowed limit, the collection limit will be used.\n\nIf avoided, the collection will determine the page size itself.",
+									"disabled": true
+								}
+							]
+						},
+						"description": "#### Reference Pages\n\n[https://developers.circle.com/reference/payouts-transfers-get](https://developers.circle.com/reference/payouts-transfers-get)\n\n#### Description\n\nGet list of transfers.\n\nSearches for transfers involving the provided wallets. If no wallet ids are provided, searches all wallets associated with your Circle API account. If the date parameters are omitted, returns the most recent transfers. This endpoint returns up to 50 transfers in descending chronological order or pageSize, if provided."
+					},
+					"response": []
+				},
+				{
+					"name": "transfers/{id}",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Request-Id",
+								"value": "{{$guid}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/transfers/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"transfers",
+								":id"
+							],
+							"query": [
+								{
+									"key": "returnIdentities",
+									"value": "<boolean>",
+									"description": "Specify if you would like to see identities in the response. Restricts maximum returned items to 5. By default returnIdentities is false, resulting in the response not returning data.source.identities.",
+									"disabled": true
+								}
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "<string>",
+									"description": "(REQUIRED) Universally unique identifier (UUID v4) of a resource.\n\n"
+								}
+							]
+						},
+						"description": "#### Reference Pages\n\n[https://developers.circle.com/reference/payouts-transfers-get-id](https://developers.circle.com/reference/payouts-transfers-get-id)\n\n#### Description\n\nRetrieve specific transfer details."
+					},
+					"response": []
+				}
+			],
+			"description": "Create and get information on USDC transfers."
+		},
+		{
+			"name": "Wires",
+			"item": [
+				{
+					"name": "/banks/wires/{id}",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Request-Id",
+								"value": "{{$guid}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/banks/wires/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"banks",
+								"wires",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "76b83360-f938-4ff3-af51-4d9672c06b37",
+									"description": "(REQUIRED) Universally unique identifier (UUID v4) of a resource.\n\n"
+								}
+							]
+						},
+						"description": "#### Description\n\nGet a bank account (wires)."
+					},
+					"response": []
+				},
+				{
+					"name": "/banks/wires (U.S.)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Request-Id",
+								"value": "{{$guid}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n     \"idempotencyKey\": \"{{$guid}}\",\n     \"accountNumber\": \"12340010\",\n     \"routingNumber\": \"121000248\",\n     \"billingDetails\": {\n          \"name\": \"Satoshi Nakamotoa\",\n          \"city\": \"Boston\",\n          \"country\": \"US\",\n          \"line1\": \"100 Money Street\",\n          \"line2\": \"Suite 1\",\n          \"district\": \"MA\",\n          \"postalCode\": \"01234\"\n     },\n     \"bankAddress\": {\n          \"country\": \"US\"\n     }\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/banks/wires",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"banks",
+								"wires"
+							]
+						},
+						"description": "#### Reference Pages\n\n[https://developers.circle.com/reference/payments-bank-accounts-wires-create](https://developers.circle.com/reference/payments-bank-accounts-wires-create)\n\n#### Description\n\nCreate a U.S. bank account (wires).\n\n#### Body Params\n\n**idempotencyKey** *string* (REQUIRED)  \nUniversally unique identifier (UUID v4) idempotency key. This key is utilized to ensure exactly-once execution of mutating requests.\n\n**accountNumber** *string* (REQUIRED)  \nAccount number that identifies the bank account.\n\n**routingNumber** *string* (REQUIRED)  \nABA routing number for the bank account. Note this has to be specific for bank wire transfers.\n\n**billingDetails** *object* (REQUIRED)\n\n*   **name** *string* (REQUIRED)  \n    Full name of the bank account holder.\n*   **city** *string* (REQUIRED)  \n    City portion of the address.\n*   **line1** *string* (REQUIRED)  \n    Line one of the street address.\n*   **line2** *string*  \n    Line two of the street address.\n*   **district** *string* (REQUIRED)  \n    State / County / Province / Region portion of the address. If the country is US or Canada, then district is required and should use the two-letter code for the subdivision.\n*   **postalCode** *string* (REQUIRED)  \n    Postal / ZIP code of the address.\n*   **country** *string* (REQUIRED)  \n    Country portion of the address. Formatted as a two-letter country code specified in ISO 3166-1 alpha-2.\n    \n\n**bankAddress** *object* (REQUIRED)\n\n*   **bankName** *string*  \n    Name of the bank.\n*   **city** *string*  \n    City portion of the address.\n*   **line1** *string*  \n    Line one of the street address.\n*   **line2** *string*  \n    Line two of the street address.\n*   **district** *string*  \n    State / County / Province / Region portion of the address. US and Canada use the two-letter code for the subdivision.\n*   **country** *string* (REQUIRED)  \n    Country portion of the address. Formatted as a two-letter country code specified in ISO 3166-1 alpha-2."
+					},
+					"response": []
+				},
+				{
+					"name": "/banks/wires (Non-U.S. Non-IBAN)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Request-Id",
+								"value": "{{$guid}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n     \"idempotencyKey\": \"{{$guid}}\",\n     \"accountNumber\": \"002010077777777771\",\n     \"routingNumber\": \"BDEMMXMF\",\n     \"billingDetails\": {\n          \"name\": \"Satoshi Nakamoto\",\n          \"city\": \"Boston\",\n          \"country\": \"US\",\n          \"line1\": \"100 Money Street\",\n          \"line2\": \"Suite 1\",\n          \"district\": \"MA\",\n          \"postalCode\": \"01234\"\n     },\n     \"bankAddress\": {\n          \"bankName\": \"Banco Nacional de México\",\n          \"city\": \"México DF\",\n          \"country\": \"MX\"\n     }\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/banks/wires",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"banks",
+								"wires"
+							]
+						},
+						"description": "#### Reference Pages\n\n[https://developers.circle.com/reference/payments-bank-accounts-wires-create](https://developers.circle.com/reference/payments-bank-accounts-wires-create)\n\n#### Description\n\nCreate a non-U.S. non-IBAN bank account (wires).\n\n#### Body Params\n\n**idempotencyKey** *string* (REQUIRED)  \nUniversally unique identifier (UUID v4) idempotency key. This key is utilized to ensure exactly-once execution of mutating requests.\n\n**accountNumber** *string* (REQUIRED)  \nAccount number that identifies the bank account.\n\n**routingNumber** *string* (REQUIRED)  \nThe bank's SWIFT / BIC code.\n\n**billingDetails** *object* (REQUIRED)\n\n*   **name** *string* (REQUIRED)  \n    Full name of the bank account holder.\n*   **city** *string* (REQUIRED)  \n    City portion of the address.\n*   **line1** *string* (REQUIRED)  \n    Line one of the street address.\n*   **line2** *string*  \n    Line two of the street address.\n*   **district** *string* (US/CA Only)  \n    State / County / Province / Region portion of the address. If the country is US or Canada, then district is required and should use the two-letter code for the subdivision.\n*   **postalCode** *string* (REQUIRED)  \n    Postal / ZIP code of the address.\n*   **country** *string* (REQUIRED)  \n    Country portion of the address. Formatted as a two-letter country code specified in ISO 3166-1 alpha-2.\n    \n\n**bankAddress** *object* (REQUIRED)\n\n*   **bankName** *string* (REQUIRED)  \n    Name of the bank.\n*   **city** *string* (REQUIRED)  \n    City portion of the address.\n*   **line1** *string*  \n    Line one of the street address.\n*   **line2** *string*  \n    Line two of the street address.\n*   **district** *string*  \n    State / County / Province / Region portion of the address. US and Canada use the two-letter code for the subdivision.\n*   **country** *string* (REQUIRED)  \n    Country portion of the address. Formatted as a two-letter country code specified in ISO 3166-1 alpha-2."
+					},
+					"response": []
+				},
+				{
+					"name": "/banks/wires (Non-U.S. IBAN)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Request-Id",
+								"value": "{{$guid}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n     \"idempotencyKey\": \"{{$guid}}\",\n     \"iban\": \"DE31100400480532013000\",\n     \"billingDetails\": {\n          \"name\": \"Satoshi Nakamoto\",\n          \"city\": \"Boston\",\n          \"country\": \"US\",\n          \"line1\": \"100 Money Street\",\n          \"line2\": \"Suite 1\",\n          \"district\": \"MA\",\n          \"postalCode\": \"01234\"\n     },\n     \"bankAddress\": {\n          \"city\": \"Kassel\",\n          \"country\": \"DE\"\n     }\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/banks/wires",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"banks",
+								"wires"
+							]
+						},
+						"description": "#### Reference Pages\n\n[https://developers.circle.com/reference/payments-bank-accounts-wires-create](https://developers.circle.com/reference/payments-bank-accounts-wires-create)\n\n#### Description\n\nCreate a non-U.S. IBAN-supported bank account (wires).\n\n#### Body Params\n\n**idempotencyKey** *string* (REQUIRED)  \nUniversally unique identifier (UUID v4) idempotency key. This key is utilized to ensure exactly-once execution of mutating requests.\n\n**iban** *string* (REQUIRED)  \nInternational Bank Account Number (IBAN) for the bank account.\n\n**billingDetails** *object* (REQUIRED)\n\n*   **name** *string* (REQUIRED)  \n    Full name of the bank account holder.\n*   **city** *string* (REQUIRED)  \n    City portion of the address.\n*   **line1** *string* (REQUIRED)  \n    Line one of the street address.\n*   **line2** *string*  \n    Line two of the street address.\n*   **district** *string* (REQUIRED)  \n    State / County / Province / Region portion of the address. If the country is US or Canada, then district is required and should use the two-letter code for the subdivision.\n*   **postalCode** *string* (REQUIRED)  \n    Postal / ZIP code of the address.\n*   **country** *string* (REQUIRED)  \n    Country portion of the address. Formatted as a two-letter country code specified in ISO 3166-1 alpha-2.\n    \n\n**bankAddress** *object* (REQUIRED)\n\n*   **bankName** *string*  \n    Name of the bank.\n*   **city** *string* (REQUIRED)  \n    City portion of the address.\n*   **line1** *string*  \n    Line one of the street address.\n*   **line2** *string*  \n    Line two of the street address.\n*   **district** *string*  \n    State / County / Province / Region portion of the address. US and Canada use the two-letter code for the subdivision.\n*   **country** *string* (REQUIRED)  \n    Country portion of the address. Formatted as a two-letter country code specified in ISO 3166-1 alpha-2."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "SEPA",
+			"item": [
+				{
+					"name": "POST /banks/sepa",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Request-Id",
+								"value": "{{$guid}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n     \"billingDetails\": {\n          \"name\": \"Satoshi Nakamoto\",\n          \"city\": \"Boston\",\n          \"country\": \"US\",\n          \"line1\": \"100 Money Street\",\n          \"district\": \"MA\",\n          \"postalCode\": \"01234\"\n     },\n     \"idempotencyKey\": \"{{$guid}}\",\n     \"iban\": \"DE31100400480532013000\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/banks/sepa",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"banks",
+								"sepa"
+							]
+						},
+						"description": "#### Reference Pages\n\n[https://developers.circle.com/reference/createsepabankaccount](https://developers.circle.com/reference/createsepabankaccount)\n\n#### **Description**\n\nBETA Create a bank account (SEPA).\n\n#### Body Params\n\n**idempotencyKey** *string* (REQUIRED)  \nUniversally unique identifier (UUID v4) idempotency key. This key is utilized to ensure exactly-once execution of mutating requests.\n\n**iban** *string* (REQUIRED)  \nInternational Bank Account Number (IBAN) for the bank account.\n\n**billingDetails** *object* (REQUIRED)\n\n*   **name** *string* (REQUIRED)  \n    Full name of the bank account holder.\n*   **city** *string* (REQUIRED)  \n    City portion of the address.\n*   **line1** *string* (REQUIRED)  \n    Line one of the street address.\n*   **line2** *string*  \n    Line two of the street address.\n*   **district** *string* (REQUIRED)  \n    State / County / Province / Region portion of the address. If the country is US or Canada, then district is required and should use the two-letter code for the subdivision.\n*   **postalCode** *string* (REQUIRED)  \n    Postal / ZIP code of the address.\n*   **country** *string* (REQUIRED)  \n    Country portion of the address. Formatted as a two-letter country code specified in ISO 3166-1 alpha-2."
+					},
+					"response": []
+				},
+				{
+					"name": "GET /banks/sepa/{id}",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Request-Id",
+								"value": "{{$guid}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/banks/sepa/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"banks",
+								"sepa",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "959c2535-aba0-4736-a464-f5b8d0ed4649",
+									"description": "(REQUIRED) Universally unique identifier (UUID v4) of a resource.\n\n"
+								}
+							]
+						},
+						"description": "#### Reference Pages\n\n[https://developers.circle.com/reference/getsepabankaccount](https://developers.circle.com/reference/getsepabankaccount)\n\n#### Description\n\nBETA Get information on a given bank account (SEPA)."
+					},
+					"response": []
+				}
+			],
+			"description": "Create and get information on SEPA accounts."
+		},
+		{
+			"name": "ACH",
+			"item": [
+				{
+					"name": "/mocks/ach/accounts",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Request-Id",
+								"value": "{{$guid}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"account\": {\n        \"accountNumber\": \"123456789\",\n        \"routingNumber\": \"011000028\",\n        \"description\": \"My ACH 011000028\"\n    },\n    \"balance\": {\n        \"amount\": \"5.00\",\n        \"currency\": \"USD\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/mocks/ach/accounts",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"mocks",
+								"ach",
+								"accounts"
+							]
+						},
+						"description": "#### Reference Pages\n\n[https://developers.circle.com/reference/payments-bank-accounts-ach-mock](https://developers.circle.com/reference/payments-bank-accounts-ach-mock)\n\n#### Description\n\nIn the sandbox environment, create a mock ACH account and retrieve a processor token that can be used to link an ACH account.\n\n#### Body Params\n\n**account** *object* (REQUIRED)\n\n*   **accountNumber** *string* (REQUIRED)  \n    The account number of the ACH account.\n*   **routingNumber** *string* (REQUIRED)  \n    The routing number of the ACH account.For sandbox testing, valid routing numbers include `011000028`, `011201762`, `011500120`, `021214862`, `121000248`, `121140399`, `211073473`, `221172610`, and `011000138`.\n*   **description** *string*  \n    A description for the ACH account.\n    \n\n**balance** *object* (REQUIRED)\n\n*   **balance** *string* (REQUIRED)  \n    Magnitude of the amount, in units of the currency, with a `.`.\n*   **currency** *string* (REQUIRED)  \n    Currency code."
+					},
+					"response": []
+				},
+				{
+					"name": "/banks/ach",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Request-Id",
+								"value": "{{$guid}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n     \"billingDetails\": {\n          \"name\": \"Satoshi Nakamoto\",\n          \"city\": \"Boston\",\n          \"country\": \"US\",\n          \"line1\": \"100 Money Street\",\n          \"district\": \"MA\",\n          \"postalCode\": \"01234\"\n     },\n     \"metadata\": {\n          \"email\": \"satoshi@circle.com\",\n          \"sessionId\": \"DE6FA86F60BB47B379307F851E238617\",\n          \"ipAddress\": \"244.28.239.130\"\n     },\n     \"idempotencyKey\": \"{{$guid}}\",\n     \"plaidProcessorToken\": \"processor-sandbox-circle-82cf95bb-43f8-4191-8d30-2c9f42853621\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/banks/ach",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"banks",
+								"ach"
+							]
+						},
+						"description": "#### Reference Pages\n\n[https://developers.circle.com/reference/payments-bank-accounts-ach-create](https://developers.circle.com/reference/payments-bank-accounts-ach-create)\n\n#### Description\n\nCreate a bank account (ACH).\n\n#### Body Params\n\n**idempotencyKey** *string* (REQUIRED)  \nUniversally unique identifier (UUID v4) idempotency key. This key is utilized to ensure exactly-once execution of mutating requests.\n\n**plaidProcessorToken** *string* (REQUIRED)  \nThe token for the ACH account provided by the processor (Plaid).\n\n**billingDetails** *object* (REQUIRED)\n\n*   **name** *string* (REQUIRED)  \n    Full name of the bank account holder.\n*   **city** *string*  \n    City portion of the address.\n*   **line1** *string*  \n    Line one of the street address.\n*   **line2** *string*  \n    Line two of the street address.\n*   **district** *string*  \n    State / County / Province / Region portion of the address. If the country is US or Canada, then district is required and should use the two-letter code for the subdivision.\n*   **postalCode** *string*  \n    Postal / ZIP code of the address.\n*   **country** *string*  \n    Country portion of the address. Formatted as a two-letter country code specified in ISO 3166-1 alpha-2.\n    \n\n**metadata** *object* (REQUIRED)\n\n*   **email** *string* (REQUIRED)  \n    Email of the user.\n*   **phoneNumber** *string*  \n    *Phone number of the user in E.164 format. We recommend using a library such as [libphonenumber](https://github.com/google/libphonenumber) to parse and validate phone numbers.\n*   **sessionId** *string* (REQUIRED)  \n    Hash of the session identifier; typically of the end user. This helps us make risk decisions and prevent fraud. IMPORTANT: Please hash the session identifier to prevent sending us actual session identifiers.\n*   **ipAddress** *string* (REQUIRED)  \n    Single IPv4 or IPv6 address of the end-user."
+					},
+					"response": []
+				},
+				{
+					"name": "/banks/ach/{id}",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Request-Id",
+								"value": "{{$guid}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/banks/ach/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"banks",
+								"ach",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "645c7957-c48f-4d09-9926-7e499314f42f",
+									"description": "(REQUIRED) Universally unique identifier (UUID v4) of a resource.\n\n"
+								}
+							]
+						},
+						"description": "#### Reference Pages\n\n[https://developers.circle.com/reference/payments-bank-accounts-ach-get-id](https://developers.circle.com/reference/payments-bank-accounts-ach-get-id)\n\n#### Description\n\nGet information on a given ACH account."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Returns",
+			"item": [
+				{
+					"name": "/returns",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Request-Id",
+								"value": "{{$guid}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/returns",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"returns"
+							],
+							"query": [
+								{
+									"key": "from",
+									"value": "<date-time>",
+									"description": "Queries items created since the specified date-time (inclusive).\n\n",
+									"disabled": true
+								},
+								{
+									"key": "to",
+									"value": "<date-time>",
+									"description": "Queries items created before the specified date-time (inclusive).\n\n",
+									"disabled": true
+								},
+								{
+									"key": "pageBefore",
+									"value": "<string>",
+									"description": "A collection ID value used for pagination.\n\nIt marks the exclusive end of a page. When provided, the collection resource will return the next n items before\nthe id, with n being specified by pageSize.\n\nThe items will be returned in the natural order of the collection.\n\nThe resource will return the first page if neither pageAfter nor pageBefore are specified.\n\nSHOULD NOT be used in conjuction with pageAfter.",
+									"disabled": true
+								},
+								{
+									"key": "pageAfter",
+									"value": "<string>",
+									"description": "A collection ID value used for pagination.\n\nIt marks the exclusive begin of a page. When provided, the collection resource will return the next n items after\nthe id, with n being specified by pageSize.\n\nThe items will be returned in the natural order of the collection.\n\nThe resource will return the first page if neither pageAfter nor pageBefore are specified.\n\nSHOULD NOT be used in conjuction with pageBefore.",
+									"disabled": true
+								},
+								{
+									"key": "pageSize",
+									"value": "<integer>",
+									"description": "Limits the number of items to be returned.\n\nSome collections have a strict upper bound that will disregard this value. In case the specified value is higher\nthan the allowed limit, the collection limit will be used.\n\nIf avoided, the collection will determine the page size itself.",
+									"disabled": true
+								}
+							]
+						},
+						"description": "#### Reference Pages\n\n[https://developers.circle.com/reference/payouts-returns-get](https://developers.circle.com/reference/payouts-returns-get)\n\n#### Description\n\nRetrieve a list of Wire and ACH payout returns. Results will be sorted by create date descending; more recent returns will be at the beginning of the list."
+					},
+					"response": []
+				}
+			],
+			"description": "Get information on returned payouts."
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{apiKey}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://api-sandbox.circle.com/v1"
+		}
+	]
+}

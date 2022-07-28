@@ -1,0 +1,1742 @@
+{
+	"info": {
+		"_postman_id": "72d8b939-298c-4043-b230-d7d68340f66c",
+		"name": "Payments API",
+		"description": "#### Developer Guide\n\n[https://developers.circle.com/docs/getting-started-with-the-circle-payments-api](https://developers.circle.com/docs/getting-started-with-the-circle-payments-api)\n\n#### **Description**\n\nThe Circle Payments API allows you to take payments from your end users via traditional methods such as debit & credit cards, bank accounts (wires and ACH), etc., and receive settlement in USDC.\n\nThe Circle Payments API has been designed with any business or internet commerce in mind, not just crypto applications, and it's based on Circle's extensive experience processing millions of card payments since 2014.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17833796"
+	},
+	"item": [
+		{
+			"name": "Payments",
+			"item": [
+				{
+					"name": "/payments/{id}",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Request-Id",
+								"value": "{{$guid}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/payments/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"payments",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "d6e19516-54bb-406f-8d28-155884b28baf",
+									"description": "(REQUIRED) Universally unique identifier (UUID v4) of a resource."
+								}
+							]
+						},
+						"description": "#### Reference Pages\n\n[https://developers.circle.com/reference/payments-payments-get-id](Pageshttps://developers.circle.com/reference/payments-payments-get-idDescriptionGet)\n\n#### Description\n\nGet information on a given payment."
+					},
+					"response": []
+				},
+				{
+					"name": "/payments",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Request-Id",
+								"value": "{{$guid}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{baseUrl}}/payments",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"payments"
+							],
+							"query": [
+								{
+									"key": "source",
+									"value": "<string>",
+									"description": "Universally unique identifier (UUID v4) for the source. Filters results to fetch only payments made from the provdided source.",
+									"disabled": true
+								},
+								{
+									"key": "settlementId",
+									"value": "<string>",
+									"description": "Queries items with the specified settlement id. Matches any settlement id if unspecified.",
+									"disabled": true
+								},
+								{
+									"key": "type",
+									"value": "<array of strings>",
+									"description": "Source account type. Filters the results to fetch all payments made from a specified account type. Matches any source type if unspecified.",
+									"disabled": true
+								},
+								{
+									"key": "status",
+									"value": "<string>",
+									"description": "Queries items with the specified status. Matches any status if unspecified.",
+									"disabled": true
+								},
+								{
+									"key": "from",
+									"value": "<date-time>",
+									"description": "Queries items created since the specified date-time (inclusive).",
+									"disabled": true
+								},
+								{
+									"key": "to",
+									"value": "<date-time>",
+									"description": "Queries items created before the specified date-time (inclusive).",
+									"disabled": true
+								},
+								{
+									"key": "pageBefore",
+									"value": "<string>",
+									"description": "A collection ID value used for pagination.\n\nIt marks the exclusive end of a page. When provided, the collection resource will return the next n items before\nthe id, with n being specified by pageSize.\n\nThe items will be returned in the natural order of the collection.\n\nThe resource will return the first page if neither pageAfter nor pageBefore are specified.\n\nSHOULD NOT be used in conjuction with pageAfter.",
+									"disabled": true
+								},
+								{
+									"key": "pageAfter",
+									"value": "<string>",
+									"description": "A collection ID value used for pagination.\n\nIt marks the exclusive begin of a page. When provided, the collection resource will return the next n items after\nthe id, with n being specified by pageSize.\n\nThe items will be returned in the natural order of the collection.\n\nThe resource will return the first page if neither pageAfter nor pageBefore are specified.\n\nSHOULD NOT be used in conjuction with pageBefore.",
+									"disabled": true
+								},
+								{
+									"key": "pageSize",
+									"value": "<integer>",
+									"description": "Limits the number of items to be returned.\n\nSome collections have a strict upper bound that will disregard this value. In case the specified value is higher\nthan the allowed limit, the collection limit will be used.\n\nIf avoided, the collection will determine the page size itself.",
+									"disabled": true
+								}
+							]
+						},
+						"description": "#### Reference Pages\n\n[https://developers.circle.com/reference/payments-payments-get](https://developers.circle.com/reference/payments-payments-get)\n\n#### Description\n\nGet a list of payments."
+					},
+					"response": []
+				},
+				{
+					"name": "/payments (Card, CVV Verification)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Request-Id",
+								"value": "{{$guid}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n     \"idempotencyKey\": \"{{$guid}}\",\n     \"keyId\": \"key1\",\n     \"metadata\": {\n          \"email\": \"satoshi@circle.com\",\n          \"phoneNumber\": \"+14155555555\",\n          \"sessionId\": \"DE6FA86F60BB47B379307F851E238617\",\n          \"ipAddress\": \"244.28.239.130\"\n     },\n     \"amount\": {\n          \"amount\": \"3.14\",\n          \"currency\": \"USD\"\n     },\n     \"verification\": \"cvv\",\n     \"source\": {\n          \"id\": \"36ae460a-e1ff-4d34-8e92-5cefff47e482\",\n          \"type\": \"card\"\n     },\n     \"description\": \"Payment\",\n     \"encryptedData\": \"UHVibGljS2V5QmFzZTY0RW5jb2RlZA==\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/payments",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"payments"
+							]
+						},
+						"description": "#### Reference Pages\n\n[https://developers.circle.com/reference/payments-payments-create](https://developers.circle.com/reference/payments-payments-create)\n\n#### Description\n\nCreate a card payment with CVV verificaton.\n\n#### Body Params\n\n**idempotencyKey** *string* (REQUIRED)  \nUniversally unique identifier (UUID v4) idempotency key. This key is utilized to ensure exactly-once execution of mutating requests.\n\n**keyId** *string* (REQUIRED for CVV verification)  \nIdentifier of the public key used in encryption.\n\n**metadata** *object* (REQUIRED)\n\n*   **email** *string* (REQUIRED)  \n    Email of the user.\n*   **phoneNumber** *string*  \n    *Phone number of the user in E.164 format. We recommend using a library such as [libphonenumber](https://github.com/google/libphonenumber) to parse and validate phone numbers.\n*   **sessionId** *string* (REQUIRED)  \n    Hash of the session identifier; typically of the end user. This helps us make risk decisions and prevent fraud. IMPORTANT: Please hash the session identifier to prevent sending us actual session identifiers.\n*   **ipAddress** *string* (REQUIRED)  \n    Single IPv4 or IPv6 address of the end-user.\n    \n\n**amount** *object* (REQUIRED)\n\n*   **amount** *string* (REQUIRED)  \n    Magnitude of the amount, in units of the currency, with a `.`.\n*   **currency** *string* (REQUIRED)  \n    Currency code for the amount.\n    \n\n**autoCapture** *boolean*  \nTriggers the automatic capture of the full payment amount. If set to false the payment will only be authorized but not captured.\n\n**verification** *string* (REQUIRED - Cards Only)  \nIndicates the verification method for this payment.\n\n**verificationSuccessUrl** *string*  \nThe URL to redirect users to after successful 3DS authentication.\n\n**verificationFailureUrl** *string*  \nThe URL to redirect users to after failed 3DS authentication.\n\n**source** *object* (REQUIRED)\n\n*   **id** *string* (REQUIRED)  \n    Unique system generated identifier for the entity.\n*   **type** *string* (REQUIRED)  \n    Type of the source.\n    \n\n**description** *string*  \nDescription of the payment with length restriction of 240 characters.\n\n**encryptedData** *string* (REQUIRED for CVV verification)  \nPGP encrypted base64 encoded string. Contains CVV e.g. {cvv: 123}.\n\n**channel** *string*  \nThe channel identifier that can be set for the payment. When not provided, the default channel is used."
+					},
+					"response": []
+				},
+				{
+					"name": "/payments (Card, 3DS Verification)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Request-Id",
+								"value": "{{$guid}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n     \"idempotencyKey\": \"{{$guid}}\",\n     \"metadata\": {\n          \"email\": \"satoshi@circle.com\",\n          \"phoneNumber\": \"+14155555555\",\n          \"sessionId\": \"DE6FA86F60BB47B379307F851E238617\",\n          \"ipAddress\": \"244.28.239.130\"\n     },\n     \"amount\": {\n          \"amount\": \"3.14\",\n          \"currency\": \"USD\"\n     },\n     \"verification\": \"three_d_secure\",\n     \"verificationSuccessUrl\": \"https://www.example.com/3ds/verificationsuccessful\",\n     \"verificationFailureUrl\": \"https://www.example.com/3ds/verificationfailure\",\n     \"source\": {\n          \"id\": \"36ae460a-e1ff-4d34-8e92-5cefff47e482\",\n          \"type\": \"card\"\n     },\n     \"description\": \"Payment\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/payments",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"payments"
+							]
+						},
+						"description": "#### Reference Pages\n\n[https://developers.circle.com/reference/payments-payments-create](https://developers.circle.com/reference/payments-payments-create)\n\n#### Description\n\nCreate a card payment with 3DS verificaton.\n\n#### Body Params\n\n**idempotencyKey** *string* (REQUIRED)  \nUniversally unique identifier (UUID v4) idempotency key. This key is utilized to ensure exactly-once execution of mutating requests.\n\n**keyId** *string* (REQUIRED for CVV verification)  \nIdentifier of the public key used in encryption.\n\n**metadata** *object* (REQUIRED)\n\n*   **email** *string* (REQUIRED)  \n    Email of the user.\n*   **phoneNumber** *string*  \n    *Phone number of the user in E.164 format. We recommend using a library such as [libphonenumber](https://github.com/google/libphonenumber) to parse and validate phone numbers.\n*   **sessionId** *string* (REQUIRED)  \n    Hash of the session identifier; typically of the end user. This helps us make risk decisions and prevent fraud. IMPORTANT: Please hash the session identifier to prevent sending us actual session identifiers.\n*   **ipAddress** *string* (REQUIRED)  \n    Single IPv4 or IPv6 address of the end-user.\n    \n\n**amount** *object* (REQUIRED)\n\n*   **amount** *string* (REQUIRED)  \n    Magnitude of the amount, in units of the currency, with a `.`.\n*   **currency** *string* (REQUIRED)  \n    Currency code for the amount.\n    \n\n**autoCapture** *boolean*  \nTriggers the automatic capture of the full payment amount. If set to false the payment will only be authorized but not captured.\n\n**verification** *string* (REQUIRED - Cards Only)  \nIndicates the verification method for this payment.\n\n**verificationSuccessUrl** *string* (REQUIRED for 3DS)  \nThe URL to redirect users to after successful 3DS authentication.\n\n**verificationFailureUrl** *string* (REQUIRED for 3DS)  \nThe URL to redirect users to after failed 3DS authentication.\n\n**source** *object* (REQUIRED)\n\n*   **id** *string* (REQUIRED)  \n    Unique system generated identifier for the entity.\n*   **type** *string* (REQUIRED)  \n    Type of the source.\n    \n\n**description** *string*  \nDescription of the payment with length restriction of 240 characters.\n\n**encryptedData** *string*  \nPGP encrypted base64 encoded string. Contains CVV e.g. {cvv: 123}.\n\n**channel** *string*  \nThe channel identifier that can be set for the payment. When not provided, the default channel is used."
+					},
+					"response": []
+				},
+				{
+					"name": "/payments (Card, No Verification)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Request-Id",
+								"value": "{{$guid}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n     \"idempotencyKey\": \"{{$guid}}\",\n     \"keyId\": \"key1\",\n     \"metadata\": {\n          \"email\": \"satoshi@circle.com\",\n          \"phoneNumber\": \"+14155555555\",\n          \"sessionId\": \"DE6FA86F60BB47B379307F851E238617\",\n          \"ipAddress\": \"244.28.239.130\"\n     },\n     \"amount\": {\n          \"amount\": \"3.14\",\n          \"currency\": \"USD\"\n     },\n     \"verification\": \"none\",\n     \"source\": {\n          \"id\": \"36ae460a-e1ff-4d34-8e92-5cefff47e482\",\n          \"type\": \"card\"\n     },\n     \"description\": \"Payment\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/payments",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"payments"
+							]
+						},
+						"description": "#### Reference Pages\n\n[https://developers.circle.com/reference/payments-payments-create](https://developers.circle.com/reference/payments-payments-create)\n\n#### Description\n\nCreate a card payment with no verificaton.\n\n#### Body Params\n\n**idempotencyKey** *string* (REQUIRED)  \nUniversally unique identifier (UUID v4) idempotency key. This key is utilized to ensure exactly-once execution of mutating requests.\n\n**keyId** *string*  \nIdentifier of the public key used in encryption.\n\n**metadata** *object* (REQUIRED)\n\n*   **email** *string* (REQUIRED)  \n    Email of the user.\n*   **phoneNumber** *string*  \n    *Phone number of the user in E.164 format. We recommend using a library such as [libphonenumber](https://github.com/google/libphonenumber) to parse and validate phone numbers.\n*   **sessionId** *string* (REQUIRED)  \n    Hash of the session identifier; typically of the end user. This helps us make risk decisions and prevent fraud. IMPORTANT: Please hash the session identifier to prevent sending us actual session identifiers.\n*   **ipAddress** *string* (REQUIRED)  \n    Single IPv4 or IPv6 address of the end-user.\n    \n\n**amount** *object* (REQUIRED)\n\n*   **amount** *string* (REQUIRED)  \n    Magnitude of the amount, in units of the currency, with a `.`.\n*   **currency** *string* (REQUIRED)  \n    Currency code for the amount.\n    \n\n**autoCapture** *boolean*  \nTriggers the automatic capture of the full payment amount. If set to false the payment will only be authorized but not captured.\n\n**verification** *string* (REQUIRED - Cards Only)  \nIndicates the verification method for this payment.\n\n**verificationSuccessUrl** *string*  \nThe URL to redirect users to after successful 3DS authentication.\n\n**verificationFailureUrl** *string*  \nThe URL to redirect users to after failed 3DS authentication.\n\n**source** *object* (REQUIRED)\n\n*   **id** *string* (REQUIRED)  \n    Unique system generated identifier for the entity.\n*   **type** *string* (REQUIRED)  \n    Type of the source.\n    \n\n**description** *string*  \nDescription of the payment with length restriction of 240 characters.\n\n**encryptedData** *string*  \nPGP encrypted base64 encoded string. Contains CVV e.g. {cvv: 123}.\n\n**channel** *string*  \nThe channel identifier that can be set for the payment. When not provided, the default channel is used."
+					},
+					"response": []
+				},
+				{
+					"name": "/payments (ACH)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Request-Id",
+								"value": "{{$guid}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n     \"idempotencyKey\": \"{{$guid}}\",\n     \"metadata\": {\n          \"email\": \"satoshi@circle.com\",\n          \"phoneNumber\": \"+14155555555\",\n          \"sessionId\": \"DE6FA86F60BB47B379307F851E238617\",\n          \"ipAddress\": \"244.28.239.130\"\n     },\n     \"amount\": {\n          \"amount\": \"7.19\",\n          \"currency\": \"USD\"\n     },\n     \"source\": {\n          \"id\": \"645c7957-c48f-4d09-9926-7e499314f42f\",\n          \"type\": \"ach\"\n     },\n     \"description\": \"Payment\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/payments",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"payments"
+							]
+						},
+						"description": "#### Reference Pages\n\n[https://developers.circle.com/reference/payments-payments-create](https://developers.circle.com/reference/payments-payments-create)\n\n#### Description\n\nCreate an ACH payment.\n\n#### Body Params\n\n**idempotencyKey** *string* (REQUIRED)  \nUniversally unique identifier (UUID v4) idempotency key. This key is utilized to ensure exactly-once execution of mutating requests.\n\n**keyId** *string* (Cards Only)  \nIdentifier of the public key used in encryption.\n\n**metadata** *object* (REQUIRED)\n\n*   **email** *string* (REQUIRED)  \n    Email of the user.\n*   **phoneNumber** *string*  \n    *Phone number of the user in E.164 format. We recommend using a library such as [libphonenumber](https://github.com/google/libphonenumber) to parse and validate phone numbers.\n*   **sessionId** *string* (REQUIRED)  \n    Hash of the session identifier; typically of the end user. This helps us make risk decisions and prevent fraud. IMPORTANT: Please hash the session identifier to prevent sending us actual session identifiers.\n*   **ipAddress** *string* (REQUIRED)  \n    Single IPv4 or IPv6 address of the end-user.\n    \n\n**amount** *object* (REQUIRED)\n\n*   **amount** *string* (REQUIRED)  \n    Magnitude of the amount, in units of the currency, with a `.`.\n*   **currency** *string* (REQUIRED)  \n    Currency code for the amount.\n    \n\n**autoCapture** *boolean* (Cards Only)  \nTriggers the automatic capture of the full payment amount. If set to false the payment will only be authorized but not captured.\n\n**verification** *string* (REQUIRED - Cards Only)  \nIndicates the verification method for this payment.\n\n**verificationSuccessUrl** *string* (Cards Only)  \nThe URL to redirect users to after successful 3DS authentication.\n\n**verificationFailureUrl** *string* (Cards Only)  \nThe URL to redirect users to after failed 3DS authentication.\n\n**source** *object* (REQUIRED)\n\n*   **id** *string* (REQUIRED)  \n    Unique system generated identifier for the entity.\n*   **type** *string* (REQUIRED)  \n    Type of the source.\n    \n\n**description** *string*  \nDescription of the payment with length restriction of 240 characters.\n\n**encryptedData** *string* (Cards Only)  \nPGP encrypted base64 encoded string. Contains CVV e.g. {cvv: 123}.\n\n**channel** *string*  \nThe channel identifier that can be set for the payment. When not provided, the default channel is used."
+					},
+					"response": []
+				},
+				{
+					"name": "/cancel",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Request-Id",
+								"value": "{{$guid}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"idempotencyKey\": \"{{$guid}}\",\n    \"reason\": \"fraudulent\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/payments/:id/cancel",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"payments",
+								":id",
+								"cancel"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "6a20dd0f-89f4-432a-9049-64061f58838b",
+									"description": "(REQUIRED) Universally unique identifier (UUID v4) of a resource.\n\n"
+								}
+							]
+						},
+						"description": "#### Reference Pages\n\n[https://developers.circle.com/reference/payments-payments-cancel-id](https://developers.circle.com/reference/payments-payments-cancel-id)\n\n#### Description\n\nThe payment will be voided if possible meaning the payment source will not be charged & the payment will never settle.  \nOtherwise, the payment will be refunded meaning the payment source will be charged & the payment will be refunded from deductions of future settlements.  \nNot all payments are eligible to be cancelled.\n\nA successful response does *not* mean the payment has been cancelled; it only means the cancellation request is successfully submitted.\n\n#### Body Params\n\n**idempotencyKey** *string* (REQUIRED)  \nUniversally unique identifier (UUID v4) idempotency key. This key is utilized to ensure exactly-once execution of mutating requests.\n\n**reason** *string*  \nEnumerated reason for a returned payment. Providing this reason in the request is recommended (to improve risk evaluation) but not required."
+					},
+					"response": []
+				},
+				{
+					"name": "/refund",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Request-Id",
+								"value": "{{$guid}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"idempotencyKey\": \"{{$guid}}\",\n    \"amount\": {\n        \"amount\": \"50.00\",\n        \"currency\": \"USD\"\n    },\n    \"reason\": \"fraudulent\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/payments/:id/refund",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"payments",
+								":id",
+								"refund"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "<string>",
+									"description": "(REQUIRED) Universally unique identifier (UUID v4) of a resource."
+								}
+							]
+						},
+						"description": "#### Reference Pages\n\n[https://developers.circle.com/reference/payments-payments-refund-id](https://developers.circle.com/reference/payments-payments-refund-id)\n\n#### Description\n\nThe payment source will be refunded if possible. Not all payments are eligible to be cancelled.\n\nA successful response does *not* mean the payment has been refunded; it only means the refund request is successfully submitted.\n\n#### Body Params\n\n**idempotencyKey** *string* (REQUIRED)  \nUniversally unique identifier (UUID v4) idempotency key. This key is utilized to ensure exactly-once execution of mutating requests.\n\n**amount** *object* (REQUIRED)\n\n*   **amount** *string* (REQUIRED)  \n    Magnitude of the amount, in units of the currency, with a `.`.\n*   **currency** *string* (REQUIRED)  \n    Currency code for the amount.\n    \n\n**reason** *string*  \nEnumerated reason for a returned payment. Providing this reason in the request is recommended (to improve risk evaluation) but not required."
+					},
+					"response": []
+				},
+				{
+					"name": "/mocks/payments/sepa",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Request-Id",
+								"value": "{{$guid}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"trackingRef\": \"CIR2B8VFEK\",\n    \"amount\": {\n        \"amount\": \"400.00\",\n        \"currency\": \"EUR\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/mocks/payments/sepa",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"mocks",
+								"payments",
+								"sepa"
+							]
+						},
+						"description": "#### Reference Pages\n\n[https://developers.circle.com/reference/createsepapayment](https://developers.circle.com/reference/createsepapayment)\n\n#### Description\n\nIn the sandbox environment, initiate a mock SEPA payment that mimics the behavior of funds sent through the bank (SEPA) account linked to master wallet.\n\n#### Body Params\n\n**trackingRef** *string* (REQUIRED)  \nSEPA tracking reference that needs to be set in the wire reference to beneficiary field. This field is retrievable through the response during SEPA account creation or via the bank instruction endpoint.\n\n**amount** *object* (REQUIRED)\n\n*   **amount** *string* (REQUIRED)  \n    Magnitude of the amount, in units of the currency, with a `.`.\n*   **currency** *string* (REQUIRED)  \n    Currency code for the amount."
+					},
+					"response": []
+				},
+				{
+					"name": "/mocks/payments/wire",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Request-Id",
+								"value": "{{$guid}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"trackingRef\": \"CIR2TKHC23\",\n    \"amount\": {\n        \"amount\": \"3.00\",\n        \"currency\": \"USD\"\n    }\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/mocks/payments/wire",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"mocks",
+								"payments",
+								"wire"
+							]
+						},
+						"description": "#### Reference Pages\n\n[https://developers.circle.com/reference/payments-payments-mock-create](https://developers.circle.com/reference/payments-payments-mock-create)\n\n#### Description\n\nIn the sandbox environment, initiate a mock wire payment that mimics the behavior of funds sent through the bank (wire) account linked to master wallet.\n\n#### Body Params\n\n**trackingRef** *string* (REQUIRED)  \nWire tracking reference that needs to be set in the wire reference to beneficiary field. This field is retrievable through the response during wire account creation or via the bank instruction endpoint.\n\n**amount** *object* (REQUIRED)\n\n*   **amount** *string* (REQUIRED)  \n    Magnitude of the amount, in units of the currency, with a `.`.\n*   **currency** *string* (REQUIRED)  \n    Currency code for the amount."
+					},
+					"response": []
+				}
+			],
+			"description": "Create, cancel, refund, and get updates on card and ACH payments."
+		},
+		{
+			"name": "On-chain payments",
+			"item": [
+				{
+					"name": "/transfers",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Request-Id",
+								"value": "{{$guid}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{baseUrl}}/transfers",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"transfers"
+							],
+							"query": [
+								{
+									"key": "walletId",
+									"value": "<string>",
+									"description": "Unique identifier for the source or destination wallet of transfers, if any. May not be used in conjunction with destinationWalletId or sourceWalletId. Useful for fetching all transfers related to a wallet.",
+									"disabled": true
+								},
+								{
+									"key": "sourceWalletId",
+									"value": "<string>",
+									"description": "Unique identifier for the source wallet of transfers, if any.",
+									"disabled": true
+								},
+								{
+									"key": "destinationWalletId",
+									"value": "<string>",
+									"description": "Unique identifier for the destination wallet of transfers, if any.",
+									"disabled": true
+								},
+								{
+									"key": "returnIdentities",
+									"value": "<boolean>",
+									"description": "Specify if you would like to see identities in the response. Restricts maximum returned items to 5. By default returnIdentities is false, resulting in the response not returning data.source.identities.",
+									"disabled": true
+								},
+								{
+									"key": "from",
+									"value": "<date-time>",
+									"description": "Queries items created since the specified date-time (inclusive).",
+									"disabled": true
+								},
+								{
+									"key": "to",
+									"value": "<date-time>",
+									"description": "Queries items created before the specified date-time (inclusive).",
+									"disabled": true
+								},
+								{
+									"key": "pageBefore",
+									"value": "<string>",
+									"description": "A collection ID value used for pagination.\n\nIt marks the exclusive end of a page. When provided, the collection resource will return the next n items before\nthe id, with n being specified by pageSize.\n\nThe items will be returned in the natural order of the collection.\n\nThe resource will return the first page if neither pageAfter nor pageBefore are specified.\n\nSHOULD NOT be used in conjuction with pageAfter.",
+									"disabled": true
+								},
+								{
+									"key": "pageAfter",
+									"value": "<string>",
+									"description": "A collection ID value used for pagination.\n\nIt marks the exclusive begin of a page. When provided, the collection resource will return the next n items after\nthe id, with n being specified by pageSize.\n\nThe items will be returned in the natural order of the collection.\n\nThe resource will return the first page if neither pageAfter nor pageBefore are specified.\n\nSHOULD NOT be used in conjuction with pageBefore.",
+									"disabled": true
+								},
+								{
+									"key": "pageSize",
+									"value": "<integer>",
+									"description": "Limits the number of items to be returned.\n\nSome collections have a strict upper bound that will disregard this value. In case the specified value is higher\nthan the allowed limit, the collection limit will be used.\n\nIf avoided, the collection will determine the page size itself.",
+									"disabled": true
+								}
+							]
+						},
+						"description": "Get list of transfers.\n\nSearches for transfers involving the provided wallets. If no wallet ids are provided, searches all wallets associated with your Circle API account. If the date parameters are omitted, returns the most recent transfers. This endpoint returns up to 50 transfers in descending chronological order or pageSize, if provided."
+					},
+					"response": []
+				},
+				{
+					"name": "/transfers/{id}",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Request-Id",
+								"value": "{{$guid}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/transfers/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"transfers",
+								":id"
+							],
+							"query": [
+								{
+									"key": "returnIdentities",
+									"value": "<boolean>",
+									"description": "Specify if you would like to see identities in the response. Restricts maximum returned items to 5. By default returnIdentities is false, resulting in the response not returning data.source.identities.",
+									"disabled": true
+								}
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "<string>",
+									"description": "(REQUIRED) Universally unique identifier (UUID v4) of a resource."
+								}
+							]
+						},
+						"description": "Retrieve specific transfer details."
+					},
+					"response": []
+				},
+				{
+					"name": "/wallets/{id}/addresses",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Request-Id",
+								"value": "{{$guid}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n     \"idempotencyKey\": \"{{$guid}}\",\n     \"currency\": \"USD\",\n     \"chain\": \"ETH\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/wallets/:walletId/addresses",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"wallets",
+								":walletId",
+								"addresses"
+							],
+							"variable": [
+								{
+									"key": "walletId",
+									"value": "<string>",
+									"description": "(REQUIRED) Identifier for the Circle Account master wallet."
+								}
+							]
+						},
+						"description": "#### Reference Pages\n\n[https://developers.circle.com/reference/payments-on-chain-addresses-create](https://developers.circle.com/reference/payments-on-chain-addresses-create)\n\n#### Description\n\nGenerates a new blockchain address for a wallet for a given currency/chain pair. Circle may reuse addresses on blockchains that support reuse. For example, if you're requesting two addresses for depositing USD and ETH, both on Ethereum, you may see the same Ethereum address returned. Depositing cryptocurrency to a generated address will credit the associated wallet with the value of the deposit.\n\n#### **Body Params**\n\n**idempotencyKey** *string* (REQUIRED)  \nUniversally unique identifier (UUID v4) idempotency key. This key is utilized to ensure exactly-once execution of mutating requests.\n\n**currency** *string* (REQUIRED)  \nA currency associated with a balance or address.\n\n**chain** *string* (REQUIRED)  \nA blockchain that a given currency is available on."
+					},
+					"response": []
+				},
+				{
+					"name": "/wallets/{id}/addresses",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Request-Id",
+								"value": "{{$guid}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{baseUrl}}/wallets/:walletId/addresses",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"wallets",
+								":walletId",
+								"addresses"
+							],
+							"query": [
+								{
+									"key": "from",
+									"value": "<date-time>",
+									"description": "Queries items created since the specified date-time (inclusive).",
+									"disabled": true
+								},
+								{
+									"key": "to",
+									"value": "<date-time>",
+									"description": "Queries items created before the specified date-time (inclusive).",
+									"disabled": true
+								},
+								{
+									"key": "pageBefore",
+									"value": "<string>",
+									"description": "A collection ID value used for pagination.\n\nIt marks the exclusive end of a page. When provided, the collection resource will return the next n items before\nthe id, with n being specified by pageSize.\n\nThe items will be returned in the natural order of the collection.\n\nThe resource will return the first page if neither pageAfter nor pageBefore are specified.\n\nSHOULD NOT be used in conjuction with pageAfter.",
+									"disabled": true
+								},
+								{
+									"key": "pageAfter",
+									"value": "<string>",
+									"description": "A collection ID value used for pagination.\n\nIt marks the exclusive begin of a page. When provided, the collection resource will return the next n items after\nthe id, with n being specified by pageSize.\n\nThe items will be returned in the natural order of the collection.\n\nThe resource will return the first page if neither pageAfter nor pageBefore are specified.\n\nSHOULD NOT be used in conjuction with pageBefore.",
+									"disabled": true
+								},
+								{
+									"key": "pageSize",
+									"value": "<string>",
+									"description": "Limits the number of items to be returned.\n\nSome collections have a strict upper bound that will disregard this value. In case the specified value is higher\nthan the allowed limit, the collection limit will be used.\n\nIf avoided, the collection will determine the page size itself.",
+									"disabled": true
+								}
+							],
+							"variable": [
+								{
+									"key": "walletId",
+									"value": "<string>",
+									"description": "(REQUIRED) Identifier for the wallet."
+								}
+							]
+						},
+						"description": "#### Reference Pages\n\n[https://developers.circle.com/reference/accounts-wallets-addresses-get](https://developers.circle.com/reference/accounts-wallets-addresses-get)\n\n#### Description\n\nRetrieves a list of addresses associated with a wallet."
+					},
+					"response": []
+				}
+			],
+			"description": "Create blockchain deposit addresses and get information for on-chain payments."
+		},
+		{
+			"name": "Cards",
+			"item": [
+				{
+					"name": "/cards",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Request-Id",
+								"value": "{{$guid}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/cards",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"cards"
+							],
+							"query": [
+								{
+									"key": "pageBefore",
+									"value": "<string>",
+									"description": "A collection ID value used for pagination.\n\nIt marks the exclusive end of a page. When provided, the collection resource will return the next n items before\nthe id, with n being specified by pageSize.\n\nThe items will be returned in the natural order of the collection.\n\nThe resource will return the first page if neither pageAfter nor pageBefore are specified.\n\nSHOULD NOT be used in conjuction with pageAfter.",
+									"disabled": true
+								},
+								{
+									"key": "pageAfter",
+									"value": "<string>",
+									"description": "A collection ID value used for pagination.\n\nIt marks the exclusive begin of a page. When provided, the collection resource will return the next n items after\nthe id, with n being specified by pageSize.\n\nThe items will be returned in the natural order of the collection.\n\nThe resource will return the first page if neither pageAfter nor pageBefore are specified.\n\nSHOULD NOT be used in conjuction with pageBefore.",
+									"disabled": true
+								},
+								{
+									"key": "pageSize",
+									"value": "<integrer>",
+									"description": "Limits the number of items to be returned.\n\nSome collections have a strict upper bound that will disregard this value. In case the specified value is higher\nthan the allowed limit, the collection limit will be used.\n\nIf avoided, the collection will determine the page size itself.",
+									"disabled": true
+								}
+							]
+						},
+						"description": "#### Reference Pages\n\n[https://developers.circle.com/reference/payments-cards-get](https://developers.circle.com/reference/payments-cards-get)\n\n#### Description\n\nGet a list of cards."
+					},
+					"response": []
+				},
+				{
+					"name": "/card/{id}",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Request-Id",
+								"value": "{{$guid}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/cards/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"cards",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "<string>",
+									"description": "(REQUIRED) Universally unique identifier (UUID v4) of a resource.\n"
+								}
+							]
+						},
+						"description": "#### Reference Pages\n\n[https://developers.circle.com/reference/payments-cards-get-id](Pageshttps://developers.circle.com/reference/payments-cards-get-idDescriptionGet)\n\n#### Description\n\nGet information on a given card."
+					},
+					"response": []
+				},
+				{
+					"name": "/cards{id}",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "X-Request-Id",
+								"value": "{{$guid}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n     \"keyId\": \"key1\",\n     \"encryptedData\": \"UHVibGljS2V5QmFzZTY0RW5jb2RlZA==\",\n     \"expMonth\": 1,\n     \"expYear\": 2020\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/cards/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"cards",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "<string>",
+									"description": "(REQUIRED) Universally unique identifier (UUID v4) of a resource."
+								}
+							]
+						},
+						"description": "#### Reference Pages\n\n[https://developers.circle.com/reference/payments-cards-update-id](https://developers.circle.com/reference/payments-cards-update-id)\n\n#### Description\n\nUpdate a card.\n\n#### Body Params\n\n**idempotencyKey** *string* (REQUIRED)  \nUniversally unique identifier (UUID v4) idempotency key. This key is utilized to ensure exactly-once execution of mutating requests.\n\n**keyId** *string* (REQUIRED)  \nIdentifier of the public key used in encryption.\n\n**encryptedData** *string* (REQUIRED)  \nPGP encrypted base64 encoded string. Contains CVV.\n\n**expMonth** *integer* (REQUIRED)  \nTwo digit number representing the card's expiration month.\n\n**expYear** *integer* (REQUIRED)  \nFour digit number representing the card's expiration year."
+					},
+					"response": []
+				},
+				{
+					"name": "/cards",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Request-Id",
+								"value": "{{$guid}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n     \"billingDetails\": {\n          \"name\": \"Satoshi Nakamoto\",\n          \"city\": \"Boston\",\n          \"country\": \"US\",\n          \"line1\": \"100 Money Street\",\n          \"postalCode\": \"01234\",\n          \"district\": \"MA\"\n     },\n     \"metadata\": {\n          \"email\": \"satoshi@circle.com\",\n          \"sessionId\": \"DE6FA86F60BB47B379307F851E238617\",\n          \"ipAddress\": \"244.28.239.130\"\n     },\n     \"idempotencyKey\": \"{{$guid}}\",\n     \"keyId\": \"key1\",\n     \"encryptedData\": \"LS0tLS1CRUdJTiBQR1AgTUVTU0FHRS0tLS0tCgp3Y0JNQTBYV1NGbEZScFZoQVFmL2J2bVVkNG5LZ3dkbExKVTlEdEFEK0p5c0VOTUxuOUlRUWVGWnZJUWEKMGgzQklpRFNRU0RMZmI0NEs2SXZMeTZRbm54bmFLcWx0MjNUSmtPd2hGWFIrdnNSMU5IbnVHN0lUNWJECmZzeVdleXlNK1JLNUVHV0thZ3NmQ2tWamh2NGloY29xUnlTTGtJbWVmRzVaR0tMRkJTTTBsTFNPWFRURQpiMy91eU1zMVJNb3ZiclNvbXkxa3BybzUveWxabWVtV2ZsU1pWQlhNcTc1dGc1YjVSRVIraXM5ckc0cS8KMXl0M0FOYXA3UDhKekFhZVlyTnVNZGhGZFhvK0NFMC9CQnN3L0NIZXdhTDk4SmRVUEV0NjA5WFRHTG9kCjZtamY0YUtMQ01xd0RFMkNVb3dPdE8vMzVIMitnVDZKS3FoMmtjQUQyaXFlb3luNWcralRHaFNyd3NKWgpIdEphQWVZZXpGQUVOaFo3Q01IOGNsdnhZVWNORnJuNXlMRXVGTkwwZkczZy95S3loclhxQ0o3UFo5b3UKMFVxQjkzQURKWDlJZjRBeVQ2bU9MZm9wUytpT2lLall4bG1NLzhlVWc3OGp1OVJ5T1BXelhyTzdLWTNHClFSWm8KPXc1dEYKLS0tLS1FTkQgUEdQIE1FU1NBR0UtLS0tLQo\",\n     \"expMonth\": 1,\n     \"expYear\": 2020\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/cards",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"cards"
+							]
+						},
+						"description": "#### Reference Pages\n\n[https://developers.circle.com/reference/payments-cards-create](https://developers.circle.com/reference/payments-cards-create)\n\n#### Description\n\nCreate a card.\n\n#### **Body Params**\n\n**idempotencyKey** *string* (REQUIRED)  \nUniversally unique identifier (UUID v4) idempotency key. This key is utilized to ensure exactly-once execution of mutating requests.\n\n**keyId** *string* (REQUIRED)  \nIdentifier of the public key used in encryption.\n\n**encryptedData** *string* (REQUIRED)  \nPGP encrypted base64 encoded string. Contains Number and CVV e.g. {number: 123456789, cvv: 123}\n\n**billingDetails** *object* (REQUIRED)\n\n*   **name** *string* (REQUIRED)  \n    Full name of the card or bank account holder.\n*   **city** *string* (REQUIRED)  \n    City portion of the address.\n*   **line1** *string* (REQUIRED)  \n    Line one of the street address.\n*   **line2** *string*  \n    Line two of the street address.\n*   **district** *string* (US/CA only)  \n    State / County / Province / Region portion of the address. If the country is US or Canada, then district is required and should use the two-letter code for the subdivision.\n*   **postalCode** *string* (REQUIRED)  \n    Postal / ZIP code of the address.\n*   **country** *string* (REQUIRED)  \n    Country portion of the address. Formatted as a two-letter country code specified in ISO 3166-1 alpha-2.\n    \n\n**expMonth** *integer* (REQUIRED)  \nTwo digit number representing the card's expiration month.\n\n**expYear** *integer* (REQUIRED)  \nFour digit number representing the card's expiration year.\n\n**metadata** *object* (REQUIRED)\n\n*   **email** *string* (REQUIRED)  \n    Email of the user.\n*   **phoneNumber** *string*  \n    *Phone number of the user in E.164 format. We recommend using a library such as [libphonenumber](https://github.com/google/libphonenumber) to parse and validate phone numbers.\n*   **sessionId** *string* (REQUIRED)  \n    Hash of the session identifier; typically of the end user. This helps us make risk decisions and prevent fraud. IMPORTANT: Please hash the session identifier to prevent sending us actual session identifiers.\n*   **ipAddress** *string* (REQUIRED)  \n    Single IPv4 or IPv6 address of the end-user."
+					},
+					"response": []
+				}
+			],
+			"description": "Link, update, and get information on debit/credit cards."
+		},
+		{
+			"name": "Wires",
+			"item": [
+				{
+					"name": "/banks/wires (U.S.)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Request-Id",
+								"value": "{{$guid}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n     \"idempotencyKey\": \"{{$guid}}\",\n     \"accountNumber\": \"12340010\",\n     \"routingNumber\": \"121000248\",\n     \"billingDetails\": {\n          \"name\": \"Satoshi Nakamoto\",\n          \"city\": \"Boston\",\n          \"country\": \"US\",\n          \"line1\": \"100 Money Street\",\n          \"line2\": \"Suite 1\",\n          \"district\": \"MA\",\n          \"postalCode\": \"01234\"\n     },\n     \"bankAddress\": {\n          \"country\": \"US\"\n     }\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/banks/wires",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"banks",
+								"wires"
+							]
+						},
+						"description": "#### Reference Pages\n\n[https://developers.circle.com/reference/payments-bank-accounts-wires-create](https://developers.circle.com/reference/payments-bank-accounts-wires-create)\n\n#### Description\n\nCreate a U.S. bank account (wires).\n\n#### Body Params\n\n**idempotencyKey** *string* (REQUIRED)  \nUniversally unique identifier (UUID v4) idempotency key. This key is utilized to ensure exactly-once execution of mutating requests.\n\n**accountNumber** *string* (REQUIRED)  \nAccount number that identifies the bank account.\n\n**routingNumber** *string* (REQUIRED)  \nABA routing number for the bank account. Note this has to be specific for bank wire transfers.\n\n**billingDetails** *object* (REQUIRED)\n\n*   **name** *string* (REQUIRED)  \n    Full name of the bank account holder.\n*   **city** *string* (REQUIRED)  \n    City portion of the address.\n*   **line1** *string* (REQUIRED)  \n    Line one of the street address.\n*   **line2** *string*  \n    Line two of the street address.\n*   **district** *string* (REQUIRED)  \n    State / County / Province / Region portion of the address. If the country is US or Canada, then district is required and should use the two-letter code for the subdivision.\n*   **postalCode** *string* (REQUIRED)  \n    Postal / ZIP code of the address.\n*   **country** *string* (REQUIRED)  \n    Country portion of the address. Formatted as a two-letter country code specified in ISO 3166-1 alpha-2.\n    \n\n**bankAddress** *object* (REQUIRED)\n\n*   **bankName** *string*  \n    Name of the bank.\n*   **city** *string*  \n    City portion of the address.\n*   **line1** *string*  \n    Line one of the street address.\n*   **line2** *string*  \n    Line two of the street address.\n*   **district** *string*  \n    State / County / Province / Region portion of the address. US and Canada use the two-letter code for the subdivision.\n*   **country** *string* (REQUIRED)  \n    Country portion of the address. Formatted as a two-letter country code specified in ISO 3166-1 alpha-2."
+					},
+					"response": []
+				},
+				{
+					"name": "/banks/wires (Non-U.S. Non-IBAN)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Request-Id",
+								"value": "{{$guid}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n     \"idempotencyKey\": \"{{$guid}}\",\n     \"accountNumber\": \"002010077777777771\",\n     \"routingNumber\": \"BDEMMXMF\",\n     \"billingDetails\": {\n          \"name\": \"Satoshi Nakamoto\",\n          \"city\": \"Boston\",\n          \"country\": \"US\",\n          \"line1\": \"100 Money Street\",\n          \"line2\": \"Suite 1\",\n          \"district\": \"MA\",\n          \"postalCode\": \"01234\"\n     },\n     \"bankAddress\": {\n          \"bankName\": \"Banco Nacional de México\",\n          \"city\": \"México DF\",\n          \"country\": \"MX\"\n     }\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/banks/wires",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"banks",
+								"wires"
+							]
+						},
+						"description": "#### Reference Pages\n\n[https://developers.circle.com/reference/payments-bank-accounts-wires-create](https://developers.circle.com/reference/payments-bank-accounts-wires-create)\n\n#### Description\n\nCreate a non-U.S. non-IBAN bank account (wires).\n\n#### Body Params\n\n**idempotencyKey** *string* (REQUIRED)  \nUniversally unique identifier (UUID v4) idempotency key. This key is utilized to ensure exactly-once execution of mutating requests.\n\n**accountNumber** *string* (REQUIRED)  \nAccount number that identifies the bank account.\n\n**routingNumber** *string* (REQUIRED)  \nThe bank's SWIFT / BIC code.\n\n**billingDetails** *object* (REQUIRED)\n\n*   **name** *string* (REQUIRED)  \n    Full name of the bank account holder.\n*   **city** *string* (REQUIRED)  \n    City portion of the address.\n*   **line1** *string* (REQUIRED)  \n    Line one of the street address.\n*   **line2** *string*  \n    Line two of the street address.\n*   **district** *string* (US/CA Only)  \n    State / County / Province / Region portion of the address. If the country is US or Canada, then district is required and should use the two-letter code for the subdivision.\n*   **postalCode** *string* (REQUIRED)  \n    Postal / ZIP code of the address.\n*   **country** *string* (REQUIRED)  \n    Country portion of the address. Formatted as a two-letter country code specified in ISO 3166-1 alpha-2.\n    \n\n**bankAddress** *object* (REQUIRED)\n\n*   **bankName** *string* (REQUIRED)  \n    Name of the bank.\n*   **city** *string* (REQUIRED)  \n    City portion of the address.\n*   **line1** *string*  \n    Line one of the street address.\n*   **line2** *string*  \n    Line two of the street address.\n*   **district** *string*  \n    State / County / Province / Region portion of the address. US and Canada use the two-letter code for the subdivision.\n*   **country** *string* (REQUIRED)  \n    Country portion of the address. Formatted as a two-letter country code specified in ISO 3166-1 alpha-2."
+					},
+					"response": []
+				},
+				{
+					"name": "/banks/wires (Non-U.S. IBAN)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Request-Id",
+								"value": "{{$guid}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n     \"idempotencyKey\": \"{{$guid}}\",\n     \"iban\": \"DE31100400480532013000\",\n     \"billingDetails\": {\n          \"name\": \"Satoshi Nakamoto\",\n          \"city\": \"Boston\",\n          \"country\": \"US\",\n          \"line1\": \"100 Money Street\",\n          \"line2\": \"Suite 1\",\n          \"district\": \"MA\",\n          \"postalCode\": \"01234\"\n     },\n     \"bankAddress\": {\n          \"city\": \"Kassel\",\n          \"country\": \"DE\"\n     }\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/banks/wires",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"banks",
+								"wires"
+							]
+						},
+						"description": "#### Reference Pages\n\n[https://developers.circle.com/reference/payments-bank-accounts-wires-create](https://developers.circle.com/reference/payments-bank-accounts-wires-create)\n\n#### Description\n\nCreate a non-U.S. IBAN-supported bank account (wires).\n\n#### Body Params\n\n**idempotencyKey** *string* (REQUIRED)  \nUniversally unique identifier (UUID v4) idempotency key. This key is utilized to ensure exactly-once execution of mutating requests.\n\n**iban** *string* (REQUIRED)  \nInternational Bank Account Number (IBAN) for the bank account.\n\n**billingDetails** *object* (REQUIRED)\n\n*   **name** *string* (REQUIRED)  \n    Full name of the bank account holder.\n*   **city** *string* (REQUIRED)  \n    City portion of the address.\n*   **line1** *string* (REQUIRED)  \n    Line one of the street address.\n*   **line2** *string*  \n    Line two of the street address.\n*   **district** *string* (REQUIRED)  \n    State / County / Province / Region portion of the address. If the country is US or Canada, then district is required and should use the two-letter code for the subdivision.\n*   **postalCode** *string* (REQUIRED)  \n    Postal / ZIP code of the address.\n*   **country** *string* (REQUIRED)  \n    Country portion of the address. Formatted as a two-letter country code specified in ISO 3166-1 alpha-2.\n    \n\n**bankAddress** *object* (REQUIRED)\n\n*   **bankName** *string*  \n    Name of the bank.\n*   **city** *string* (REQUIRED)  \n    City portion of the address.\n*   **line1** *string*  \n    Line one of the street address.\n*   **line2** *string*  \n    Line two of the street address.\n*   **district** *string*  \n    State / County / Province / Region portion of the address. US and Canada use the two-letter code for the subdivision.\n*   **country** *string* (REQUIRED)  \n    Country portion of the address. Formatted as a two-letter country code specified in ISO 3166-1 alpha-2."
+					},
+					"response": []
+				},
+				{
+					"name": "/banks/wires/{id}",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Request-Id",
+								"value": "{{$guid}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "https://api-sandbox.circle.com/v1/banks/wires/:id",
+							"protocol": "https",
+							"host": [
+								"api-sandbox",
+								"circle",
+								"com"
+							],
+							"path": [
+								"v1",
+								"banks",
+								"wires",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "<string>",
+									"description": "(REQUIRED) Universally unique identifier (UUID v4) of a resource."
+								}
+							]
+						},
+						"description": "#### Reference Pages\n\n[https://developers.circle.com/reference/payments-bank-accounts-wires-get-id](https://developers.circle.com/reference/payments-bank-accounts-wires-get-id)\n\n#### Description\n\nGet information on a given bank account."
+					},
+					"response": []
+				},
+				{
+					"name": "/banks/wires/{id}/instructions",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Request-Id",
+								"value": "{{$guid}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://api-sandbox.circle.com/v1/banks/wires/:id/instructions",
+							"protocol": "https",
+							"host": [
+								"api-sandbox",
+								"circle",
+								"com"
+							],
+							"path": [
+								"v1",
+								"banks",
+								"wires",
+								":id",
+								"instructions"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "<string>",
+									"description": "(REQUIRED) Universally unique identifier (UUID v4) of a resource."
+								}
+							]
+						},
+						"description": "#### Reference Pages\n\n[https://developers.circle.com/reference/payments-bank-accounts-wires-get-id-instructions](https://developers.circle.com/reference/payments-bank-accounts-wires-get-id-instructions)\n\n#### Description\n\nGet the wire transfer instructions into the Circle bank account given your bank account id."
+					},
+					"response": []
+				}
+			],
+			"description": "Create, get instructions, and get information on bank accounts for wire transfers."
+		},
+		{
+			"name": "ACH",
+			"item": [
+				{
+					"name": "/banks/ach",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Request-Id",
+								"value": "{{$guid}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n     \"billingDetails\": {\n          \"name\": \"Sandbox Nakamoto\"\n     },\n     \"metadata\": {\n          \"email\": \"satoshi@circle.com\",\n          \"sessionId\": \"DE6FA86F60BB47B379307F851E238617\",\n          \"ipAddress\": \"244.28.239.130\"\n     },\n     \"idempotencyKey\": \"{{$guid}}\",\n     \"plaidProcessorToken\": \"{{plaid_token}}\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/banks/ach",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"banks",
+								"ach"
+							]
+						},
+						"description": "#### Reference Pages\n\n[https://developers.circle.com/reference/payments-bank-accounts-ach-create](https://developers.circle.com/reference/payments-bank-accounts-ach-create)\n\n#### Description\n\nCreate a bank account (ACH).\n\n#### Body Params\n\n**idempotencyKey** *string* (REQUIRED)  \nUniversally unique identifier (UUID v4) idempotency key. This key is utilized to ensure exactly-once execution of mutating requests.\n\n**plaidProcessorToken** *string* (REQUIRED)  \nThe token for the ACH account provided by the processor (Plaid).\n\n**billingDetails** *object* (REQUIRED)\n\n*   **name** *string* (REQUIRED)  \n    Full name of the bank account holder.\n*   **city** *string*  \n    City portion of the address.\n*   **line1** *string*  \n    Line one of the street address.\n*   **line2** *string*  \n    Line two of the street address.\n*   **district** *string*  \n    State / County / Province / Region portion of the address. If the country is US or Canada, then district is required and should use the two-letter code for the subdivision.\n*   **postalCode** *string*  \n    Postal / ZIP code of the address.\n*   **country** *string*  \n    Country portion of the address. Formatted as a two-letter country code specified in ISO 3166-1 alpha-2.\n    \n\n**metadata** *object* (REQUIRED)\n\n*   **email** *string* (REQUIRED)  \n    Email of the user.\n*   **phoneNumber** *string*  \n    *Phone number of the user in E.164 format. We recommend using a library such as [libphonenumber](https://github.com/google/libphonenumber) to parse and validate phone numbers.\n*   **sessionId** *string* (REQUIRED)  \n    Hash of the session identifier; typically of the end user. This helps us make risk decisions and prevent fraud. IMPORTANT: Please hash the session identifier to prevent sending us actual session identifiers.\n*   **ipAddress** *string* (REQUIRED)  \n    Single IPv4 or IPv6 address of the end-user."
+					},
+					"response": []
+				},
+				{
+					"name": "/banks/ach/{id}",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Request-Id",
+								"value": "{{$guid}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/banks/ach/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"banks",
+								"ach",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "645c7957-c48f-4d09-9926-7e499314f42f",
+									"description": "(REQUIRED) Universally unique identifier (UUID v4) of a resource."
+								}
+							]
+						},
+						"description": "#### Reference Pages\n\n[https://developers.circle.com/reference/payments-bank-accounts-ach-get-id](https://developers.circle.com/reference/payments-bank-accounts-ach-get-id)\n\n#### Description\n\nGet information on a given ACH account."
+					},
+					"response": []
+				},
+				{
+					"name": "mocks/ach/accounts",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Request-Id",
+								"value": "{{$guid}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"account\": {\n        \"accountNumber\": \"987654321\",\n        \"routingNumber\": \"011201762\",\n        \"description\": \"My ACH 011201762\"\n    },\n    \"balance\": {\n        \"amount\": \"1000.00\",\n        \"currency\": \"USD\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/mocks/ach/accounts",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"mocks",
+								"ach",
+								"accounts"
+							]
+						},
+						"description": "#### Reference Pages\n\n[https://developers.circle.com/reference/payments-bank-accounts-ach-mock](https://developers.circle.com/reference/payments-bank-accounts-ach-mock)\n\n#### Description\n\nIn the sandbox environment, create a mock ACH account and retrieve a processor token that can be used to link an ACH account.\n\n#### Body Params\n\n**account** *object* (REQUIRED)\n\n*   **accountNumber** *string* (REQUIRED)  \n    The account number of the ACH account.\n*   **routingNumber** *string* (REQUIRED)  \n    The routing number of the ACH account.For sandbox testing, valid routing numbers include `011000028`, `011201762`, `011500120`, `021214862`, `121000248`, `121140399`, `211073473`, `221172610`, and `011000138`.\n*   **description** *string*  \n    A description for the ACH account.\n    \n\n**balance** *object* (REQUIRED)\n\n*   **balance** *string* (REQUIRED)  \n    Magnitude of the amount, in units of the currency, with a `.`.\n*   **currency** *string* (REQUIRED)  \n    Currency code."
+					},
+					"response": []
+				}
+			],
+			"description": "Link and get information on bank account for ACH payments."
+		},
+		{
+			"name": "SEPA",
+			"item": [
+				{
+					"name": "POST /banks/sepa",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Request-Id",
+								"value": "{{$guid}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n     \"billingDetails\": {\n          \"name\": \"Satoshi Nakamoto\",\n          \"city\": \"Boston\",\n          \"country\": \"US\",\n          \"line1\": \"100 Money Street\",\n          \"district\": \"MA\",\n          \"postalCode\": \"01234\"\n     },\n     \"idempotencyKey\": \"{{$guid}}\",\n     \"iban\": \"DE31100400480532013000\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/banks/sepa",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"banks",
+								"sepa"
+							]
+						},
+						"description": "#### Reference Pages\n\n[https://developers.circle.com/reference/createsepabankaccount](https://developers.circle.com/reference/createsepabankaccount)\n\n#### **Description**\n\nBETA Create a bank account (SEPA).\n\n#### Body Params\n\n**idempotencyKey** *string* (REQUIRED)  \nUniversally unique identifier (UUID v4) idempotency key. This key is utilized to ensure exactly-once execution of mutating requests.\n\n**iban** *string* (REQUIRED)  \nInternational Bank Account Number (IBAN) for the bank account.\n\n**billingDetails** *object* (REQUIRED)\n\n*   **name** *string* (REQUIRED)  \n    Full name of the bank account holder.\n*   **city** *string* (REQUIRED)  \n    City portion of the address.\n*   **line1** *string* (REQUIRED)  \n    Line one of the street address.\n*   **line2** *string*  \n    Line two of the street address.\n*   **district** *string* (REQUIRED)  \n    State / County / Province / Region portion of the address. If the country is US or Canada, then district is required and should use the two-letter code for the subdivision.\n*   **postalCode** *string* (REQUIRED)  \n    Postal / ZIP code of the address.\n*   **country** *string* (REQUIRED)  \n    Country portion of the address. Formatted as a two-letter country code specified in ISO 3166-1 alpha-2."
+					},
+					"response": []
+				},
+				{
+					"name": "GET /banks/sepa/{id}",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Request-Id",
+								"value": "{{$guid}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/banks/sepa/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"banks",
+								"sepa",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "959c2535-aba0-4736-a464-f5b8d0ed4649",
+									"description": "(REQUIRED) Universally unique identifier (UUID v4) of a resource.\n\n"
+								}
+							]
+						},
+						"description": "#### Reference Pages\n\n[https://developers.circle.com/reference/getsepabankaccount](https://developers.circle.com/reference/getsepabankaccount)\n\n#### Description\n\nBETA Get information on a given bank account (SEPA)."
+					},
+					"response": []
+				}
+			],
+			"description": "Create and get information on SEPA accounts."
+		},
+		{
+			"name": "Settlements",
+			"item": [
+				{
+					"name": "/settlements",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Request-Id",
+								"value": "{{$guid}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/settlements",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"settlements"
+							],
+							"query": [
+								{
+									"key": "from",
+									"value": "<date-time>",
+									"description": "(REQUIRED) Queries items created since the specified date-time (inclusive).",
+									"disabled": true
+								},
+								{
+									"key": "to",
+									"value": "<date-time>",
+									"description": "Queries items created before the specified date-time (inclusive).",
+									"disabled": true
+								},
+								{
+									"key": "pageBefore",
+									"value": "<string>",
+									"description": "A collection ID value used for pagination.\n\nIt marks the exclusive end of a page. When provided, the collection resource will return the next n items before\nthe id, with n being specified by pageSize.\n\nThe items will be returned in the natural order of the collection.\n\nThe resource will return the first page if neither pageAfter nor pageBefore are specified.\n\nSHOULD NOT be used in conjuction with pageAfter.",
+									"disabled": true
+								},
+								{
+									"key": "pageAfter",
+									"value": "<string>",
+									"description": "A collection ID value used for pagination.\n\nIt marks the exclusive begin of a page. When provided, the collection resource will return the next n items after\nthe id, with n being specified by pageSize.\n\nThe items will be returned in the natural order of the collection.\n\nThe resource will return the first page if neither pageAfter nor pageBefore are specified.\n\nSHOULD NOT be used in conjuction with pageBefore.",
+									"disabled": true
+								},
+								{
+									"key": "pageSize",
+									"value": "<integer>",
+									"description": "Limits the number of items to be returned.\n\nSome collections have a strict upper bound that will disregard this value. In case the specified value is higher\nthan the allowed limit, the collection limit will be used.\n\nIf avoided, the collection will determine the page size itself.",
+									"disabled": true
+								}
+							]
+						},
+						"description": "#### Reference Pages\n\n[https://developers.circle.com/reference/payments-settlements-get](https://developers.circle.com/reference/payments-settlements-get)\n\n#### Description\n\nGet a list of settlements."
+					},
+					"response": []
+				},
+				{
+					"name": "/settlements/{id}",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Request-Id",
+								"value": "{{$guid}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/settlements/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"settlements",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "6869784f-ef55-4b7c-8818-85c6a4628223",
+									"description": "(REQUIRED) Universally unique identifier (UUID v4) of a resource."
+								}
+							]
+						},
+						"description": "#### Reference Pages\n\n[https://developers.circle.com/reference/payments-settlements-get-id](https://developers.circle.com/reference/payments-settlements-get-id)\n\n#### Description\n\nGet information on a given settlement."
+					},
+					"response": []
+				}
+			],
+			"description": "Get information on settlement batches."
+		},
+		{
+			"name": "Chargebacks",
+			"item": [
+				{
+					"name": "/chargebacks",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Request-Id",
+								"value": "{{$guid}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/chargebacks",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"chargebacks"
+							],
+							"query": [
+								{
+									"key": "paymentId",
+									"value": "<string>",
+									"description": "The payment ID associated with the chargeback.",
+									"disabled": true
+								},
+								{
+									"key": "from",
+									"value": "<date-time>",
+									"description": "Queries items created since the specified date-time (inclusive).",
+									"disabled": true
+								},
+								{
+									"key": "to",
+									"value": "<date-time>",
+									"description": "Queries items created before the specified date-time (inclusive).",
+									"disabled": true
+								},
+								{
+									"key": "pageBefore",
+									"value": "<string>",
+									"description": "A collection ID value used for pagination.\n\nIt marks the exclusive end of a page. When provided, the collection resource will return the next n items before\nthe id, with n being specified by pageSize.\n\nThe items will be returned in the natural order of the collection.\n\nThe resource will return the first page if neither pageAfter nor pageBefore are specified.\n\nSHOULD NOT be used in conjuction with pageAfter.",
+									"disabled": true
+								},
+								{
+									"key": "pageAfter",
+									"value": "<string>",
+									"description": "A collection ID value used for pagination.\n\nIt marks the exclusive begin of a page. When provided, the collection resource will return the next n items after\nthe id, with n being specified by pageSize.\n\nThe items will be returned in the natural order of the collection.\n\nThe resource will return the first page if neither pageAfter nor pageBefore are specified.\n\nSHOULD NOT be used in conjuction with pageBefore.",
+									"disabled": true
+								},
+								{
+									"key": "pageSize",
+									"value": "<integer>",
+									"description": "Limits the number of items to be returned.\n\nSome collections have a strict upper bound that will disregard this value. In case the specified value is higher\nthan the allowed limit, the collection limit will be used.\n\nIf avoided, the collection will determine the page size itself.",
+									"disabled": true
+								}
+							]
+						},
+						"description": "#### Reference Pages\n\n[https://developers.circle.com/reference/payments-chargebacks-get](https://developers.circle.com/reference/payments-chargebacks-get)\n\n#### Description\n\nRetrieve list of chargebacks. Results will be sorted by create date descending: more recent chargebacks will be at the beginning of the list."
+					},
+					"response": []
+				},
+				{
+					"name": "/chargebacks/{id}",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Request-Id",
+								"value": "{{$guid}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/chargebacks/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"chargebacks",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "<string>",
+									"description": "(REQUIRED) Universally unique identifier (UUID v4) of a resource.\n\n"
+								}
+							]
+						},
+						"description": "#### Reference Pages\n\n[https://developers.circle.com/reference/payments-chargebacks-get-id](https://developers.circle.com/reference/payments-chargebacks-get-id)\n\n#### Description\n\nRetrieve information for a given chargeback."
+					},
+					"response": []
+				},
+				{
+					"name": "/mocks/cards/chargebacks",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Request-id",
+								"value": "{{$guid}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"paymentId\": \"5a2d1625-33dc-4e5b-ab02-b7503283e6c9\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/mocks/cards/chargebacks",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"mocks",
+								"cards",
+								"chargebacks"
+							]
+						},
+						"description": "#### Reference Pages\n\n[https://developers.circle.com/reference/payments-chargebacks-mock-create](https://developers.circle.com/reference/payments-chargebacks-mock-create)\n\n#### Description\n\nIn the sandbox environment, initiate a mock chargeback of a specified payment. The entire payment will be charged back for its full value. The payment must be in the `paid` state (otherwise the endpoint will return a `404`), and each payment can only be charged back once (otherwise the endpoint will return a `409`). This endpoint is only available in the sandbox environment.\n\n#### Body Params\n\n**paymentId** *string*  \nThe id of the payment to be charged back. Each payment can only be charged back once."
+					},
+					"response": []
+				}
+			],
+			"description": "Get information on card chargebacks.\n\n[https://developers.circle.com/reference#payments-chargebacks](https://developers.circle.com/reference#payments-chargebacks)"
+		},
+		{
+			"name": "Reversals",
+			"item": [
+				{
+					"name": "/reversals",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Request-Id",
+								"value": "{{$guid}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/reversals",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"reversals"
+							],
+							"query": [
+								{
+									"key": "status",
+									"value": "<string>",
+									"description": "Queries items with the specified status. Matches any status if unspecified.",
+									"disabled": true
+								},
+								{
+									"key": "from",
+									"value": "<date-time>",
+									"description": "Queries items created since the specified date-time (inclusive).",
+									"disabled": true
+								},
+								{
+									"key": "to",
+									"value": "<date-time>",
+									"description": "Queries items created before the specified date-time (inclusive).",
+									"disabled": true
+								},
+								{
+									"key": "pageBefore",
+									"value": "<string>",
+									"description": "A collection ID value used for pagination.\n\nIt marks the exclusive end of a page. When provided, the collection resource will return the next n items before\nthe id, with n being specified by pageSize.\n\nThe items will be returned in the natural order of the collection.\n\nThe resource will return the first page if neither pageAfter nor pageBefore are specified.\n\nSHOULD NOT be used in conjuction with pageAfter.",
+									"disabled": true
+								},
+								{
+									"key": "pageAfter",
+									"value": "<string>",
+									"description": "A collection ID value used for pagination.\n\nIt marks the exclusive begin of a page. When provided, the collection resource will return the next n items after\nthe id, with n being specified by pageSize.\n\nThe items will be returned in the natural order of the collection.\n\nThe resource will return the first page if neither pageAfter nor pageBefore are specified.\n\nSHOULD NOT be used in conjuction with pageBefore.",
+									"disabled": true
+								},
+								{
+									"key": "pageSize",
+									"value": "<string>",
+									"description": "Limits the number of items to be returned.\n\nSome collections have a strict upper bound that will disregard this value. In case the specified value is higher\nthan the allowed limit, the collection limit will be used.\n\nIf avoided, the collection will determine the page size itself.",
+									"disabled": true
+								}
+							]
+						},
+						"description": "#### Reference Pages\n\n[https://developers.circle.com/reference/payments-reversals-get](https://developers.circle.com/reference/payments-reversals-get)\n\n#### Description\n\nRetrieve a list of ACH payment reversals. Results will be sorted by create date descending; more recent reversals will be at the beginning of the list."
+					},
+					"response": []
+				}
+			],
+			"description": "Get information on ACH reversals."
+		},
+		{
+			"name": "Balances",
+			"item": [
+				{
+					"name": "/balances",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Request-Id",
+								"value": "{{$guid}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/balances",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"balances"
+							]
+						},
+						"description": "#### Reference Pages\n\n[https://developers.circle.com/reference/payments-balances-get](https://developers.circle.com/reference/payments-balances-get)\n\n#### Description\n\nRetrieves the balance of merchant funds that have settled and also of funds that have been sent for processing but have not yet settled."
+					},
+					"response": []
+				}
+			],
+			"description": "Get information on settled and unsettled balances."
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{apiKey}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"var uuid = require('uuid');",
+					"postman.setEnvironmentVariable('guid', uuid.v4());"
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://api-sandbox.circle.com/v1"
+		}
+	]
+}

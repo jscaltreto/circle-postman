@@ -1,0 +1,375 @@
+{
+	"info": {
+		"_postman_id": "2fd58549-bc3e-45bb-8e7b-c2deae9eb66f",
+		"name": "General API",
+		"description": "This needs to be documented. Adding so we do not forget to publish it.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17833796"
+	},
+	"item": [
+		{
+			"name": "Health",
+			"item": [
+				{
+					"name": "/ping",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Request-Id",
+								"value": "{{$guid}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/ping",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"ping"
+							]
+						},
+						"description": "#### Reference Pages\n\n[https://developers.circle.com/reference/ping](https://developers.circle.com/reference/ping)\n\n#### Description\n\nChecks that the service is running."
+					},
+					"response": []
+				}
+			],
+			"description": "Get updates on the status of Circle's APIs."
+		},
+		{
+			"name": "Management",
+			"item": [
+				{
+					"name": "/configuration",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const responseJson = pm.response.json();",
+									"",
+									"if (pm.response.code > 199 && pm.response.code < 300) {",
+									"  pm.environment.set(\"walletMasterId\", responseJson.data.payments.masterWalletId);",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Request-Id",
+								"value": "{{$guid}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/configuration",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"configuration"
+							]
+						},
+						"description": "#### Reference Pages\n\n[https://developers.circle.com/reference/getconfig](https://developers.circle.com/reference/getconfig)\n\n#### Description\n\nRetrieves general configuration information."
+					},
+					"response": []
+				}
+			],
+			"description": "Get information on your Circle Account configurations."
+		},
+		{
+			"name": "Encryption",
+			"item": [
+				{
+					"name": "/encryption/public",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const responseJson = pm.response.json();",
+									"",
+									"if (pm.response.code > 199 && pm.response.code < 300) {",
+									"  pm.environment.set(\"keyId\", responseJson.data.keyId);",
+									"  pm.environment.set(\"publicKey\", responseJson.data.publicKey);",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Request-Id",
+								"value": "{{$guid}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/encryption/public",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"encryption",
+								"public"
+							]
+						},
+						"description": "#### Reference Pages\n\n[https://developers.circle.com/reference/getpublickey](https://developers.circle.com/reference/getpublickey)\n\n#### Description\n\nRetrieves an RSA public key to be used in encrypting data sent to the API. Your public keys change infrequently, so we encourage you to cache this response value locally for a duration of 24 hours or more."
+					},
+					"response": []
+				}
+			],
+			"description": "Get a public key for data encryption."
+		},
+		{
+			"name": "Subscriptions",
+			"item": [
+				{
+					"name": "/notifications/subscriptions",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Request-Id",
+								"value": "{{$guid}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/notifications/subscriptions",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"notifications",
+								"subscriptions"
+							]
+						},
+						"description": "#### Reference Pages\n\n[https://developers.circle.com/reference/listsubscriptions](https://developers.circle.com/reference/listsubscriptions)\n\n#### Description\n\nRetrieve a list of existing notification subscriptions with details."
+					},
+					"response": []
+				},
+				{
+					"name": "/notifications/subscriptions",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Request-Id",
+								"value": "{{$guid}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"endpoint\": \"https://742ef341af57c9.lhrtunnel.link\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/notifications/subscriptions",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"notifications",
+								"subscriptions"
+							]
+						},
+						"description": "#### Reference Pages\n\n[https://developers.circle.com/reference/subscribe](https://developers.circle.com/reference/subscribe)\n\n#### Description\n\nSubscribe to receiving notifications at a given endpoint. The endpoint should be able to handle AWS SNS subscription requests. For more details see [https://docs.aws.amazon.com/mobile/sdkforxamarin/developerguide/sns-send-http.html](https://docs.aws.amazon.com/mobile/sdkforxamarin/developerguide/sns-send-http.html). Note, the sandbox environment allows a maximum of 3 active subscriptions; otherwise, this is limited to 1 active subscription and subsequent create requests will be rejected with a Limit Exceeded error.\n\n#### Body Params\n\n**endpoint** *string* (REQUIRED)  \nURL of the subscriber endpoint. Must be publicly accessible and utilize HTTPS."
+					},
+					"response": []
+				},
+				{
+					"name": "/notifications/subscriptions",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Request-Id",
+								"value": "{{$guid}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/notifications/subscriptions/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"notifications",
+								"subscriptions",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "8f485023-fe36-405d-9ba4-b29491750342"
+								}
+							]
+						},
+						"description": "#### Reference Pages\n\n[https://developers.circle.com/reference/unsubscribe](https://developers.circle.com/reference/unsubscribe)\n\n#### Description\n\nTo remove a subscription, all its subscription requests' statuses must be either 'confirmed', 'deleted' or a combination of those. A subscription with at least one 'pending' subscription request cannot be removed."
+					},
+					"response": []
+				}
+			],
+			"description": "Create, get information on, or delete subscriptions for AWS SNS Notifications.\n\nFor more information, see this quickstart guide.\n\n[https://developers.circle.com/docs/notifications-quickstart](https://developers.circle.com/docs/notifications-quickstart)"
+		},
+		{
+			"name": "Channels",
+			"item": [
+				{
+					"name": "/channels",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Request-Id",
+								"value": "{{$guid}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/channels",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"channels"
+							]
+						},
+						"description": "#### Reference Pages\n\n[https://developers.circle.com/reference/listchannels](https://developers.circle.com/reference/listchannels)\n\n#### Description\n\nRetrieve a list of channels with details (e.g. `cardDescriptor`, `achDescriptor`, etc.)."
+					},
+					"response": []
+				}
+			],
+			"description": "Get information on payment channels configured for your Circle Account."
+		},
+		{
+			"name": "Stablecoins",
+			"item": [
+				{
+					"name": "/stablecoins",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Request-Id",
+								"value": "{{$guid}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/stablecoins",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"stablecoins"
+							]
+						},
+						"description": "#### Reference Pages\n\n[https://developers.circle.com/reference/getstablecoins](https://developers.circle.com/reference/getstablecoins)\n\n#### Description\n\nRetrieves total circulating supply for supported stablecoins across all chains. This endpoint is rate limited to one call per minute (based on IP)."
+					},
+					"response": []
+				}
+			],
+			"description": "Get a list of supported stablecoins and the associated circulating supplies."
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{apiKey}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

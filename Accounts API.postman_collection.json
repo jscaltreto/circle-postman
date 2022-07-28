@@ -1,0 +1,481 @@
+{
+	"info": {
+		"_postman_id": "e78610e4-9049-4c01-9507-6e22f5f9c232",
+		"name": "Accounts API",
+		"description": "#### Developer Guide\n\n[https://developers.circle.com/docs/getting-started-with-the-circle-digital-dollar-accounts-api](https://developers.circle.com/docs/getting-started-with-the-circle-digital-dollar-accounts-api)\n\n#### Description\n\nThe Accounts API allows you to easily create and host digital wallets for your customers, and manage transfers of funds across accounts- whether they are within the Circle platform, or in / out of the platform via on-chain USDC, EUROC, BTC, and ETH connectivity.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17833796"
+	},
+	"item": [
+		{
+			"name": "Wallets",
+			"item": [
+				{
+					"name": "/wallets",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Request-Id",
+								"value": "{{$guid}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n     \"idempotencyKey\": \"{{$guid}}\",\n     \"description\": \"Treasury Wallet\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/wallets",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"wallets"
+							]
+						},
+						"description": "#### Reference Pages\n\n[https://developers.circle.com/reference/accounts-wallets-create](https://developers.circle.com/reference/accounts-wallets-create)\n\n#### Description\n\nCreates an end user wallet.\n\n#### Body Params\n\n**idempotencyKey** *string* (REQUIRED)  \nUniversally unique identifier (UUID v4) idempotency key. This key is utilized to ensure exactly-once execution of mutating requests.\n\n**description** *string*  \nA human-friendly, non-unique identifier for a wallet."
+					},
+					"response": []
+				},
+				{
+					"name": "/wallets",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Request-Id",
+								"value": "{{$guid}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/wallets",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"wallets"
+							],
+							"query": [
+								{
+									"key": "from",
+									"value": "<date-time>",
+									"description": "Queries items created since the specified date-time (inclusive).",
+									"disabled": true
+								},
+								{
+									"key": "to",
+									"value": "<date-time>",
+									"description": "Queries items created before the specified date-time (inclusive).",
+									"disabled": true
+								},
+								{
+									"key": "pageBefore",
+									"value": "<string>",
+									"description": "A collection ID value used for pagination.\n\nIt marks the exclusive end of a page. When provided, the collection resource will return the next n items before\nthe id, with n being specified by pageSize.\n\nThe items will be returned in the natural order of the collection.\n\nThe resource will return the first page if neither pageAfter nor pageBefore are specified.\n\nSHOULD NOT be used in conjuction with pageAfter.",
+									"disabled": true
+								},
+								{
+									"key": "pageAfter",
+									"value": "<string>",
+									"description": "A collection ID value used for pagination.\n\nIt marks the exclusive begin of a page. When provided, the collection resource will return the next n items after\nthe id, with n being specified by pageSize.\n\nThe items will be returned in the natural order of the collection.\n\nThe resource will return the first page if neither pageAfter nor pageBefore are specified.\n\nSHOULD NOT be used in conjuction with pageBefore.",
+									"disabled": true
+								},
+								{
+									"key": "pageSize",
+									"value": "<integer>",
+									"description": "Limits the number of items to be returned.\n\nSome collections have a strict upper bound that will disregard this value. In case the specified value is higher\nthan the allowed limit, the collection limit will be used.\n\nIf avoided, the collection will determine the page size itself.",
+									"disabled": true
+								}
+							]
+						},
+						"description": "#### Reference Pages\n\n[https://developers.circle.com/reference/accounts-wallets-get](https://developers.circle.com/reference/accounts-wallets-get)\n\n#### Description\n\nRetrieves a list of a user's wallets."
+					},
+					"response": []
+				},
+				{
+					"name": "/wallets/{id}",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Request-Id",
+								"value": "{{$guid}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{baseUrl}}/wallets/:walletId",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"wallets",
+								":walletId"
+							],
+							"variable": [
+								{
+									"key": "walletId",
+									"value": "1000037212",
+									"description": "(REQUIRED) Identifier for the wallet."
+								}
+							]
+						},
+						"description": "#### Reference Pages\n\n[https://developers.circle.com/reference/accounts-wallets-get-id](https://developers.circle.com/reference/accounts-wallets-get-id)\n\n#### Description\n\nReturns the details for a given wallet."
+					},
+					"response": []
+				},
+				{
+					"name": "/wallets/{id}/addresses",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Request-Id",
+								"value": "{{$guid}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n     \"idempotencyKey\": \"{{$guid}}\",\n     \"currency\": \"USD\",\n     \"chain\": \"ETH\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/wallets/:walletId/addresses",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"wallets",
+								":walletId",
+								"addresses"
+							],
+							"variable": [
+								{
+									"key": "walletId",
+									"value": "1000944799"
+								}
+							]
+						},
+						"description": "#### Reference Pages\n\n[https://developers.circle.com/reference/accounts-wallets-addresses-create](https://developers.circle.com/reference/accounts-wallets-addresses-create)\n\n#### Description\n\nGenerates a new blockchain address for a wallet for a given currency/chain pair. Circle may reuse addresses on blockchains that support reuse. For example, if you're requesting two addresses for depositing USD and ETH, both on Ethereum, you may see the same Ethereum address returned. Depositing cryptocurrency to a generated address will credit the associated wallet with the value of the deposit.\n\n#### **Body Params**\n\n**idempotencyKey** *string* (REQUIRED)  \nUniversally unique identifier (UUID v4) idempotency key. This key is utilized to ensure exactly-once execution of mutating requests.\n\n**currency** *string* (REQUIRED)  \nA currency associated with a balance or address.\n\n**chain** *string* (REQUIRED)  \nA blockchain that a given currency is available on."
+					},
+					"response": []
+				},
+				{
+					"name": "/wallets/{id}/addresses",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Request-Id",
+								"value": "{{$guid}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/wallets/:walletId/addresses",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"wallets",
+								":walletId",
+								"addresses"
+							],
+							"query": [
+								{
+									"key": "from",
+									"value": "<date-time>",
+									"description": "Queries items created since the specified date-time (inclusive).",
+									"disabled": true
+								},
+								{
+									"key": "to",
+									"value": "<date-time>",
+									"description": "Queries items created before the specified date-time (inclusive).\n\n",
+									"disabled": true
+								},
+								{
+									"key": "pageBefore",
+									"value": "<string>",
+									"description": "A collection ID value used for pagination.\n\nIt marks the exclusive end of a page. When provided, the collection resource will return the next n items before\nthe id, with n being specified by pageSize.\n\nThe items will be returned in the natural order of the collection.\n\nThe resource will return the first page if neither pageAfter nor pageBefore are specified.\n\nSHOULD NOT be used in conjuction with pageAfter.",
+									"disabled": true
+								},
+								{
+									"key": "pageAfter",
+									"value": "<string>",
+									"description": "A collection ID value used for pagination.\n\nIt marks the exclusive begin of a page. When provided, the collection resource will return the next n items after\nthe id, with n being specified by pageSize.\n\nThe items will be returned in the natural order of the collection.\n\nThe resource will return the first page if neither pageAfter nor pageBefore are specified.\n\nSHOULD NOT be used in conjuction with pageBefore.",
+									"disabled": true
+								},
+								{
+									"key": "pageSize",
+									"value": "<integer>",
+									"description": "Limits the number of items to be returned.\n\nSome collections have a strict upper bound that will disregard this value. In case the specified value is higher\nthan the allowed limit, the collection limit will be used.\n\nIf avoided, the collection will determine the page size itself.",
+									"disabled": true
+								}
+							],
+							"variable": [
+								{
+									"key": "walletId",
+									"value": "1000037212",
+									"description": "(REQUIRED) Identifier for the wallet."
+								}
+							]
+						},
+						"description": "#### Reference Pages\n\n[https://developers.circle.com/reference/accounts-wallets-addresses-get](https://developers.circle.com/reference/accounts-wallets-addresses-get)\n\n#### Description\n\nRetrieves a list of addresses associated with a wallet."
+					},
+					"response": []
+				}
+			],
+			"description": "Create digital wallets and get information on their activity."
+		},
+		{
+			"name": "Transfers",
+			"item": [
+				{
+					"name": "/transfers",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Request-Id",
+								"value": "{{$guid}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n     \"source\": {\n          \"id\": \"1000944799\",\n          \"type\": \"wallet\"\n     },\n     \"destination\": {\n          \"type\": \"blockchain\",\n          \"address\": \"0x94775c7d619193b1\",\n          \"chain\": \"FLOW\"\n     },\n     \"amount\": {\n          \"amount\": \"200\",\n          \"currency\": \"FLOW\"\n     },\n     \"idempotencyKey\": \"{{$guid}}\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/transfers",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"transfers"
+							]
+						},
+						"description": "#### Reference Pages\n\n[https://developers.circle.com/reference/payouts-transfers-create](https://developers.circle.com/reference/payouts-transfers-create)\n\n#### Description\n\nCreate a transfer.\n\nA transfer can be made from an existing funded wallet to a blockchain address or another wallet.\n\n#### Body Params\n\n**idempotencyKey** *string* (REQUIRED)  \nUniversally unique identifier (UUID v4) idempotency key. This key is utilized to ensure exactly-once execution of mutating requests.\n\n**source** *object* (REQUIRED)\n\n*   **type** *string* (REQUIRED)\n*   **id** *string* (REQUIRED)\n*   **identities** *object* (REQUIRED - ETH \"chain\" transfers > 3K only)\n    *   **type** *string* (REQUIRED)  \n        The type of identity for the originator.\n    *   **name** *string* (REQUIRED)  \n        Full name of the identity.\n    *   **addresses** *array of objects* (REQUIRED)\n        *   **line1** *string* (REQUIRED)  \n            Line one of the street address.\n        *   **line2** *string*  \n            *Line two of the street address.\n        *   **city** *string* (REQUIRED)  \n            City portion of the address.\n        *   **district** *string* (REQUIRED - US/CA only)  \n            State / County / Province / Region portion of the address. If the country is US or Canada, then district is required and should use the two-letter code for the subdivision.\n        *   **postalCode** *string* (REQUIRED)  \n            Postal / ZIP code of the address.\n        *   **country** *string* (REQUIRED)  \n            Country portion of the address. Formatted as a two-letter country code specified in ISO 3166-1 alpha-2.\n\n**destination** *object* (REQUIRED)  \nOption 1 - blockchain transfer\n\n*   **type** *string* (REQUIRED)\n*   **address** *string* (REQUIRED)  \n    The blockchain address.\n*   **addressTag** *string  \n    *The secondary identifier for a blockchain address. An example of this is the memo field on the Stellar network, which can be text, id, or hash format.\n*   **chain** *string* (REQUIRED)  \n    A blockchain that a given currency is available on.\n    \n\nOption 2 - wallet transfer\n\n*   **type** *string* (REQUIRED)\n*   **id** *string* (REQUIRED)  \n    The id of the wallet.\n    \n\n**amount** *object* (REQUIRED)\n\n*   **amount** *string* (REQUIRED)  \n    Magnitude of the amount, in units of the currency, with a `.`.\n*   **currency** *string* (REQUIRED)  \n    Currency code for the amount."
+					},
+					"response": []
+				},
+				{
+					"name": "/transfers",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Request-Id",
+								"value": "{{$guid}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "{{baseUrl}}/transfers",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"transfers"
+							],
+							"query": [
+								{
+									"key": "walletId",
+									"value": "<string>",
+									"description": "Unique identifier for the source or destination wallet of transfers, if any. May not be used in conjunction with destinationWalletId or sourceWalletId. Useful for fetching all transfers related to a wallet.",
+									"disabled": true
+								},
+								{
+									"key": "sourceWalletId",
+									"value": "<string>",
+									"description": "Unique identifier for the source wallet of transfers, if any.",
+									"disabled": true
+								},
+								{
+									"key": "destinationWalletId",
+									"value": "<string>",
+									"description": "Unique identifier for the destination wallet of transfers, if any.",
+									"disabled": true
+								},
+								{
+									"key": "returnIdentities",
+									"value": "<boolean>",
+									"description": "Specify if you would like to see identities in the response. Restricts maximum returned items to 5. By default returnIdentities is false, resulting in the response not returning data.source.identities.",
+									"disabled": true
+								},
+								{
+									"key": "from",
+									"value": "<date-time>",
+									"description": "Queries items created since the specified date-time (inclusive).",
+									"disabled": true
+								},
+								{
+									"key": "to",
+									"value": "<date-time>",
+									"description": "Queries items created before the specified date-time (inclusive).",
+									"disabled": true
+								},
+								{
+									"key": "pageBefore",
+									"value": "<string>",
+									"description": "A collection ID value used for pagination.\n\nIt marks the exclusive end of a page. When provided, the collection resource will return the next n items before\nthe id, with n being specified by pageSize.\n\nThe items will be returned in the natural order of the collection.\n\nThe resource will return the first page if neither pageAfter nor pageBefore are specified.\n\nSHOULD NOT be used in conjuction with pageAfter.",
+									"disabled": true
+								},
+								{
+									"key": "pageAfter",
+									"value": "<string>",
+									"description": "A collection ID value used for pagination.\n\nIt marks the exclusive begin of a page. When provided, the collection resource will return the next n items after\nthe id, with n being specified by pageSize.\n\nThe items will be returned in the natural order of the collection.\n\nThe resource will return the first page if neither pageAfter nor pageBefore are specified.\n\nSHOULD NOT be used in conjuction with pageBefore.",
+									"disabled": true
+								},
+								{
+									"key": "pageSize",
+									"value": "<integer>",
+									"description": "Limits the number of items to be returned.\n\nSome collections have a strict upper bound that will disregard this value. In case the specified value is higher\nthan the allowed limit, the collection limit will be used.\n\nIf avoided, the collection will determine the page size itself.",
+									"disabled": true
+								}
+							]
+						},
+						"description": "#### Reference Pages\n\n[https://developers.circle.com/reference/payouts-transfers-get](https://developers.circle.com/reference/payouts-transfers-get)\n\n#### Description\n\nGet list of transfers.\n\nSearches for transfers involving the provided wallets. If no wallet ids are provided, searches all wallets associated with your Circle API account. If the date parameters are omitted, returns the most recent transfers. This endpoint returns up to 50 transfers in descending chronological order or pageSize, if provided."
+					},
+					"response": []
+				},
+				{
+					"name": "/transfers/{id}",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Request-Id",
+								"value": "{{$guid}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/transfers/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"transfers",
+								":id"
+							],
+							"query": [
+								{
+									"key": "returnIdentities",
+									"value": "<boolean>",
+									"description": "Specify if you would like to see identities in the response. Restricts maximum returned items to 5. By default returnIdentities is false, resulting in the response not returning data.source.identities.",
+									"disabled": true
+								}
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "<string>",
+									"description": "(REQUIRED) Universally unique identifier (UUID v4) of a resource."
+								}
+							]
+						},
+						"description": "#### Reference Pages\n\n[https://developers.circle.com/reference/payouts-transfers-get-id](https://developers.circle.com/reference/payouts-transfers-get-id)\n\n#### Description\n\nRetrieve specific transfer details."
+					},
+					"response": []
+				}
+			],
+			"description": "Create transfers to another wallet or blockchain address, and get information on those transfers."
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{apiKey}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://api-sandbox.circle.com/v1",
+			"type": "string"
+		}
+	]
+}

@@ -1,5 +1,6 @@
-# Circle API Postman Collection
-This is a postman collection covering the Circle API. See https://developers.circle.com for more details.
+# Circle API Postman Collections
+This repository contains all collections that Circle provides within the [Postman Circle Workspace](https://www.postman.com/circle-solutions/workspace/circle-developers/overview). This includes a collection for General, Core, Payments, Payouts, and Accounts API. Within each of these collections are folders that are organized one to one with how we organize our [API References](https://developers.circle.com/reference/). 
+
 ## Prerequisites
 [Postman](https://www.getpostman.com/downloads/)
 
@@ -11,15 +12,20 @@ Within your Postman workspace select the Import button:
 
 ![Import collection](./screenshots/postman_import_collection.png)
 
-Next copy the [CircleAPICollection.json](./CircleAPICollection.json) contents and paste in the **Paste Raw Text** section of the import dialog:
+Then upload one or more of the Postman collections.
+* [General API.postman_collection.json](./General&#32;API.postman_collection.json)
+* [Core Functionality API.postman_collection.json](./Core&#32;Functionality&#32;API.postman_collection.json)
+* [Payments API.postman_collection.json](./Payments&#32;API.postman_collection.json)
+* [Payouts API.postman_collection.json](./Payouts&#32;API.postman_collection.json)
+* [Accounts API.postman_collection.json](./Accounts&#32;API.postman_collection.json)
 
- ![Import raw text](./screenshots/postman_import_raw_text.png)
+ ![Import raw text](./screenshots/postman_import.png)
 
 ### Set your API key
-To run requests you'll need to supply your [Sandbox API key](https://my-sandbox.circle.com/settings/developer). To ensure it is a part of all requests you can add into the Circle API collection authorization field.
-![set API key](./screenshots/postman_api_key.png)
+For authorization, we have inserted the postman variable `apiKey`. Please add your base64 encoded bearer token to your environment or collection variables. Please see Postman’s [using variables](https://learning.postman.com/docs/sending-requests/variables/) for more information.
 
-Be sure to save the collection after you've configured have set the key
+If you do not have an API Key head over to our Sandbox [signup form](https://my-sandbox.circle.com/signup).
+![set API key](./screenshots/postman_api_key.png)
 
 ## We want to hear from you
 We want to hear how we can make the collection better! Don't hesitate to file [issues](https://github.com/circlefin/circle-postman/issues) for any bugs you encounters, features you'd like to see or other suggestions you have.

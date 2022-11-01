@@ -13,11 +13,12 @@ Within your Postman workspace select the Import button:
 ![Import collection](./screenshots/postman_import_collection.png)
 
 Then upload one or more of the Postman collections.
-* [General API.postman_collection.json](./General&#32;API.postman_collection.json)
-* [Core Functionality API.postman_collection.json](./Core&#32;Functionality&#32;API.postman_collection.json)
-* [Payments API.postman_collection.json](./Payments&#32;API.postman_collection.json)
-* [Payouts API.postman_collection.json](./Payouts&#32;API.postman_collection.json)
-* [Accounts API.postman_collection.json](./Accounts&#32;API.postman_collection.json)
+* [API Overview](./postman-collections/general-collection.json)
+* [Core Functionality](./postman-collections/account-collection.json)
+* [Crypto Payments API](./postman-collections/crypto-payments-collection.json)
+* [Payments API](./postman-collections/payments-collection.json)
+* [Payouts API](./postman-collections/payouts-collection.json)
+* [Accounts API](./postman-collections/accounts-collection.json)
 
  ![Import raw text](./screenshots/postman_import.png)
 

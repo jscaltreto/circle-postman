@@ -1,0 +1,410 @@
+{
+  "item": [
+    {
+      "id": "2f64dab0-4a28-425c-9388-ac17b4f9e856",
+      "name": "Payment Intents",
+      "description": {
+        "content": "Create and track intent for end user to pay via crypto.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "ee737761-e9d7-4546-a75c-3c99b6660514",
+          "name": "Create a payment intent",
+          "request": {
+            "name": "Create a payment intent",
+            "description": {
+              "content": "\n#### Body Params\n\n**idempotencyKey** *string* (REQUIRED)\nUniversally unique identifier (UUID v4) idempotency key. This key is utilized to ensure exactly-once execution of mutating requests.\n\n**id** *string*\nUnique system generated identifier for the entity.\n\n**amount** *object* (REQUIRED)\n\n  * **amount** *string* (REQUIRED)\n  Magnitude of the amount, in units of the currency, with a `.`.\n\n  * **currency** *string* (REQUIRED)\n  Currency code.\n\n**amountPaid** *object*\nSum of the the amount paid.\n\n  * **amount** *string* (REQUIRED)\n  Magnitude of the amount, in units of the currency, with a `.`.\n\n  * **currency** *string* (REQUIRED)\n  Currency code.\n\n**settlementCurrency** *string* (REQUIRED)\nDesired currency for the payments to settle in.\n\n**paymentMethods** *array* (REQUIRED)\n\n**fees** *array*\n\n**paymentIds** *array*\nList of associated payments.\n\n**timeline** *array*\nState management timeline.\n\n**expiresOn** *string*\nISO-8601 UTC date/time format.\n\n**updateDate** *string*\nISO-8601 UTC date/time format.\n\n**createDate** *string*\nISO-8601 UTC date/time format.\n\n"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "paymentIntents"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"idempotencyKey\": \"{{$guid}}\",\n  \"amount\": {\n    \"amount\": \"3.14\",\n    \"currency\": \"ETH\"\n  },\n  \"settlementCurrency\": \"BTC\",\n  \"paymentMethods\": [\n    {\n      \"type\": \"blockchain\",\n      \"chain\": \"SOL\"\n    },\n    {\n      \"type\": \"blockchain\",\n      \"chain\": \"XLM\"\n    }\n  ],\n  \"expiresOn\": \"2020-04-10T02:13:30.000Z\",\n  \"updateDate\": \"2020-04-10T02:13:30.000Z\",\n  \"createDate\": \"2020-04-10T02:13:30.000Z\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "01d77b28-8124-4415-8f40-054e6853845c",
+          "name": "List all payment intents",
+          "request": {
+            "name": "List all payment intents",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "paymentIntents"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": true,
+                  "key": "status",
+                  "value": "expired",
+                  "description": "Filters by the most recent `timeline.status` within the payment intent."
+                },
+                {
+                  "disabled": true,
+                  "key": "context",
+                  "value": "underpaid",
+                  "description": "Filters by the most recent `timeline.context` within the payment intent."
+                },
+                {
+                  "disabled": true,
+                  "key": "from",
+                  "value": "2020-04-10T02:13:30.000Z",
+                  "description": "Queries items created since the specified date-time (inclusive)."
+                },
+                {
+                  "disabled": true,
+                  "key": "to",
+                  "value": "2020-04-10T02:13:30.000Z",
+                  "description": "Queries items created before the specified date-time (inclusive)."
+                },
+                {
+                  "disabled": true,
+                  "key": "pageBefore",
+                  "value": "dolore officia Duis",
+                  "description": "A collection ID value used for pagination.\n\nIt marks the exclusive end of a page. When provided, the collection resource will return the next `n` items before\nthe id, with `n` being specified by `pageSize`.\n\nThe items will be returned in the natural order of the collection.\n\nThe resource will return the first page if neither `pageAfter` nor `pageBefore` are specified.\n\nSHOULD NOT be used in conjuction with pageAfter.\n"
+                },
+                {
+                  "disabled": true,
+                  "key": "pageAfter",
+                  "value": "dolore officia Duis",
+                  "description": "A collection ID value used for pagination.\n\nIt marks the exclusive begin of a page. When provided, the collection resource will return the next `n` items after\nthe id, with `n` being specified by `pageSize`.\n\nThe items will be returned in the natural order of the collection.\n\nThe resource will return the first page if neither `pageAfter` nor `pageBefore` are specified.\n\nSHOULD NOT be used in conjuction with pageBefore.\n"
+                },
+                {
+                  "disabled": true,
+                  "key": "pageSize",
+                  "value": "5",
+                  "description": "Limits the number of items to be returned.\n\nSome collections have a strict upper bound that will disregard this value. In case the specified value is higher\nthan the allowed limit, the collection limit will be used.\n\nIf avoided, the collection will determine the page size itself.\n"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "edd3f7a1-859c-41a8-844f-daf508a3a39c",
+          "name": "Get a payment intent",
+          "request": {
+            "name": "Get a payment intent",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "paymentIntents",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "b3d9d2d5-4c12-4946-a09d-953e82fae2b0",
+                  "key": "id",
+                  "description": "(Required) Universally unique identifier (UUID v4) of a resource."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b70d14da-0a31-403e-9d4d-560bc6b4445a",
+          "name": "Expire a payment intent",
+          "request": {
+            "name": "Expire a payment intent",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "paymentIntents",
+                ":id",
+                "expire"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "b3d9d2d5-4c12-4946-a09d-953e82fae2b0",
+                  "key": "id",
+                  "description": "(Required) Universally unique identifier (UUID v4) of a resource."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "24ce7321-91d8-454d-8f1d-66cd1d7f94f4",
+      "name": "Payments",
+      "description": {
+        "content": "Get updates on whether user's crypto payment was received.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "6dbe87e8-33c6-4c93-907e-b396a702b7f9",
+          "name": "List all payments",
+          "request": {
+            "name": "List all payments",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "payments"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": true,
+                  "key": "source",
+                  "value": "b3d9d2d5-4c12-4946-a09d-953e82fae2b0",
+                  "description": "Universally unique identifier (UUID v4) for the source. Filters results to fetch only payments made from the provdided source."
+                },
+                {
+                  "disabled": true,
+                  "key": "settlementId",
+                  "value": "b48c8962-8e9f-40c3-9f1d-d9adde2ffe61",
+                  "description": "Queries items with the specified settlement id. Matches any settlement id if unspecified."
+                },
+                {
+                  "disabled": true,
+                  "key": "paymentIntentId",
+                  "value": "b48c8962-8e9f-40c3-9f1d-d9adde2ffe61",
+                  "description": "Queries items with the specified payment intent id."
+                },
+                {
+                  "disabled": true,
+                  "key": "type",
+                  "value": "sepa",
+                  "description": "Source account type. Filters the results to fetch all payments made from a specified account type. Matches any source type if unspecified."
+                },
+                {
+                  "disabled": true,
+                  "key": "type",
+                  "value": "card",
+                  "description": "Source account type. Filters the results to fetch all payments made from a specified account type. Matches any source type if unspecified."
+                },
+                {
+                  "disabled": true,
+                  "key": "status",
+                  "value": "action_required",
+                  "description": "Queries items with the specified status. Matches any status if unspecified."
+                },
+                {
+                  "disabled": true,
+                  "key": "from",
+                  "value": "2020-04-10T02:13:30.000Z",
+                  "description": "Queries items created since the specified date-time (inclusive)."
+                },
+                {
+                  "disabled": true,
+                  "key": "to",
+                  "value": "2020-04-10T02:13:30.000Z",
+                  "description": "Queries items created before the specified date-time (inclusive)."
+                },
+                {
+                  "disabled": true,
+                  "key": "pageBefore",
+                  "value": "dolore officia Duis",
+                  "description": "A collection ID value used for pagination.\n\nIt marks the exclusive end of a page. When provided, the collection resource will return the next `n` items before\nthe id, with `n` being specified by `pageSize`.\n\nThe items will be returned in the natural order of the collection.\n\nThe resource will return the first page if neither `pageAfter` nor `pageBefore` are specified.\n\nSHOULD NOT be used in conjuction with pageAfter.\n"
+                },
+                {
+                  "disabled": true,
+                  "key": "pageAfter",
+                  "value": "dolore officia Duis",
+                  "description": "A collection ID value used for pagination.\n\nIt marks the exclusive begin of a page. When provided, the collection resource will return the next `n` items after\nthe id, with `n` being specified by `pageSize`.\n\nThe items will be returned in the natural order of the collection.\n\nThe resource will return the first page if neither `pageAfter` nor `pageBefore` are specified.\n\nSHOULD NOT be used in conjuction with pageBefore.\n"
+                },
+                {
+                  "disabled": true,
+                  "key": "pageSize",
+                  "value": "5",
+                  "description": "Limits the number of items to be returned.\n\nSome collections have a strict upper bound that will disregard this value. In case the specified value is higher\nthan the allowed limit, the collection limit will be used.\n\nIf avoided, the collection will determine the page size itself.\n"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "de1bcbe7-23dd-4dd3-a671-8beea598af02",
+          "name": "Get a payment",
+          "request": {
+            "name": "Get a payment",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "payments",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "b3d9d2d5-4c12-4946-a09d-953e82fae2b0",
+                  "key": "id",
+                  "description": "(Required) Universally unique identifier (UUID v4) of a resource."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api-sandbox.circle.com",
+      "key": "baseUrl"
+    },
+    {
+      "key": "apiKey",
+      "value": "<your-api-key-here>",
+      "type": "string"
+    }
+  ],
+  "info": {
+    "_postman_id": "6693da1f-a326-4269-af78-0be1c93db65f",
+    "name": "Crypto Payments API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Circle Payments API allows you to take payments from your end users via cryptocurrency.",
+      "type": "text/plain"
+    }
+  },
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{apiKey}}",
+        "type": "string"
+      }
+    ]
+  }
+}

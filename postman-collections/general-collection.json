@@ -1,0 +1,399 @@
+{
+  "item": [
+    {
+      "id": "63e18039-f0a4-4409-b9b5-1d16821e0e1e",
+      "name": "Health",
+      "description": {
+        "content": "Inspect the health of the API.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "bdc45fec-0ecf-49ed-b1c3-be38ef850e73",
+          "name": "Ping",
+          "request": {
+            "name": "Ping",
+            "description": {
+              "content": "Checks that the service is running.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "ping"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "05893e39-f86a-422f-9838-006efdd0cdc8",
+      "name": "Management",
+      "description": {
+        "content": "General account and management information.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "1e318c96-9044-4be4-9700-418893d8bcad",
+          "name": "Get configuration info",
+          "request": {
+            "name": "Get configuration info",
+            "description": {
+              "content": "Retrieves general configuration information.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "configuration"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "e9f9aec6-fd34-45f9-8d53-4104f24bec81",
+      "name": "Encryption",
+      "description": {
+        "content": "Encrypt sensitive data.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "c74450a5-7f2a-44ed-9121-c4c88ab0227a",
+          "name": "Get public key",
+          "request": {
+            "name": "Get public key",
+            "description": {
+              "content": "Retrieves an RSA public key to be used in encrypting data sent to the API. Your public keys change infrequently, so we encourage you to cache this response value locally for a duration of 24 hours or more.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "encryption",
+                "public"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "0114348d-fdba-4a12-a73a-9999d8934416",
+      "name": "Subscriptions",
+      "description": {
+        "content": "Manage subscriptions to notifications.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "bf091508-5cfd-4292-ba29-a24c3684aa52",
+          "name": "List all notification subscriptions",
+          "request": {
+            "name": "List all notification subscriptions",
+            "description": {
+              "content": "Retrieve a list of existing notification subscriptions with details.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "notifications",
+                "subscriptions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3c1795e1-69d7-402e-b6ae-c54153f6bf49",
+          "name": "Create a notification subscription",
+          "request": {
+            "name": "Create a notification subscription",
+            "description": {
+              "content": "Subscribe to receiving notifications at a given endpoint. The endpoint should be able to handle AWS SNS subscription requests. For more details see https://docs.aws.amazon.com/mobile/sdkforxamarin/developerguide/sns-send-http.html. Note, the sandbox environment allows a maximum of 3 active subscriptions; otherwise, this is limited to 1 active subscription and subsequent create requests will be rejected with a Limit Exceeded error.\n\n#### Body Params\n\n**endpoint** *string* (REQUIRED)\nURL of the subscriber endpoint. Must be publicly accessible and utilize HTTPS.\n\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "notifications",
+                "subscriptions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"endpoint\": \"https://example.org/handler/for/notifications\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4fd4ec96-ab70-4f78-9422-d0710d646803",
+          "name": "Remove a notification subscription",
+          "request": {
+            "name": "Remove a notification subscription",
+            "description": {
+              "content": "To remove a subscription, all its subscription requests' statuses must be either 'confirmed', 'deleted' or a combination of those. A subscription with at least one 'pending' subscription request cannot be removed.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "notifications",
+                "subscriptions",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "b3d9d2d5-4c12-4946-a09d-953e82fae2b0",
+                  "key": "id",
+                  "description": "(Required) Universally unique identifier (UUID v4) of a resource."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE"
+          },
+          "response": [],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "b09e2ff2-2618-4eba-9a40-6e88b6c799ab",
+      "name": "Stablecoins",
+      "description": {
+        "content": "Retrieve stablecoins and their respective names, symbols, circulating total and per-chain amounts.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "0c8c2060-5292-4a4d-a830-19161a0f62ed",
+          "name": "List all stablecoins",
+          "request": {
+            "name": "List all stablecoins",
+            "description": {
+              "content": "Retrieves total circulating supply for supported stablecoins across all chains. This endpoint is rate limited to one call per minute (based on IP).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "stablecoins"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "00aa8c51-1f89-43b2-aef5-1d1c965a2a43",
+      "name": "Channels",
+      "description": {
+        "content": "View a list of channels.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "5a28b6ff-9b7f-481e-b0ea-68ce989532fa",
+          "name": "List all channels",
+          "request": {
+            "name": "List all channels",
+            "description": {
+              "content": "Retrieve a list of channels with details (e.g. `cardDescriptor`, `achDescriptor`, etc.).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "channels"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api-sandbox.circle.com",
+      "key": "baseUrl"
+    },
+    {
+      "key": "apiKey",
+      "value": "<your-api-key-here>",
+      "type": "string"
+    }
+  ],
+  "info": {
+    "_postman_id": "503647bb-3594-4c1d-8fb3-38e87f030549",
+    "name": "API Overview",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Common endpoints shared across all Circle APIs.",
+      "type": "text/plain"
+    }
+  },
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{apiKey}}",
+        "type": "string"
+      }
+    ]
+  }
+}

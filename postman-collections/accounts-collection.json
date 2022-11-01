@@ -1,0 +1,525 @@
+{
+  "item": [
+    {
+      "id": "c0b1a129-42e8-4963-a661-804e2618cae3",
+      "name": "Wallets",
+      "description": {
+        "content": "Create digital wallets and get information on their activity.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f3d5c7fa-ed69-4a3a-858a-6543a6955b62",
+          "name": "Create a wallet",
+          "request": {
+            "name": "Create a wallet",
+            "description": {
+              "content": "Creates an end user wallet.\n#### Body Params\n\n**idempotencyKey** *string* (REQUIRED)\nUniversally unique identifier (UUID v4) idempotency key. This key is utilized to ensure exactly-once execution of mutating requests.\n\n**description** *string*\nA human-friendly, non-unique identifier for a wallet.\n\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "wallets"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"idempotencyKey\": \"{{$guid}}\",\n  \"description\": \"Treasury Wallet\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f715ece8-681c-4970-95f2-a1702fc3cbfb",
+          "name": "List all wallets",
+          "request": {
+            "name": "List all wallets",
+            "description": {
+              "content": "Retrieves a list of a user's wallets.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "wallets"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": true,
+                  "key": "from",
+                  "value": "2020-04-10T02:13:30.000Z",
+                  "description": "Queries items created since the specified date-time (inclusive)."
+                },
+                {
+                  "disabled": true,
+                  "key": "to",
+                  "value": "2020-04-10T02:13:30.000Z",
+                  "description": "Queries items created before the specified date-time (inclusive)."
+                },
+                {
+                  "disabled": true,
+                  "key": "pageBefore",
+                  "value": "sunt incididunt",
+                  "description": "A collection ID value used for pagination.\n\nIt marks the exclusive end of a page. When provided, the collection resource will return the next `n` items before\nthe id, with `n` being specified by `pageSize`.\n\nThe items will be returned in the natural order of the collection.\n\nThe resource will return the first page if neither `pageAfter` nor `pageBefore` are specified.\n\nSHOULD NOT be used in conjuction with pageAfter.\n"
+                },
+                {
+                  "disabled": true,
+                  "key": "pageAfter",
+                  "value": "sunt incididunt",
+                  "description": "A collection ID value used for pagination.\n\nIt marks the exclusive begin of a page. When provided, the collection resource will return the next `n` items after\nthe id, with `n` being specified by `pageSize`.\n\nThe items will be returned in the natural order of the collection.\n\nThe resource will return the first page if neither `pageAfter` nor `pageBefore` are specified.\n\nSHOULD NOT be used in conjuction with pageBefore.\n"
+                },
+                {
+                  "disabled": true,
+                  "key": "pageSize",
+                  "value": "5",
+                  "description": "Limits the number of items to be returned.\n\nSome collections have a strict upper bound that will disregard this value. In case the specified value is higher\nthan the allowed limit, the collection limit will be used.\n\nIf avoided, the collection will determine the page size itself.\n"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "41f2b4e3-7b81-4065-b47b-e0ca42bf2c53",
+          "name": "Get a wallet",
+          "request": {
+            "name": "Get a wallet",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "wallets",
+                ":walletId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "0123456789",
+                  "key": "walletId",
+                  "description": "(Required) Identifier for the wallet."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4138066c-8a5f-4345-b0e6-b6eca0be83cf",
+          "name": "Create a blockchain address",
+          "request": {
+            "name": "Create a blockchain address",
+            "description": {
+              "content": "Generates a new blockchain address for a wallet for a given currency/chain pair. Circle may reuse addresses on blockchains that support reuse. For example, if you're requesting two addresses for depositing USD and ETH, both on Ethereum, you may see the same Ethereum address returned. Depositing cryptocurrency to a generated address will credit the associated wallet with the value of the deposit.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "wallets",
+                ":walletId",
+                "addresses"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "0123456789",
+                  "key": "walletId",
+                  "description": "(Required) Identifier for the wallet."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"idempotencyKey\": \"{{$guid}}\",\n  \"currency\": \"ETH\",\n  \"chain\": \"TRX\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "610f48a0-ba63-4bc3-9cf0-dd497d96090d",
+          "name": "List all addresses",
+          "request": {
+            "name": "List all addresses",
+            "description": {
+              "content": "Retrieves a list of addresses associated with a wallet.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "wallets",
+                ":walletId",
+                "addresses"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": true,
+                  "key": "from",
+                  "value": "2020-04-10T02:13:30.000Z",
+                  "description": "Queries items created since the specified date-time (inclusive)."
+                },
+                {
+                  "disabled": true,
+                  "key": "to",
+                  "value": "2020-04-10T02:13:30.000Z",
+                  "description": "Queries items created before the specified date-time (inclusive)."
+                },
+                {
+                  "disabled": true,
+                  "key": "pageBefore",
+                  "value": "sunt incididunt",
+                  "description": "A collection ID value used for pagination.\n\nIt marks the exclusive end of a page. When provided, the collection resource will return the next `n` items before\nthe id, with `n` being specified by `pageSize`.\n\nThe items will be returned in the natural order of the collection.\n\nThe resource will return the first page if neither `pageAfter` nor `pageBefore` are specified.\n\nSHOULD NOT be used in conjuction with pageAfter.\n"
+                },
+                {
+                  "disabled": true,
+                  "key": "pageAfter",
+                  "value": "sunt incididunt",
+                  "description": "A collection ID value used for pagination.\n\nIt marks the exclusive begin of a page. When provided, the collection resource will return the next `n` items after\nthe id, with `n` being specified by `pageSize`.\n\nThe items will be returned in the natural order of the collection.\n\nThe resource will return the first page if neither `pageAfter` nor `pageBefore` are specified.\n\nSHOULD NOT be used in conjuction with pageBefore.\n"
+                },
+                {
+                  "disabled": true,
+                  "key": "pageSize",
+                  "value": "5",
+                  "description": "Limits the number of items to be returned.\n\nSome collections have a strict upper bound that will disregard this value. In case the specified value is higher\nthan the allowed limit, the collection limit will be used.\n\nIf avoided, the collection will determine the page size itself.\n"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "0123456789",
+                  "key": "walletId",
+                  "description": "(Required) Identifier for the wallet."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "59a65a88-dfca-4811-983e-6502a9152e3c",
+      "name": "Transfers",
+      "description": {
+        "content": "Create transfers to another wallet or blockchain address, and get information on those transfers.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "a7235c3d-d5b3-4bc7-9a08-24fdd70cdc40",
+          "name": "Create a transfer",
+          "request": {
+            "name": "Create a transfer",
+            "description": {
+              "content": "A transfer can be made from an existing funded wallet to a blockchain address or another wallet.\n#### Body Params\n\n**idempotencyKey** *string* (REQUIRED)\nUniversally unique identifier (UUID v4) idempotency key. This key is utilized to ensure exactly-once execution of mutating requests.\n\n**source** *object* (REQUIRED)\n\n  * **type** *string* (REQUIRED)\n\n  * **id** *string* (REQUIRED)\n  The id of the wallet.\n\n  * **identities** *array*\n\n**destination** (REQUIRED)\n  Option 1\n\n  * **type** *string* (REQUIRED)\n\n  * **address** *string* (REQUIRED)\n  The blockchain address.\n\n  * **addressTag** *string*\n  The secondary identifier for a blockchain address. An example of this is the memo field on the Stellar network, which can be text, id, or hash format.\n\n  * **chain** *string* (REQUIRED)\n  A blockchain that a given currency is available on.\n\n\n  Option 2\n\n  * **type** *string* (REQUIRED)\n\n  * **id** *string* (REQUIRED)\n  The id of the wallet.\n\n\n**amount** *object* (REQUIRED)\n\n  * **amount** *string* (REQUIRED)\n  Magnitude of the amount, in units of the currency, with a `.`.\n\n  * **currency** *string* (REQUIRED)\n  Currency code for the amount.\n\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "transfers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"idempotencyKey\": \"{{$guid}}\",\n  \"source\": {\n    \"type\": \"wallet\",\n    \"id\": \"12345\"\n  },\n  \"destination\": {\n    \"type\": \"blockchain\",\n    \"address\": \"0x8381470ED67C3802402dbbFa0058E8871F017A6F\",\n    \"chain\": \"ETH\"\n  },\n  \"amount\": {\n    \"amount\": \"3.14\",\n    \"currency\": \"USD\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0d63e608-29d7-4398-b2cd-c3761a800366",
+          "name": "List all transfers",
+          "request": {
+            "name": "List all transfers",
+            "description": {
+              "content": "Searches for transfers involving the provided wallets. If no wallet ids are provided, searches all wallets associated with your Circle API account. If the date parameters are omitted, returns the most recent transfers. This endpoint returns up to 50 transfers in descending chronological order or pageSize, if provided.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "transfers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": true,
+                  "key": "walletId",
+                  "value": "12345",
+                  "description": "Unique identifier for the source or destination wallet of transfers, if any. May not be used in conjunction with destinationWalletId or sourceWalletId. Useful for fetching all transfers related to a wallet."
+                },
+                {
+                  "disabled": true,
+                  "key": "sourceWalletId",
+                  "value": "12345",
+                  "description": "Unique identifier for the source wallet of transfers, if any."
+                },
+                {
+                  "disabled": true,
+                  "key": "destinationWalletId",
+                  "value": "12345",
+                  "description": "Unique identifier for the destination wallet of transfers, if any."
+                },
+                {
+                  "disabled": true,
+                  "key": "returnIdentities",
+                  "value": "false",
+                  "description": "Specify if you would like to see identities in the response. Restricts maximum returned items to 5. By default returnIdentities is false, resulting in the response not returning `data.source.identities`."
+                },
+                {
+                  "disabled": true,
+                  "key": "from",
+                  "value": "2020-04-10T02:13:30.000Z",
+                  "description": "Queries items created since the specified date-time (inclusive)."
+                },
+                {
+                  "disabled": true,
+                  "key": "to",
+                  "value": "2020-04-10T02:13:30.000Z",
+                  "description": "Queries items created before the specified date-time (inclusive)."
+                },
+                {
+                  "disabled": true,
+                  "key": "pageBefore",
+                  "value": "sunt incididunt",
+                  "description": "A collection ID value used for pagination.\n\nIt marks the exclusive end of a page. When provided, the collection resource will return the next `n` items before\nthe id, with `n` being specified by `pageSize`.\n\nThe items will be returned in the natural order of the collection.\n\nThe resource will return the first page if neither `pageAfter` nor `pageBefore` are specified.\n\nSHOULD NOT be used in conjuction with pageAfter.\n"
+                },
+                {
+                  "disabled": true,
+                  "key": "pageAfter",
+                  "value": "sunt incididunt",
+                  "description": "A collection ID value used for pagination.\n\nIt marks the exclusive begin of a page. When provided, the collection resource will return the next `n` items after\nthe id, with `n` being specified by `pageSize`.\n\nThe items will be returned in the natural order of the collection.\n\nThe resource will return the first page if neither `pageAfter` nor `pageBefore` are specified.\n\nSHOULD NOT be used in conjuction with pageBefore.\n"
+                },
+                {
+                  "disabled": true,
+                  "key": "pageSize",
+                  "value": "5",
+                  "description": "Limits the number of items to be returned.\n\nSome collections have a strict upper bound that will disregard this value. In case the specified value is higher\nthan the allowed limit, the collection limit will be used.\n\nIf avoided, the collection will determine the page size itself.\n"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e05a60d5-d6ce-48e2-bce2-b36a14fb54ba",
+          "name": "Get a transfer",
+          "request": {
+            "name": "Get a transfer",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "transfers",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": true,
+                  "key": "returnIdentities",
+                  "value": "false",
+                  "description": "Specify if you would like to see identities in the response. Restricts maximum returned items to 5. By default returnIdentities is false, resulting in the response not returning `data.source.identities`."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "b3d9d2d5-4c12-4946-a09d-953e82fae2b0",
+                  "key": "id",
+                  "description": "(Required) Universally unique identifier (UUID v4) of a resource."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api-sandbox.circle.com",
+      "key": "baseUrl"
+    },
+    {
+      "key": "apiKey",
+      "value": "<your-api-key-here>",
+      "type": "string"
+    }
+  ],
+  "info": {
+    "_postman_id": "9d4b352b-0c82-4102-af17-77ed82e1074b",
+    "name": "Accounts API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Accounts API allows you to easily create and host digital wallets for your customers, and manage transfers of funds across accounts- whether they are within the Circle platform, or in / out of the platform via on-chain USDC, EUROC, BTC, and ETH connectivity.",
+      "type": "text/plain"
+    }
+  },
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{apiKey}}",
+        "type": "string"
+      }
+    ]
+  }
+}

@@ -1,7 +1,7 @@
 {
   "item": [
     {
-      "id": "77b820b3-0f35-4dd9-92bc-e3469a012c0b",
+      "id": "2639fa67-121a-4921-9741-0c21bc973abb",
       "name": "Health",
       "description": {
         "content": "Inspect the health of the API.",
@@ -9,7 +9,7 @@
       },
       "item": [
         {
-          "id": "bc3a2e73-daae-428c-9cda-a68e64a8ce94",
+          "id": "88afea92-9689-4c51-aa63-a855d34f81cf",
           "name": "Ping",
           "request": {
             "name": "Ping",
@@ -45,7 +45,7 @@
       "event": []
     },
     {
-      "id": "8c059800-871c-4cbf-b48f-fffcd4e763eb",
+      "id": "78bdba54-3b16-4b46-8a94-f5fd92a9f360",
       "name": "Management",
       "description": {
         "content": "General account and management information.",
@@ -53,7 +53,7 @@
       },
       "item": [
         {
-          "id": "8836ec87-27aa-40dc-a37d-c025509376fc",
+          "id": "d4e813d9-87eb-4e09-9ea9-e51af0777b21",
           "name": "Get configuration info",
           "request": {
             "name": "Get configuration info",
@@ -90,7 +90,7 @@
       "event": []
     },
     {
-      "id": "853d04fe-e19f-4d63-931d-d3621249426f",
+      "id": "09b57d67-4c51-4c9a-bc69-b1125f94e2ca",
       "name": "Encryption",
       "description": {
         "content": "Encrypt sensitive data.",
@@ -98,7 +98,7 @@
       },
       "item": [
         {
-          "id": "46668f26-eca2-4be8-9ae1-fa156ccf981d",
+          "id": "61352dff-b583-4430-81e5-0ab4e6ba6925",
           "name": "Get public key",
           "request": {
             "name": "Get public key",
@@ -136,7 +136,7 @@
       "event": []
     },
     {
-      "id": "0fca183f-7dab-4c20-9cd9-975ac540ed5d",
+      "id": "f1c35d49-178c-4737-8196-1e6ef811c06d",
       "name": "Subscriptions",
       "description": {
         "content": "Manage subscriptions to notifications.",
@@ -144,42 +144,7 @@
       },
       "item": [
         {
-          "id": "12e2868d-f2d0-4ba8-a007-7a4e55607fb9",
-          "name": "List all notification subscriptions",
-          "request": {
-            "name": "List all notification subscriptions",
-            "description": {
-              "content": "Retrieve a list of existing notification subscriptions with details.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "v1",
-                "notifications",
-                "subscriptions"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET"
-          },
-          "response": [],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "bebf0136-1521-4a06-bd7a-da150694ae96",
+          "id": "8e119078-ede2-4881-8f32-71e8a99bed7d",
           "name": "Create a notification subscription",
           "request": {
             "name": "Create a notification subscription",
@@ -227,7 +192,42 @@
           }
         },
         {
-          "id": "1b3abb42-c379-437a-b5db-6982096bdad2",
+          "id": "5f08a796-8729-4fc7-ae41-bd3262e7af1b",
+          "name": "List all notification subscriptions",
+          "request": {
+            "name": "List all notification subscriptions",
+            "description": {
+              "content": "Retrieve a list of existing notification subscriptions with details.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "notifications",
+                "subscriptions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2fba0f3f-d29f-477c-be39-62994751ba6d",
           "name": "Remove a notification subscription",
           "request": {
             "name": "Remove a notification subscription",
@@ -274,7 +274,7 @@
       "event": []
     },
     {
-      "id": "0da5107d-b1d2-4da4-9257-e55b647a8f1c",
+      "id": "616616fa-004c-48af-8c3a-295c75951514",
       "name": "Stablecoins",
       "description": {
         "content": "Retrieve stablecoins and their respective names, symbols, circulating total and per-chain amounts.",
@@ -282,7 +282,7 @@
       },
       "item": [
         {
-          "id": "0aa1c636-f005-47e4-a71f-a8936d4fbcbe",
+          "id": "da4a1466-4018-4ddb-a615-7328b8f72bbb",
           "name": "List all stablecoins",
           "request": {
             "name": "List all stablecoins",
@@ -319,7 +319,7 @@
       "event": []
     },
     {
-      "id": "e1a73278-5fa8-452f-b86c-eebd5d0bf1d8",
+      "id": "c4ee18f7-9e7d-47e7-b7b1-c8ec4371e104",
       "name": "Channels",
       "description": {
         "content": "View a list of channels.",
@@ -327,7 +327,7 @@
       },
       "item": [
         {
-          "id": "63ea8e0f-edfe-4f58-98e2-68e1f0f5836a",
+          "id": "16ca3b27-0c51-4f0b-b3b4-7e2c169d31a7",
           "name": "List all channels",
           "request": {
             "name": "List all channels",
@@ -378,7 +378,7 @@
     }
   ],
   "info": {
-    "_postman_id": "7d1c38ef-8970-4abd-b21c-6668bdbe91f2",
+    "_postman_id": "51b64c59-f4ff-4fb5-ac16-e5d013713e96",
     "name": "API Overview",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
     "description": {

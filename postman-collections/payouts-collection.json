@@ -1,118 +1,21 @@
 {
   "item": [
     {
-      "id": "a985cf29-e582-4499-aaff-bc04821a3429",
+      "id": "859ed25d-2ffe-4d9a-bfc7-8f49e3bdcdd1",
       "name": "Payouts",
       "description": {
-        "content": "Create and get information on wire and ACH payouts.",
+        "content": "Create and get information on wire, ACH, SEPA and address book payouts.",
         "type": "text/plain"
       },
       "item": [
         {
-          "id": "ba9e3a62-e8f5-4abc-a53f-793e61e38598",
-          "name": "List all payouts",
-          "request": {
-            "name": "List all payouts",
-            "description": {},
-            "url": {
-              "path": [
-                "v1",
-                "payouts"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": true,
-                  "key": "source",
-                  "value": "54c1cbab-c419-450f-ad23-906fa03af7f0",
-                  "description": "Universally unique identifier (UUID v4) for the source wallet. Filters the results to fetch all payouts made from a source wallet. If not provided, payouts from all wallets will be returned."
-                },
-                {
-                  "disabled": true,
-                  "key": "type",
-                  "value": "wire",
-                  "description": "Destination bank account type. Filters the results to fetch all payouts made to a specified destination bank account type. This query parameter can be passed multiple times to fetch results matching multiple destination bank account types."
-                },
-                {
-                  "disabled": true,
-                  "key": "type",
-                  "value": "sepa",
-                  "description": "Destination bank account type. Filters the results to fetch all payouts made to a specified destination bank account type. This query parameter can be passed multiple times to fetch results matching multiple destination bank account types."
-                },
-                {
-                  "disabled": true,
-                  "key": "status",
-                  "value": "complete",
-                  "description": "Queries items with the specified status. Matches any status if unspecified."
-                },
-                {
-                  "disabled": true,
-                  "key": "status",
-                  "value": "pending",
-                  "description": "Queries items with the specified status. Matches any status if unspecified."
-                },
-                {
-                  "disabled": true,
-                  "key": "destination",
-                  "value": "e3d0a838-d732-49d0-bf44-73a668e38973",
-                  "description": "Universally unique identifier (UUID v4) for the destination bank account. Filters the results to fetch all payouts made to a destination bank account."
-                },
-                {
-                  "disabled": true,
-                  "key": "from",
-                  "value": "2020-04-10T02:13:30.000Z",
-                  "description": "Queries items created since the specified date-time (inclusive)."
-                },
-                {
-                  "disabled": true,
-                  "key": "to",
-                  "value": "2020-04-10T02:13:30.000Z",
-                  "description": "Queries items created before the specified date-time (inclusive)."
-                },
-                {
-                  "disabled": true,
-                  "key": "pageBefore",
-                  "value": "esse id aute sint ut",
-                  "description": "A collection ID value used for pagination.\n\nIt marks the exclusive end of a page. When provided, the collection resource will return the next `n` items before\nthe id, with `n` being specified by `pageSize`.\n\nThe items will be returned in the natural order of the collection.\n\nThe resource will return the first page if neither `pageAfter` nor `pageBefore` are specified.\n\nSHOULD NOT be used in conjuction with pageAfter.\n"
-                },
-                {
-                  "disabled": true,
-                  "key": "pageAfter",
-                  "value": "esse id aute sint ut",
-                  "description": "A collection ID value used for pagination.\n\nIt marks the exclusive begin of a page. When provided, the collection resource will return the next `n` items after\nthe id, with `n` being specified by `pageSize`.\n\nThe items will be returned in the natural order of the collection.\n\nThe resource will return the first page if neither `pageAfter` nor `pageBefore` are specified.\n\nSHOULD NOT be used in conjuction with pageBefore.\n"
-                },
-                {
-                  "disabled": true,
-                  "key": "pageSize",
-                  "value": "5",
-                  "description": "Limits the number of items to be returned.\n\nSome collections have a strict upper bound that will disregard this value. In case the specified value is higher\nthan the allowed limit, the collection limit will be used.\n\nIf avoided, the collection will determine the page size itself.\n"
-                }
-              ],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET"
-          },
-          "response": [],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "3b209dc0-6f1b-423b-a4c9-afefa6d47460",
+          "id": "b021dc7d-0d60-4c79-b4b4-fc9183f7d8a4",
           "name": "Create a payout",
           "request": {
             "name": "Create a payout",
             "description": {
-              "content": "\n#### Body Params\n\n**idempotencyKey** *string* (REQUIRED)\nUniversally unique identifier (UUID v4) idempotency key. This key is utilized to ensure exactly-once execution of mutating requests.\n\n**source** *object*\n\n  * **type** *string* (REQUIRED)\n\n  * **id** *string* (REQUIRED)\n  The id of the wallet.\n\n**destination** *object* (REQUIRED)\nThe destination bank account.\n\n  * **type** *string* (REQUIRED)\n  The destination bank account type.\n\n  * **id** *string* (REQUIRED)\n  Unique system generated identifier for the entity.\n\n  * **name** *string*\n  Bank name plus last four digits of the bank account number or IBAN.\n\n**amount** *object* (REQUIRED)\n\n  * **amount** *string* (REQUIRED)\n  Magnitude of the amount, in units of the currency, with a `.`.\n\n  * **currency** *string* (REQUIRED)\n  Currency code.\n\n**metadata** *object* (REQUIRED)\nAdditional properties related to the payout beneficiary.\n\n  * **beneficiaryEmail** *string* (REQUIRED)\n  Email of the user.\n\n"
+              "content": "\nCreate a wire, ACH, SEPA or crypto payout.  \n\nThe following table includes the supported pairs of amount.currency and toAmount.currency for address book payouts:\n\n| amount.currency  | toAmount.currency |\n| ---------------- | ------------      |\n| USD              | USD               |\n| USD              | BTC               |\n| USD              | ETH               |\n| USD              | MTC               |\n| EUR              | EUR               |\n| BTC              | USD               |\n| BTC              | BTC               |\n| ETH              | USD               |\n| ETH              | ETH               |\n\n#### Body Params\n\nOption 1\n\n**idempotencyKey** *string* (REQUIRED)\nUniversally unique identifier (UUID v4) idempotency key. This key is utilized to ensure exactly-once execution of mutating requests.\n\n**source** *object*\n\n  * **type** *string* (REQUIRED)\n\n  * **id** *string* (REQUIRED)\n  The id of the wallet.\n\n**destination** *object* (REQUIRED)\nThe destination.\n\n  * **type** *string* (REQUIRED)\n  The destination type.\n\n  * **id** *string* (REQUIRED)\n  Unique system generated identifier for the entity.\n\n**amount** *object* (REQUIRED)\n\n  * **amount** *string* (REQUIRED)\n  Magnitude of the amount, in units of the currency, with a `.`.\n\n  * **currency** *string* (REQUIRED)\n  Currency code.\n\n**metadata** *object* (REQUIRED)\nAdditional properties related to the payout beneficiary.\n\n  * **beneficiaryEmail** *string* (REQUIRED)\n  Email of the user.\n\n\nOption 2\n\n**idempotencyKey** *string* (REQUIRED)\nUniversally unique identifier (UUID v4) idempotency key. This key is utilized to ensure exactly-once execution of mutating requests.\n\n**source** *object*\nA source wallet location.\n\n  * **type** *string* (REQUIRED)\n\n  * **id** *string* (REQUIRED)\n  The id of the wallet.\n\n  * **identities** *array*\n\n**destination** *object* (REQUIRED)\nThe destination.\n\n  * **type** *string* (REQUIRED)\n  The destination type.\n\n  * **id** *string* (REQUIRED)\n  Unique system generated identifier for the entity.\n\n**amount** *object* (REQUIRED)\n\n  * **amount** *string* (REQUIRED)\n  Magnitude of the amount, in units of the currency, with a `.`.\n\n  * **currency** *string* (REQUIRED)\n  Currency code for the amount.\n\n**toAmount** *object*\n\n  * **currency** *string* (REQUIRED)\n  Currency code for the amount.\n\n\n",
+              "type": "text/plain"
             },
             "url": {
               "path": [
@@ -138,7 +41,7 @@
             "method": "POST",
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"idempotencyKey\": \"{{$guid}}\",\n  \"destination\": {\n    \"type\": \"<string>\",\n    \"id\": \"b8627ae8-732b-4d25-b947-1df8f4007a29\"\n  },\n  \"amount\": {\n    \"amount\": \"3.14\",\n    \"currency\": \"USD\"\n  },\n  \"metadata\": {\n    \"beneficiaryEmail\": \"satoshi@circle.com\"\n  },\n  \"source\": {\n    \"type\": \"wallet\",\n    \"id\": \"12345\"\n  }\n}",
+              "raw": "{\n  \"idempotencyKey\": \"{{$guid}}\",\n  \"destination\": {\n    \"type\": \"sepa\",\n    \"id\": \"b8627ae8-732b-4d25-b947-1df8f4007a29\"\n  },\n  \"amount\": {\n    \"amount\": \"3.14\",\n    \"currency\": \"USD\"\n  },\n  \"metadata\": {\n    \"beneficiaryEmail\": \"satoshi@circle.com\"\n  },\n  \"source\": {\n    \"type\": \"wallet\",\n    \"id\": \"12345\"\n  }\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -148,7 +51,7 @@
           },
           "response": [
             {
-              "id": "f2d044e6-11a6-4b79-98e7-d2116d0f42c9",
+              "id": "3b169013-18dd-4c50-b2e1-4bbf8eeecc3a",
               "name": "Wire",
               "originalRequest": {
                 "method": "POST",
@@ -183,13 +86,13 @@
                 }
               },
               "_postman_previewlanguage": "Text",
-              "header": null,
+              "header": [],
               "cookie": [],
               "responseTime": null,
-              "body": null
+              "body": ""
             },
             {
-              "id": "6cba0972-4805-4960-86d2-2fc396ab3ab4",
+              "id": "92b205af-fe67-4d21-be3b-ae2d56a9637c",
               "name": "ACH",
               "originalRequest": {
                 "method": "POST",
@@ -224,13 +127,13 @@
                 }
               },
               "_postman_previewlanguage": "Text",
-              "header": null,
+              "header": [],
               "cookie": [],
               "responseTime": null,
-              "body": null
+              "body": ""
             },
             {
-              "id": "7f5394d5-d99a-48b3-a1ef-993fbb3c4863",
+              "id": "80fca814-7df9-4d76-9c6d-74eea967df45",
               "name": "SEPA",
               "originalRequest": {
                 "method": "POST",
@@ -265,10 +168,10 @@
                 }
               },
               "_postman_previewlanguage": "Text",
-              "header": null,
+              "header": [],
               "cookie": [],
               "responseTime": null,
-              "body": null
+              "body": ""
             }
           ],
           "event": [],
@@ -277,7 +180,123 @@
           }
         },
         {
-          "id": "b653a75e-a72d-4136-ab95-a31c0326c58e",
+          "id": "c3ce93c8-021d-4aaa-a4c3-3f6c07c2927b",
+          "name": "List all payouts",
+          "request": {
+            "name": "List all payouts",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "payouts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": true,
+                  "key": "source",
+                  "value": "1000565227",
+                  "description": "Identifier for the source wallet. Filters the fetched payout results to only be from a specific source wallet. If not provided, payouts from all wallets will be returned."
+                },
+                {
+                  "disabled": true,
+                  "key": "destination",
+                  "value": "54c1cbab-c419-450f-ad23-906fa03af7f0",
+                  "description": "Universally unique identifier (UUID v4) for the destination. Filters the fetched payout results made to a specific destination. If not provided, payouts to all destinations will be returned."
+                },
+                {
+                  "disabled": true,
+                  "key": "type",
+                  "value": "wire",
+                  "description": "Destination type. Filters the results to fetch all payouts made to a specified destination type. This query parameter can be passed multiple times to fetch results matching multiple destination types. The address_book destination type cannot be combined with other types."
+                },
+                {
+                  "disabled": true,
+                  "key": "type",
+                  "value": "sepa",
+                  "description": "Destination type. Filters the results to fetch all payouts made to a specified destination type. This query parameter can be passed multiple times to fetch results matching multiple destination types. The address_book destination type cannot be combined with other types."
+                },
+                {
+                  "disabled": true,
+                  "key": "status",
+                  "value": "failed",
+                  "description": "Queries items with the specified status. Matches any status if unspecified."
+                },
+                {
+                  "disabled": true,
+                  "key": "status",
+                  "value": "complete",
+                  "description": "Queries items with the specified status. Matches any status if unspecified."
+                },
+                {
+                  "disabled": true,
+                  "key": "sourceCurrency",
+                  "value": "BTC",
+                  "description": "Queries items with the specified source currency `amount.currency`. Matches any source currency if unspecified."
+                },
+                {
+                  "disabled": true,
+                  "key": "destinationCurrency",
+                  "value": "BTC",
+                  "description": "Queries items with the specified destination currency `toAmount.currency`. Matches any destination currency if unspecified."
+                },
+                {
+                  "disabled": true,
+                  "key": "chain",
+                  "value": "HBAR",
+                  "description": "Queries items with the specified chain. Matches any chain if unspecified"
+                },
+                {
+                  "disabled": true,
+                  "key": "from",
+                  "value": "2020-04-10T02:13:30.000Z",
+                  "description": "Queries items created since the specified date-time (inclusive)."
+                },
+                {
+                  "disabled": true,
+                  "key": "to",
+                  "value": "2020-04-10T02:13:30.000Z",
+                  "description": "Queries items created before the specified date-time (inclusive)."
+                },
+                {
+                  "disabled": true,
+                  "key": "pageBefore",
+                  "value": "amet nisi ul",
+                  "description": "A collection ID value used for pagination.\n\nIt marks the exclusive end of a page. When provided, the collection resource will return the next `n` items before\nthe id, with `n` being specified by `pageSize`.\n\nThe items will be returned in the natural order of the collection.\n\nThe resource will return the first page if neither `pageAfter` nor `pageBefore` are specified.\n\nSHOULD NOT be used in conjuction with pageAfter.\n"
+                },
+                {
+                  "disabled": true,
+                  "key": "pageAfter",
+                  "value": "amet nisi ul",
+                  "description": "A collection ID value used for pagination.\n\nIt marks the exclusive begin of a page. When provided, the collection resource will return the next `n` items after\nthe id, with `n` being specified by `pageSize`.\n\nThe items will be returned in the natural order of the collection.\n\nThe resource will return the first page if neither `pageAfter` nor `pageBefore` are specified.\n\nSHOULD NOT be used in conjuction with pageBefore.\n"
+                },
+                {
+                  "disabled": true,
+                  "key": "pageSize",
+                  "value": "5",
+                  "description": "Limits the number of items to be returned.\n\nSome collections have a strict upper bound that will disregard this value. In case the specified value is higher\nthan the allowed limit, the collection limit will be used.\n\nIf avoided, the collection will determine the page size itself.\n"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "63bc2858-8aef-442c-a7ee-6caa184c5e0d",
           "name": "Get a payout",
           "request": {
             "name": "Get a payout",
@@ -320,26 +339,26 @@
       "event": []
     },
     {
-      "id": "98a53c8c-3cad-4754-9dfd-f60a88e066c5",
-      "name": "On-chain payouts",
+      "id": "580b538f-d324-4a85-bcfd-c937ee6b91ae",
+      "name": "Crypto Address Book",
       "description": {
-        "content": "Create and get information on USDC transfers.",
+        "content": "Manage blockchain addresses with metadata.",
         "type": "text/plain"
       },
       "item": [
         {
-          "id": "e637d867-5b68-41a5-b318-a28d4de576ad",
-          "name": "Create a transfer",
+          "id": "c160b790-3757-4555-b309-173b01022ded",
+          "name": "Create a recipient",
           "request": {
-            "name": "Create a transfer",
+            "name": "Create a recipient",
             "description": {
-              "content": "A transfer can be made from an existing funded wallet to a blockchain address or another wallet.\n#### Body Params\n\n**idempotencyKey** *string* (REQUIRED)\nUniversally unique identifier (UUID v4) idempotency key. This key is utilized to ensure exactly-once execution of mutating requests.\n\n**source** *object* (REQUIRED)\n\n  * **type** *string* (REQUIRED)\n\n  * **id** *string* (REQUIRED)\n  The id of the wallet.\n\n  * **identities** *array*\n\n**destination** (REQUIRED)\n  Option 1\n\n  * **type** *string* (REQUIRED)\n\n  * **address** *string* (REQUIRED)\n  The blockchain address.\n\n  * **addressTag** *string*\n  The secondary identifier for a blockchain address. An example of this is the memo field on the Stellar network, which can be text, id, or hash format.\n\n  * **chain** *string* (REQUIRED)\n  A blockchain that a given currency is available on.\n\n\n  Option 2\n\n  * **type** *string* (REQUIRED)\n\n  * **id** *string* (REQUIRED)\n  The id of the wallet.\n\n\n**amount** *object* (REQUIRED)\n\n  * **amount** *string* (REQUIRED)\n  Magnitude of the amount, in units of the currency, with a `.`.\n\n  * **currency** *string* (REQUIRED)\n  Currency code for the amount.\n\n",
-              "type": "text/plain"
+              "content": "\n#### Body Params\n\n**idempotencyKey** *string* (REQUIRED)\nUniversally unique identifier (UUID v4) idempotency key. This key is utilized to ensure exactly-once execution of mutating requests.\n\n**chain** *string* (REQUIRED)\nA blockchain that a given currency is available on.\n\n**address** *string* (REQUIRED)\nAn alphanumeric string representing a blockchain address. Will be in different formats for different chains. It is important to preserve the exact formatting and capitalization of the address.\n\n**addressTag** *string*\nThe secondary identifier for a blockchain address. An example of this is the memo field on the Stellar network, which can be text, id, or hash format.\n\n**metadata** *object* (REQUIRED)\n\n  * **nickname** *string*\n  Nickname related to the address.\n\n  * **email** *string*\n  Email of the user.\n\n  * **bns** *string*\n  Blockchain Name Service (e.g. ENS) domain for the address.\n\n"
             },
             "url": {
               "path": [
                 "v1",
-                "transfers"
+                "addressBook",
+                "recipients"
               ],
               "host": [
                 "{{baseUrl}}"
@@ -360,7 +379,7 @@
             "method": "POST",
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"idempotencyKey\": \"{{$guid}}\",\n  \"source\": {\n    \"type\": \"wallet\",\n    \"id\": \"12345\"\n  },\n  \"destination\": {\n    \"type\": \"blockchain\",\n    \"address\": \"0x8381470ED67C3802402dbbFa0058E8871F017A6F\",\n    \"chain\": \"ETH\"\n  },\n  \"amount\": {\n    \"amount\": \"3.14\",\n    \"currency\": \"USD\"\n  }\n}",
+              "raw": "{\n  \"idempotencyKey\": \"{{$guid}}\",\n  \"chain\": \"MATIC\",\n  \"address\": \"0x8381470ED67C3802402dbbFa0058E8871F017A6F\",\n  \"metadata\": {\n    \"nickname\": \"sample nickname\",\n    \"email\": \"satoshi@circle.com\",\n    \"bns\": \"sample.circle\"\n  },\n  \"addressTag\": \"123456789\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -375,18 +394,16 @@
           }
         },
         {
-          "id": "25302e0d-ef7f-48c0-a683-6a0c878ccdb7",
-          "name": "List all transfers",
+          "id": "079d4d59-8d14-425c-a68f-da489844b8a2",
+          "name": "List all recipients",
           "request": {
-            "name": "List all transfers",
-            "description": {
-              "content": "Searches for transfers involving the provided wallets. If no wallet ids are provided, searches all wallets associated with your Circle API account. If the date parameters are omitted, returns the most recent transfers. This endpoint returns up to 50 transfers in descending chronological order or pageSize, if provided.",
-              "type": "text/plain"
-            },
+            "name": "List all recipients",
+            "description": {},
             "url": {
               "path": [
                 "v1",
-                "transfers"
+                "addressBook",
+                "recipients"
               ],
               "host": [
                 "{{baseUrl}}"
@@ -394,27 +411,27 @@
               "query": [
                 {
                   "disabled": true,
-                  "key": "walletId",
-                  "value": "12345",
-                  "description": "Unique identifier for the source or destination wallet of transfers, if any. May not be used in conjunction with destinationWalletId or sourceWalletId. Useful for fetching all transfers related to a wallet."
+                  "key": "address",
+                  "value": "amet nisi ul",
+                  "description": "Filters results to fetch only address book recipients with the provided address."
                 },
                 {
                   "disabled": true,
-                  "key": "sourceWalletId",
-                  "value": "12345",
-                  "description": "Unique identifier for the source wallet of transfers, if any."
+                  "key": "chain",
+                  "value": "amet nisi ul",
+                  "description": "Filters results to fetch only address book recipients with the provided chain."
                 },
                 {
                   "disabled": true,
-                  "key": "destinationWalletId",
-                  "value": "12345",
-                  "description": "Unique identifier for the destination wallet of transfers, if any."
+                  "key": "email",
+                  "value": "amet nisi ul",
+                  "description": "Filters results to fetch only address book recipients that have the provided email in their metadata."
                 },
                 {
                   "disabled": true,
-                  "key": "returnIdentities",
-                  "value": "false",
-                  "description": "Specify if you would like to see identities in the response. Restricts maximum returned items to 5. By default returnIdentities is false, resulting in the response not returning `data.source.identities`."
+                  "key": "status",
+                  "value": "inactive",
+                  "description": "Filters results to fetch only address book recipients that have the provided status."
                 },
                 {
                   "disabled": true,
@@ -431,13 +448,13 @@
                 {
                   "disabled": true,
                   "key": "pageBefore",
-                  "value": "esse id aute sint ut",
+                  "value": "amet nisi ul",
                   "description": "A collection ID value used for pagination.\n\nIt marks the exclusive end of a page. When provided, the collection resource will return the next `n` items before\nthe id, with `n` being specified by `pageSize`.\n\nThe items will be returned in the natural order of the collection.\n\nThe resource will return the first page if neither `pageAfter` nor `pageBefore` are specified.\n\nSHOULD NOT be used in conjuction with pageAfter.\n"
                 },
                 {
                   "disabled": true,
                   "key": "pageAfter",
-                  "value": "esse id aute sint ut",
+                  "value": "amet nisi ul",
                   "description": "A collection ID value used for pagination.\n\nIt marks the exclusive begin of a page. When provided, the collection resource will return the next `n` items after\nthe id, with `n` being specified by `pageSize`.\n\nThe items will be returned in the natural order of the collection.\n\nThe resource will return the first page if neither `pageAfter` nor `pageBefore` are specified.\n\nSHOULD NOT be used in conjuction with pageBefore.\n"
                 },
                 {
@@ -464,28 +481,22 @@
           }
         },
         {
-          "id": "5fab0b94-8793-4ff3-b281-a93cae1a351c",
-          "name": "Get a transfer",
+          "id": "91979b5e-f293-4fc2-af3a-50771fe6107c",
+          "name": "Get a recipient",
           "request": {
-            "name": "Get a transfer",
+            "name": "Get a recipient",
             "description": {},
             "url": {
               "path": [
                 "v1",
-                "transfers",
+                "addressBook",
+                "recipients",
                 ":id"
               ],
               "host": [
                 "{{baseUrl}}"
               ],
-              "query": [
-                {
-                  "disabled": true,
-                  "key": "returnIdentities",
-                  "value": "false",
-                  "description": "Specify if you would like to see identities in the response. Restricts maximum returned items to 5. By default returnIdentities is false, resulting in the response not returning `data.source.identities`."
-                }
-              ],
+              "query": [],
               "variable": [
                 {
                   "disabled": false,
@@ -509,12 +520,109 @@
           "protocolProfileBehavior": {
             "disableBodyPruning": true
           }
+        },
+        {
+          "id": "e1a68bc9-3e96-4701-a694-fb94d29a6728",
+          "name": "Modify a recipient",
+          "request": {
+            "name": "Modify a recipient",
+            "description": {
+              "content": "\n#### Body Params\n\n**metadata** *object*\n\n  * **nickname** *string*\n  Nickname related to the address.\n\n  * **email** *string*\n  Email of the user.\n\n  * **bns** *string*\n  Blockchain Name Service (e.g. ENS) domain for the address.\n\n"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "addressBook",
+                "recipients",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "b3d9d2d5-4c12-4946-a09d-953e82fae2b0",
+                  "key": "id",
+                  "description": "(Required) Universally unique identifier (UUID v4) of a resource."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"metadata\": {\n    \"nickname\": \"sample nickname\",\n    \"email\": \"satoshi@circle.com\",\n    \"bns\": \"sample.circle\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d6b87595-d02d-4bf5-ae67-3b5af6daaafe",
+          "name": "Delete a recipient",
+          "request": {
+            "name": "Delete a recipient",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "addressBook",
+                "recipients",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "b3d9d2d5-4c12-4946-a09d-953e82fae2b0",
+                  "key": "id",
+                  "description": "(Required) Universally unique identifier (UUID v4) of a resource."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE"
+          },
+          "response": [],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
         }
       ],
       "event": []
     },
     {
-      "id": "6a970070-0e86-4859-afc3-a62ba23c8b42",
+      "id": "5926174e-f972-4af3-a2a0-9e384bb7bd53",
       "name": "Wires",
       "description": {
         "content": "Create, get instructions, and get information on bank accounts for wire transfers.",
@@ -522,7 +630,7 @@
       },
       "item": [
         {
-          "id": "fd8122fb-9e03-435b-a1e8-5ecfc6a6da8b",
+          "id": "4c90b142-9c3c-4f12-9026-ca0b2ac35f07",
           "name": "Create a Wire bank account",
           "request": {
             "name": "Create a Wire bank account",
@@ -564,7 +672,7 @@
           },
           "response": [
             {
-              "id": "98a917e3-c544-4764-97aa-bd6d5d71dfa6",
+              "id": "6e159d9d-5139-4757-8e97-648508ca752d",
               "name": "U.S.",
               "originalRequest": {
                 "method": "POST",
@@ -600,13 +708,13 @@
                 }
               },
               "_postman_previewlanguage": "Text",
-              "header": null,
+              "header": [],
               "cookie": [],
               "responseTime": null,
-              "body": null
+              "body": ""
             },
             {
-              "id": "b8b3b9c1-1656-4f40-b2dd-42d02cbaea94",
+              "id": "6a61e559-822d-42da-9304-d2052cd5d7e1",
               "name": "Non-U.S. Non-IBAN",
               "originalRequest": {
                 "method": "POST",
@@ -642,13 +750,13 @@
                 }
               },
               "_postman_previewlanguage": "Text",
-              "header": null,
+              "header": [],
               "cookie": [],
               "responseTime": null,
-              "body": null
+              "body": ""
             },
             {
-              "id": "96002980-1860-414b-889a-43c627747f3b",
+              "id": "f60b87a6-0c15-4488-98ed-074c30efe5fe",
               "name": "Non-U.S. IBAN",
               "originalRequest": {
                 "method": "POST",
@@ -684,10 +792,10 @@
                 }
               },
               "_postman_previewlanguage": "Text",
-              "header": null,
+              "header": [],
               "cookie": [],
               "responseTime": null,
-              "body": null
+              "body": ""
             }
           ],
           "event": [],
@@ -696,7 +804,7 @@
           }
         },
         {
-          "id": "cf2cf14e-3637-46ea-a51b-8c2d63dc1861",
+          "id": "c737279c-7283-4ce8-939c-2a1671bdcbd1",
           "name": "Get a Wire bank account",
           "request": {
             "name": "Get a Wire bank account",
@@ -740,7 +848,7 @@
       "event": []
     },
     {
-      "id": "7f2595c4-680f-4381-ae4f-b56ca4f242ea",
+      "id": "dbff6bcd-1cee-4d29-abce-8d2358e4e207",
       "name": "ACH",
       "description": {
         "content": "Link and get information on bank account for ACH payments.",
@@ -748,7 +856,7 @@
       },
       "item": [
         {
-          "id": "28cb6ed8-1862-4a29-acc8-016f95b3d2d2",
+          "id": "e6fa98bd-5825-4325-9a88-fe81d9f25001",
           "name": "Create a ACH bank account",
           "request": {
             "name": "Create a ACH bank account",
@@ -780,7 +888,7 @@
             "method": "POST",
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"idempotencyKey\": \"{{$guid}}\",\n  \"plaidProcessorToken\": \"processor-sandbox-circle-82cf95bb-43f8-4191-8d30-2c9f42853621\",\n  \"billingDetails\": {\n    \"name\": \"Satoshi Nakamoto\",\n    \"city\": \"Boston\",\n    \"country\": \"US\",\n    \"line1\": \"100 Money Street\",\n    \"line2\": \"Suite 1\",\n    \"district\": \"MA\",\n    \"postalCode\": \"01234\"\n  },\n  \"metadata\": {\n    \"email\": \"satoshi@circle.com\",\n    \"sessionId\": \"DE6FA86F60BB47B379307F851E238617\",\n    \"ipAddress\": \"244.28.239.130\",\n    \"phoneNumber\": \"/+846018/\"\n  },\n  \"bankAccountType\": \"business\"\n}",
+              "raw": "{\n  \"idempotencyKey\": \"{{$guid}}\",\n  \"plaidProcessorToken\": \"processor-sandbox-circle-82cf95bb-43f8-4191-8d30-2c9f42853621\",\n  \"billingDetails\": {\n    \"name\": \"Satoshi Nakamoto\",\n    \"city\": \"Boston\",\n    \"country\": \"US\",\n    \"line1\": \"100 Money Street\",\n    \"line2\": \"Suite 1\",\n    \"district\": \"MA\",\n    \"postalCode\": \"01234\"\n  },\n  \"metadata\": {\n    \"email\": \"satoshi@circle.com\",\n    \"sessionId\": \"DE6FA86F60BB47B379307F851E238617\",\n    \"ipAddress\": \"244.28.239.130\",\n    \"phoneNumber\": \"/+667242/\"\n  },\n  \"bankAccountType\": \"retail\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -795,7 +903,7 @@
           }
         },
         {
-          "id": "eda7f994-7af6-462d-b5fe-cc73c8477360",
+          "id": "675af25b-ec22-4f73-8660-339b1d4d4d03",
           "name": "Get a ACH bank account",
           "request": {
             "name": "Get a ACH bank account",
@@ -836,7 +944,7 @@
           }
         },
         {
-          "id": "5cb2eb81-c990-4125-9f29-7088d93077d9",
+          "id": "129bab81-49dc-4109-bff4-5ae7bcef4d25",
           "name": "Create a mock ACH bank account",
           "request": {
             "name": "Create a mock ACH bank account",
@@ -888,7 +996,7 @@
       "event": []
     },
     {
-      "id": "acdfa2b0-74d7-4c13-935e-a7f7e175ee3c",
+      "id": "55478ebd-43cc-4338-b067-5c9fdd9a172a",
       "name": "SEPA",
       "description": {
         "content": "Create and get information on SEPA accounts.",
@@ -896,7 +1004,7 @@
       },
       "item": [
         {
-          "id": "ad7e631c-1b81-48eb-9c85-360c3bfb5474",
+          "id": "97b0b5eb-6e54-4c62-9741-946e92831998",
           "name": "Create a SEPA bank account (BETA)",
           "request": {
             "name": "Create a SEPA bank account (BETA)",
@@ -943,7 +1051,7 @@
           }
         },
         {
-          "id": "36c57be5-c046-4400-9ee8-cbbb35a7d9f3",
+          "id": "2fe6a43f-78aa-4a13-9f26-d9080b2e7aa9",
           "name": "Get a SEPA bank account (BETA)",
           "request": {
             "name": "Get a SEPA bank account (BETA)",
@@ -987,7 +1095,7 @@
       "event": []
     },
     {
-      "id": "c9dc06a2-4b85-4c39-b3ea-39ceddb7509b",
+      "id": "ed8976b9-7e46-400f-93ca-54282f3885a1",
       "name": "Returns",
       "description": {
         "content": "Get information on returned payouts.",
@@ -995,7 +1103,7 @@
       },
       "item": [
         {
-          "id": "a110020b-467a-47bb-b538-c9497215b89d",
+          "id": "f4748df2-a67b-4235-8a42-d3b7e49c9f71",
           "name": "List all payout returns",
           "request": {
             "name": "List all payout returns",
@@ -1027,13 +1135,13 @@
                 {
                   "disabled": true,
                   "key": "pageBefore",
-                  "value": "esse id aute sint ut",
+                  "value": "amet nisi ul",
                   "description": "A collection ID value used for pagination.\n\nIt marks the exclusive end of a page. When provided, the collection resource will return the next `n` items before\nthe id, with `n` being specified by `pageSize`.\n\nThe items will be returned in the natural order of the collection.\n\nThe resource will return the first page if neither `pageAfter` nor `pageBefore` are specified.\n\nSHOULD NOT be used in conjuction with pageAfter.\n"
                 },
                 {
                   "disabled": true,
                   "key": "pageAfter",
-                  "value": "esse id aute sint ut",
+                  "value": "amet nisi ul",
                   "description": "A collection ID value used for pagination.\n\nIt marks the exclusive begin of a page. When provided, the collection resource will return the next `n` items after\nthe id, with `n` being specified by `pageSize`.\n\nThe items will be returned in the natural order of the collection.\n\nThe resource will return the first page if neither `pageAfter` nor `pageBefore` are specified.\n\nSHOULD NOT be used in conjuction with pageBefore.\n"
                 },
                 {
@@ -1044,6 +1152,61 @@
                 }
               ],
               "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "bf8a7b51-ba99-49b0-9bde-160590087b1f",
+      "name": "Crypto Exchange Rates",
+      "description": {
+        "content": "Pull estimated exchange rate for crypto currencies.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "5a973c9c-4383-4ca6-b204-52499ffa9275",
+          "name": "Get a exchange rate",
+          "request": {
+            "name": "Get a exchange rate",
+            "description": {
+              "content": "Fetch the current rates for the specified trading pair. The trading pair is defined by a base currency followed by a quote currency. The response contains buy and sell rates denominated in the quote currency. **Exchange rate is an estimate only and is subject to change by the time you submit the actual request.**",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "exchange",
+                "rates",
+                ":trading-pair"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "ETH-USD",
+                  "key": "trading-pair",
+                  "description": "(Required) "
+                }
+              ]
             },
             "header": [
               {
@@ -1077,11 +1240,11 @@
     }
   ],
   "info": {
-    "_postman_id": "6091c2b1-7c1c-4bbb-a38e-e2d04331b4b4",
+    "_postman_id": "7dea16e2-6cd7-485d-b920-27ee2ef1a865",
     "name": "Payouts API",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
     "description": {
-      "content": "The Circle Payouts API allows you to programmatically make fast, global payouts to your customers, vendors, and suppliers. Use traditional methods like bank wires and ACH, or make native USDC payouts on supported blockchains.",
+      "content": "The Circle Payouts API allows you to programmatically make fast, global payouts to your customers, vendors, and suppliers. Use traditional methods like bank wires and ACH, or make payouts on supported blockchains.",
       "type": "text/plain"
     }
   },

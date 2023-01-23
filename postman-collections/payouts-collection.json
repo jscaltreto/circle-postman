@@ -1,7 +1,7 @@
 {
   "item": [
     {
-      "id": "12cafad4-e2cd-42fd-83c9-5761bb76fada",
+      "id": "1c8625bc-d8f8-4d75-9e33-e15eebcd3152",
       "name": "Payouts",
       "description": {
         "content": "Create and get information on wire, ACH, SEPA and address book payouts.",
@@ -9,7 +9,7 @@
       },
       "item": [
         {
-          "id": "fcfca067-1e29-4454-8086-e061d83a5d6e",
+          "id": "15dd426f-5db5-4376-a0ef-95fd143486f5",
           "name": "Create a payout",
           "request": {
             "name": "Create a payout",
@@ -180,7 +180,7 @@
           }
         },
         {
-          "id": "1049d847-c2ec-4382-832e-b040507c13b0",
+          "id": "fb20da61-b9c9-43f2-8e31-e672973f9e45",
           "name": "List all payouts",
           "request": {
             "name": "List all payouts",
@@ -209,13 +209,13 @@
                 {
                   "disabled": true,
                   "key": "type",
-                  "value": "sepa",
+                  "value": "wire",
                   "description": "Destination type. Filters the results to fetch all payouts made to a specified destination type. This query parameter can be passed multiple times to fetch results matching multiple destination types. The address_book destination type cannot be combined with other types."
                 },
                 {
                   "disabled": true,
                   "key": "type",
-                  "value": "wire",
+                  "value": "address_book",
                   "description": "Destination type. Filters the results to fetch all payouts made to a specified destination type. This query parameter can be passed multiple times to fetch results matching multiple destination types. The address_book destination type cannot be combined with other types."
                 },
                 {
@@ -227,25 +227,25 @@
                 {
                   "disabled": true,
                   "key": "status",
-                  "value": "pending",
+                  "value": "failed",
                   "description": "Queries items with the specified status. Matches any status if unspecified."
                 },
                 {
                   "disabled": true,
                   "key": "sourceCurrency",
-                  "value": "EUR",
+                  "value": "USD",
                   "description": "Queries items with the specified source currency `amount.currency`. Matches any source currency if unspecified."
                 },
                 {
                   "disabled": true,
                   "key": "destinationCurrency",
-                  "value": "EUR",
+                  "value": "USD",
                   "description": "Queries items with the specified destination currency `toAmount.currency`. Matches any destination currency if unspecified."
                 },
                 {
                   "disabled": true,
                   "key": "chain",
-                  "value": "HBAR",
+                  "value": "AVAX",
                   "description": "Queries items with the specified chain. Matches any chain if unspecified"
                 },
                 {
@@ -263,13 +263,13 @@
                 {
                   "disabled": true,
                   "key": "pageBefore",
-                  "value": "laborum sunt in ut adipisicing",
+                  "value": "tempor mollit magna cupidatat dolore",
                   "description": "A collection ID value used for pagination.\n\nIt marks the exclusive end of a page. When provided, the collection resource will return the next `n` items before\nthe id, with `n` being specified by `pageSize`.\n\nThe items will be returned in the natural order of the collection.\n\nThe resource will return the first page if neither `pageAfter` nor `pageBefore` are specified.\n\nSHOULD NOT be used in conjuction with pageAfter.\n"
                 },
                 {
                   "disabled": true,
                   "key": "pageAfter",
-                  "value": "laborum sunt in ut adipisicing",
+                  "value": "tempor mollit magna cupidatat dolore",
                   "description": "A collection ID value used for pagination.\n\nIt marks the exclusive begin of a page. When provided, the collection resource will return the next `n` items after\nthe id, with `n` being specified by `pageSize`.\n\nThe items will be returned in the natural order of the collection.\n\nThe resource will return the first page if neither `pageAfter` nor `pageBefore` are specified.\n\nSHOULD NOT be used in conjuction with pageBefore.\n"
                 },
                 {
@@ -296,7 +296,7 @@
           }
         },
         {
-          "id": "c51fba34-a600-41ef-978d-9d5da422dbc0",
+          "id": "2cf8f998-8494-4199-9a35-75813978702a",
           "name": "Get a payout",
           "request": {
             "name": "Get a payout",
@@ -339,7 +339,7 @@
       "event": []
     },
     {
-      "id": "bff388f4-6794-4634-8d63-0afe86687e3d",
+      "id": "d49788cc-7e3a-4046-a00d-8cd5e3d6af84",
       "name": "Crypto Address Book",
       "description": {
         "content": "Manage blockchain addresses with metadata.",
@@ -347,7 +347,7 @@
       },
       "item": [
         {
-          "id": "846415e4-0a42-49e6-b9fb-df7f7b0918c6",
+          "id": "8a0a380e-3e29-49dd-bc9b-46333f66c965",
           "name": "Create a recipient",
           "request": {
             "name": "Create a recipient",
@@ -379,7 +379,7 @@
             "method": "POST",
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"idempotencyKey\": \"{{$guid}}\",\n  \"chain\": \"ALGO\",\n  \"address\": \"0x8381470ED67C3802402dbbFa0058E8871F017A6F\",\n  \"metadata\": {\n    \"nickname\": \"sample nickname\",\n    \"email\": \"satoshi@circle.com\",\n    \"bns\": \"sample.circle\"\n  },\n  \"addressTag\": \"123456789\"\n}",
+              "raw": "{\n  \"idempotencyKey\": \"{{$guid}}\",\n  \"chain\": \"AVAX\",\n  \"address\": \"0x8381470ED67C3802402dbbFa0058E8871F017A6F\",\n  \"metadata\": {\n    \"nickname\": \"sample nickname\",\n    \"email\": \"satoshi@circle.com\",\n    \"bns\": \"sample.circle\"\n  },\n  \"addressTag\": \"123456789\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -394,7 +394,7 @@
           }
         },
         {
-          "id": "fa7928f3-9c66-4b89-b014-ca90991a08bc",
+          "id": "a2fffcf4-a334-43f1-bca4-728aaf619788",
           "name": "List all recipients",
           "request": {
             "name": "List all recipients",
@@ -412,25 +412,25 @@
                 {
                   "disabled": true,
                   "key": "address",
-                  "value": "laborum sunt in ut adipisicing",
+                  "value": "tempor mollit magna cupidatat dolore",
                   "description": "Filters results to fetch only address book recipients with the provided address."
                 },
                 {
                   "disabled": true,
                   "key": "chain",
-                  "value": "laborum sunt in ut adipisicing",
+                  "value": "tempor mollit magna cupidatat dolore",
                   "description": "Filters results to fetch only address book recipients with the provided chain."
                 },
                 {
                   "disabled": true,
                   "key": "email",
-                  "value": "laborum sunt in ut adipisicing",
+                  "value": "tempor mollit magna cupidatat dolore",
                   "description": "Filters results to fetch only address book recipients that have the provided email in their metadata."
                 },
                 {
                   "disabled": true,
                   "key": "status",
-                  "value": "active",
+                  "value": "denied",
                   "description": "Filters results to fetch only address book recipients that have the provided status."
                 },
                 {
@@ -448,13 +448,13 @@
                 {
                   "disabled": true,
                   "key": "pageBefore",
-                  "value": "laborum sunt in ut adipisicing",
+                  "value": "tempor mollit magna cupidatat dolore",
                   "description": "A collection ID value used for pagination.\n\nIt marks the exclusive end of a page. When provided, the collection resource will return the next `n` items before\nthe id, with `n` being specified by `pageSize`.\n\nThe items will be returned in the natural order of the collection.\n\nThe resource will return the first page if neither `pageAfter` nor `pageBefore` are specified.\n\nSHOULD NOT be used in conjuction with pageAfter.\n"
                 },
                 {
                   "disabled": true,
                   "key": "pageAfter",
-                  "value": "laborum sunt in ut adipisicing",
+                  "value": "tempor mollit magna cupidatat dolore",
                   "description": "A collection ID value used for pagination.\n\nIt marks the exclusive begin of a page. When provided, the collection resource will return the next `n` items after\nthe id, with `n` being specified by `pageSize`.\n\nThe items will be returned in the natural order of the collection.\n\nThe resource will return the first page if neither `pageAfter` nor `pageBefore` are specified.\n\nSHOULD NOT be used in conjuction with pageBefore.\n"
                 },
                 {
@@ -481,7 +481,7 @@
           }
         },
         {
-          "id": "e8351aab-2dd9-47a2-b850-5ce3fbc3fe24",
+          "id": "d7653a3a-fb89-45c2-8d55-f9fefd01fe88",
           "name": "Get a recipient",
           "request": {
             "name": "Get a recipient",
@@ -522,7 +522,7 @@
           }
         },
         {
-          "id": "661e80fa-bbd4-42b0-aeda-df7928304cde",
+          "id": "876221b2-c3d0-4eed-a31a-51a8876dd58d",
           "name": "Modify a recipient",
           "request": {
             "name": "Modify a recipient",
@@ -578,7 +578,7 @@
           }
         },
         {
-          "id": "5c9d7735-8557-4095-b577-d3445b91c1a7",
+          "id": "b21574a0-3163-48d7-9081-91b32790c112",
           "name": "Delete a recipient",
           "request": {
             "name": "Delete a recipient",
@@ -622,7 +622,7 @@
       "event": []
     },
     {
-      "id": "b7d4b80e-55d8-4335-a3c0-f4adbc00a969",
+      "id": "635192ca-bba0-422c-a5e4-acc31175784b",
       "name": "Wires",
       "description": {
         "content": "Create, get instructions, and get information on bank accounts for wire transfers.",
@@ -630,7 +630,7 @@
       },
       "item": [
         {
-          "id": "60fa9b87-96e5-4104-8a5b-0ba73f6cb149",
+          "id": "a8add3aa-3eaf-421e-aa83-6517e37727d4",
           "name": "Create a Wire bank account",
           "request": {
             "name": "Create a Wire bank account",
@@ -804,7 +804,7 @@
           }
         },
         {
-          "id": "dc39a292-c7aa-4dba-81e4-389551f9eb5a",
+          "id": "d39e9216-aaf3-4676-9c4d-3116311b7e50",
           "name": "Get a Wire bank account",
           "request": {
             "name": "Get a Wire bank account",
@@ -848,7 +848,7 @@
       "event": []
     },
     {
-      "id": "e77be3f5-c2e5-4838-9377-d49d4dfffb9a",
+      "id": "3af35fbc-1805-4ec6-bb3f-b1c1a2d3586c",
       "name": "ACH",
       "description": {
         "content": "Link and get information on bank account for ACH payments.",
@@ -856,7 +856,7 @@
       },
       "item": [
         {
-          "id": "e17d4868-ec53-4fa1-a85a-d2112047044a",
+          "id": "f7f2d7f6-5a09-4abc-9ff2-6151df995b77",
           "name": "Create a ACH bank account",
           "request": {
             "name": "Create a ACH bank account",
@@ -888,7 +888,7 @@
             "method": "POST",
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"idempotencyKey\": \"{{$guid}}\",\n  \"plaidProcessorToken\": \"processor-sandbox-circle-82cf95bb-43f8-4191-8d30-2c9f42853621\",\n  \"billingDetails\": {\n    \"name\": \"Satoshi Nakamoto\",\n    \"city\": \"Boston\",\n    \"country\": \"US\",\n    \"line1\": \"100 Money Street\",\n    \"line2\": \"Suite 1\",\n    \"district\": \"MA\",\n    \"postalCode\": \"01234\"\n  },\n  \"metadata\": {\n    \"email\": \"satoshi@circle.com\",\n    \"sessionId\": \"DE6FA86F60BB47B379307F851E238617\",\n    \"ipAddress\": \"244.28.239.130\",\n    \"phoneNumber\": \"/+35642386958196\"\n  },\n  \"bankAccountType\": \"retail\"\n}",
+              "raw": "{\n  \"idempotencyKey\": \"{{$guid}}\",\n  \"plaidProcessorToken\": \"processor-sandbox-circle-82cf95bb-43f8-4191-8d30-2c9f42853621\",\n  \"billingDetails\": {\n    \"name\": \"Satoshi Nakamoto\",\n    \"city\": \"Boston\",\n    \"country\": \"US\",\n    \"line1\": \"100 Money Street\",\n    \"line2\": \"Suite 1\",\n    \"district\": \"MA\",\n    \"postalCode\": \"01234\"\n  },\n  \"metadata\": {\n    \"email\": \"satoshi@circle.com\",\n    \"sessionId\": \"DE6FA86F60BB47B379307F851E238617\",\n    \"ipAddress\": \"244.28.239.130\",\n    \"phoneNumber\": \"/+98999788011/\"\n  },\n  \"bankAccountType\": \"retail\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -903,7 +903,7 @@
           }
         },
         {
-          "id": "a0dd0a29-13fa-4ba4-aa1a-87d7187d0722",
+          "id": "27b9c65a-9e8e-478b-9db2-f421361b676f",
           "name": "Get a ACH bank account",
           "request": {
             "name": "Get a ACH bank account",
@@ -944,7 +944,7 @@
           }
         },
         {
-          "id": "aab29dee-b713-42b3-8882-828661598a15",
+          "id": "85c6a666-b8ff-4574-9059-31e259214b5d",
           "name": "Create a mock ACH bank account",
           "request": {
             "name": "Create a mock ACH bank account",
@@ -996,7 +996,7 @@
       "event": []
     },
     {
-      "id": "0e0b7d4d-87b9-4c24-9b22-851a6c8f3acc",
+      "id": "a000cda3-bcf0-4316-89db-d3df99b701f6",
       "name": "SEPA",
       "description": {
         "content": "Create and get information on SEPA accounts.",
@@ -1004,7 +1004,7 @@
       },
       "item": [
         {
-          "id": "ef200015-5a7e-4618-ad5a-c98ccbc0d834",
+          "id": "4f94e20b-1aac-41d8-8a1e-3362b5aa7183",
           "name": "Create a SEPA bank account",
           "request": {
             "name": "Create a SEPA bank account",
@@ -1036,7 +1036,7 @@
             "method": "POST",
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"idempotencyKey\": \"{{$guid}}\",\n  \"iban\": \"DE31100400480532013000\",\n  \"billingDetails\": {\n    \"name\": \"Satoshi Nakamoto\",\n    \"city\": \"Boston\",\n    \"country\": \"US\",\n    \"line1\": \"100 Money Street\",\n    \"postalCode\": \"01234\",\n    \"line2\": \"Suite 1\",\n    \"district\": \"MA\"\n  },\n  \"accountName\": false\n}",
+              "raw": "{\n  \"idempotencyKey\": \"{{$guid}}\",\n  \"iban\": \"DE31100400480532013000\",\n  \"billingDetails\": {\n    \"name\": \"Satoshi Nakamoto\",\n    \"city\": \"Boston\",\n    \"country\": \"US\",\n    \"line1\": \"100 Money Street\",\n    \"postalCode\": \"01234\",\n    \"line2\": \"Suite 1\",\n    \"district\": \"MA\"\n  },\n  \"accountName\": 51811441.16424772\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -1051,7 +1051,7 @@
           }
         },
         {
-          "id": "acae34c4-d2a2-4436-b700-32dcadecd642",
+          "id": "ed10b32c-0455-4e90-a1f5-86a610869b5f",
           "name": "Get a SEPA bank account",
           "request": {
             "name": "Get a SEPA bank account",
@@ -1095,7 +1095,7 @@
       "event": []
     },
     {
-      "id": "96ead5aa-6794-4b2c-b7ca-8ac8fbd308e7",
+      "id": "7984ab21-d1cb-4108-8e2d-386398fbeedf",
       "name": "Returns",
       "description": {
         "content": "Get information on returned payouts.",
@@ -1103,7 +1103,7 @@
       },
       "item": [
         {
-          "id": "acd9b713-299f-476d-a969-4f6a933e994a",
+          "id": "dfe4d004-e20d-4b80-9ace-96e82dd44c24",
           "name": "List all payout returns",
           "request": {
             "name": "List all payout returns",
@@ -1135,13 +1135,13 @@
                 {
                   "disabled": true,
                   "key": "pageBefore",
-                  "value": "laborum sunt in ut adipisicing",
+                  "value": "tempor mollit magna cupidatat dolore",
                   "description": "A collection ID value used for pagination.\n\nIt marks the exclusive end of a page. When provided, the collection resource will return the next `n` items before\nthe id, with `n` being specified by `pageSize`.\n\nThe items will be returned in the natural order of the collection.\n\nThe resource will return the first page if neither `pageAfter` nor `pageBefore` are specified.\n\nSHOULD NOT be used in conjuction with pageAfter.\n"
                 },
                 {
                   "disabled": true,
                   "key": "pageAfter",
-                  "value": "laborum sunt in ut adipisicing",
+                  "value": "tempor mollit magna cupidatat dolore",
                   "description": "A collection ID value used for pagination.\n\nIt marks the exclusive begin of a page. When provided, the collection resource will return the next `n` items after\nthe id, with `n` being specified by `pageSize`.\n\nThe items will be returned in the natural order of the collection.\n\nThe resource will return the first page if neither `pageAfter` nor `pageBefore` are specified.\n\nSHOULD NOT be used in conjuction with pageBefore.\n"
                 },
                 {
@@ -1171,7 +1171,7 @@
       "event": []
     },
     {
-      "id": "b1708f7f-1a71-4bfe-9d8d-9e325aceaa7f",
+      "id": "7bfe0faa-c7a2-45ef-a647-0af0144a9529",
       "name": "Crypto Exchange Rates",
       "description": {
         "content": "Pull estimated exchange rate for crypto currencies.",
@@ -1179,7 +1179,7 @@
       },
       "item": [
         {
-          "id": "9146504d-e832-428a-89dc-f9376c868942",
+          "id": "3d830cd6-830d-41f0-8e5b-cc5b95e26974",
           "name": "Get a exchange rate",
           "request": {
             "name": "Get a exchange rate",
@@ -1202,7 +1202,7 @@
                 {
                   "disabled": false,
                   "type": "any",
-                  "value": "ETH-USD",
+                  "value": "FLOW-USD",
                   "key": "trading-pair",
                   "description": "(Required) "
                 }
@@ -1240,7 +1240,7 @@
     }
   ],
   "info": {
-    "_postman_id": "c944a5e0-a07e-47f6-a00d-628ced97d7cd",
+    "_postman_id": "d06331c9-fa69-4f34-8c3f-1e00daf0c8d1",
     "name": "Payouts API",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
     "description": {

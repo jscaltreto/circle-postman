@@ -1,7 +1,7 @@
 {
   "item": [
     {
-      "id": "e0cd0ed6-b157-47a9-97ff-16a50be09adf",
+      "id": "eba39fc7-8a93-4870-bad0-fe559de74ceb",
       "name": "Wallets",
       "description": {
         "content": "Create digital wallets and get information on their activity.",
@@ -9,7 +9,7 @@
       },
       "item": [
         {
-          "id": "319fbdca-4c3e-41a2-84af-13f46c6dfef4",
+          "id": "9dc510ea-8f68-4893-9949-a2ad5a650d32",
           "name": "Create a wallet",
           "request": {
             "name": "Create a wallet",
@@ -56,7 +56,7 @@
           }
         },
         {
-          "id": "a1421796-28bc-4e38-87ca-dbc89cfa5b10",
+          "id": "704893bd-dee9-43cf-99f1-951a0dd75aed",
           "name": "List all wallets",
           "request": {
             "name": "List all wallets",
@@ -88,13 +88,13 @@
                 {
                   "disabled": true,
                   "key": "pageBefore",
-                  "value": "dolor in",
+                  "value": "velit eu labo",
                   "description": "A collection ID value used for pagination.\n\nIt marks the exclusive end of a page. When provided, the collection resource will return the next `n` items before\nthe id, with `n` being specified by `pageSize`.\n\nThe items will be returned in the natural order of the collection.\n\nThe resource will return the first page if neither `pageAfter` nor `pageBefore` are specified.\n\nSHOULD NOT be used in conjuction with pageAfter.\n"
                 },
                 {
                   "disabled": true,
                   "key": "pageAfter",
-                  "value": "dolor in",
+                  "value": "velit eu labo",
                   "description": "A collection ID value used for pagination.\n\nIt marks the exclusive begin of a page. When provided, the collection resource will return the next `n` items after\nthe id, with `n` being specified by `pageSize`.\n\nThe items will be returned in the natural order of the collection.\n\nThe resource will return the first page if neither `pageAfter` nor `pageBefore` are specified.\n\nSHOULD NOT be used in conjuction with pageBefore.\n"
                 },
                 {
@@ -121,7 +121,7 @@
           }
         },
         {
-          "id": "5ca53ed2-2bdc-434b-ab41-604b8e72e712",
+          "id": "8f9c7953-33ca-44b5-ae91-6f96eb4d73e3",
           "name": "Get a wallet",
           "request": {
             "name": "Get a wallet",
@@ -161,7 +161,7 @@
           }
         },
         {
-          "id": "09e461e6-71c4-4505-8f84-621cb1b8d1c8",
+          "id": "482b79ff-ea79-404c-91fc-c24cfd3c1647",
           "name": "Create a blockchain address",
           "request": {
             "name": "Create a blockchain address",
@@ -203,7 +203,7 @@
             "method": "POST",
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"idempotencyKey\": \"{{$guid}}\",\n  \"currency\": \"EUR\",\n  \"chain\": \"FLOW\"\n}",
+              "raw": "{\n  \"idempotencyKey\": \"{{$guid}}\",\n  \"currency\": \"EUR\",\n  \"chain\": \"XLM\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -218,7 +218,7 @@
           }
         },
         {
-          "id": "4b9a9396-f342-4205-bd7a-a46e42b1b851",
+          "id": "0e2bbe79-c5ae-43b1-8bc2-8874e7458f8f",
           "name": "List all addresses",
           "request": {
             "name": "List all addresses",
@@ -252,13 +252,13 @@
                 {
                   "disabled": true,
                   "key": "pageBefore",
-                  "value": "dolor in",
+                  "value": "velit eu labo",
                   "description": "A collection ID value used for pagination.\n\nIt marks the exclusive end of a page. When provided, the collection resource will return the next `n` items before\nthe id, with `n` being specified by `pageSize`.\n\nThe items will be returned in the natural order of the collection.\n\nThe resource will return the first page if neither `pageAfter` nor `pageBefore` are specified.\n\nSHOULD NOT be used in conjuction with pageAfter.\n"
                 },
                 {
                   "disabled": true,
                   "key": "pageAfter",
-                  "value": "dolor in",
+                  "value": "velit eu labo",
                   "description": "A collection ID value used for pagination.\n\nIt marks the exclusive begin of a page. When provided, the collection resource will return the next `n` items after\nthe id, with `n` being specified by `pageSize`.\n\nThe items will be returned in the natural order of the collection.\n\nThe resource will return the first page if neither `pageAfter` nor `pageBefore` are specified.\n\nSHOULD NOT be used in conjuction with pageBefore.\n"
                 },
                 {
@@ -296,7 +296,7 @@
       "event": []
     },
     {
-      "id": "0a2b9d7e-aee5-4782-8919-a5c6a8968981",
+      "id": "2ead5b0f-98d0-4dd4-bcf9-113ab67adbb1",
       "name": "Transfers",
       "description": {
         "content": "Create transfers to another wallet or blockchain address, and get information on those transfers.",
@@ -304,7 +304,7 @@
       },
       "item": [
         {
-          "id": "46b272e4-a475-4afc-9454-d2082e018a44",
+          "id": "da119179-dd25-4c5c-aaa7-ca64ef72c4c1",
           "name": "Create a transfer",
           "request": {
             "name": "Create a transfer",
@@ -351,7 +351,7 @@
           }
         },
         {
-          "id": "bdd3d1f0-08a9-4033-88f8-e152d3eadd92",
+          "id": "13fbe312-fce4-431a-b5a1-f8883e9b3d4b",
           "name": "List all transfers",
           "request": {
             "name": "List all transfers",
@@ -407,13 +407,13 @@
                 {
                   "disabled": true,
                   "key": "pageBefore",
-                  "value": "dolor in",
+                  "value": "velit eu labo",
                   "description": "A collection ID value used for pagination.\n\nIt marks the exclusive end of a page. When provided, the collection resource will return the next `n` items before\nthe id, with `n` being specified by `pageSize`.\n\nThe items will be returned in the natural order of the collection.\n\nThe resource will return the first page if neither `pageAfter` nor `pageBefore` are specified.\n\nSHOULD NOT be used in conjuction with pageAfter.\n"
                 },
                 {
                   "disabled": true,
                   "key": "pageAfter",
-                  "value": "dolor in",
+                  "value": "velit eu labo",
                   "description": "A collection ID value used for pagination.\n\nIt marks the exclusive begin of a page. When provided, the collection resource will return the next `n` items after\nthe id, with `n` being specified by `pageSize`.\n\nThe items will be returned in the natural order of the collection.\n\nThe resource will return the first page if neither `pageAfter` nor `pageBefore` are specified.\n\nSHOULD NOT be used in conjuction with pageBefore.\n"
                 },
                 {
@@ -440,7 +440,7 @@
           }
         },
         {
-          "id": "6e4edeba-77db-4d8d-8883-785be60fce95",
+          "id": "b643260e-2a82-425a-8670-490d9f6aab0b",
           "name": "Get a transfer",
           "request": {
             "name": "Get a transfer",
@@ -504,7 +504,7 @@
     }
   ],
   "info": {
-    "_postman_id": "7bbe8228-3cbc-4d87-9d20-4c1ca785e0b7",
+    "_postman_id": "3e0db653-0e55-4d39-9dfe-8c0c11f99934",
     "name": "Accounts API",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
     "description": {

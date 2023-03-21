@@ -1,7 +1,7 @@
 {
   "item": [
     {
-      "id": "189e0491-1d52-4789-b3aa-89f496a6af38",
+      "id": "19fb4a92-dc67-4db5-937d-16d96079c11c",
       "name": "Balances",
       "description": {
         "content": "Get information on settled and unsettled balances.",
@@ -9,7 +9,7 @@
       },
       "item": [
         {
-          "id": "a334a3d5-4e25-4c18-becf-33d5724d8095",
+          "id": "8cc521dd-52e4-45d2-b241-aedb2cb9d441",
           "name": "List all balances",
           "request": {
             "name": "List all balances",
@@ -47,7 +47,7 @@
       "event": []
     },
     {
-      "id": "c2492d7f-a7ec-405e-9f45-cdde243e60aa",
+      "id": "45f66fe9-8708-42a1-aeb3-663fef9c0e67",
       "name": "Payouts",
       "description": {
         "content": "Create and get information on 1st party payouts.",
@@ -55,7 +55,7 @@
       },
       "item": [
         {
-          "id": "e79524cf-5784-48f7-818e-2fe91949cda6",
+          "id": "12779a01-aed0-452b-9ff5-714062574265",
           "name": "Create a payout",
           "request": {
             "name": "Create a payout",
@@ -87,7 +87,7 @@
             "method": "POST",
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"idempotencyKey\": \"{{$guid}}\",\n  \"destination\": {\n    \"type\": \"signet\",\n    \"id\": \"b8627ae8-732b-4d25-b947-1df8f4007a29\"\n  },\n  \"amount\": {\n    \"amount\": \"3.14\",\n    \"currency\": \"USD\"\n  }\n}",
+              "raw": "{\n  \"idempotencyKey\": \"{{$guid}}\",\n  \"destination\": {\n    \"type\": \"wire\",\n    \"id\": \"b8627ae8-732b-4d25-b947-1df8f4007a29\"\n  },\n  \"amount\": {\n    \"amount\": \"3.14\",\n    \"currency\": \"USD\"\n  }\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -102,7 +102,7 @@
           }
         },
         {
-          "id": "8b72ac35-5346-472f-a650-1e0385a1237f",
+          "id": "ce634d2e-0ab1-4f81-8974-834398cc3f8c",
           "name": "List all payouts",
           "request": {
             "name": "List all payouts",
@@ -132,13 +132,13 @@
                 {
                   "disabled": true,
                   "key": "status",
-                  "value": "complete",
+                  "value": "failed",
                   "description": "Queries items with the specified status. Matches any status if unspecified."
                 },
                 {
                   "disabled": true,
                   "key": "status",
-                  "value": "failed",
+                  "value": "pending",
                   "description": "Queries items with the specified status. Matches any status if unspecified."
                 },
                 {
@@ -156,13 +156,13 @@
                 {
                   "disabled": true,
                   "key": "pageBefore",
-                  "value": "amet do",
+                  "value": "esse est reprehenderit veniam",
                   "description": "A collection ID value used for pagination.\n\nIt marks the exclusive end of a page. When provided, the collection resource will return the next `n` items before\nthe id, with `n` being specified by `pageSize`.\n\nThe items will be returned in the natural order of the collection.\n\nThe resource will return the first page if neither `pageAfter` nor `pageBefore` are specified.\n\nSHOULD NOT be used in conjuction with pageAfter.\n"
                 },
                 {
                   "disabled": true,
                   "key": "pageAfter",
-                  "value": "amet do",
+                  "value": "esse est reprehenderit veniam",
                   "description": "A collection ID value used for pagination.\n\nIt marks the exclusive begin of a page. When provided, the collection resource will return the next `n` items after\nthe id, with `n` being specified by `pageSize`.\n\nThe items will be returned in the natural order of the collection.\n\nThe resource will return the first page if neither `pageAfter` nor `pageBefore` are specified.\n\nSHOULD NOT be used in conjuction with pageBefore.\n"
                 },
                 {
@@ -189,7 +189,7 @@
           }
         },
         {
-          "id": "fbb96775-f26f-4577-aac0-e569cec920b0",
+          "id": "d23ecfcc-e712-4e12-8a6d-0a88786495b5",
           "name": "Get a payout",
           "request": {
             "name": "Get a payout",
@@ -233,7 +233,7 @@
       "event": []
     },
     {
-      "id": "b9638ac8-969a-4213-b001-be02af409e7f",
+      "id": "70d48481-f4d0-479b-92df-4256ab8dac88",
       "name": "Wires",
       "description": {
         "content": "Create, get instructions, and get information on 1st party bank accounts for wire transfers.",
@@ -241,7 +241,7 @@
       },
       "item": [
         {
-          "id": "10313d69-fd53-489d-ad2a-756101cc70a2",
+          "id": "e87ee376-a211-4eba-8526-343a552f2228",
           "name": "Create a Wire bank account",
           "request": {
             "name": "Create a Wire bank account",
@@ -419,7 +419,7 @@
           }
         },
         {
-          "id": "747d3cb7-3022-4bcc-b819-30ef5e5f120d",
+          "id": "9e8f3d92-c56c-459b-a4a8-d7238f9ad06f",
           "name": "List all Wire bank accounts",
           "request": {
             "name": "List all Wire bank accounts",
@@ -452,7 +452,7 @@
           }
         },
         {
-          "id": "8b91ab00-d75a-4378-987b-7c871e3eadb2",
+          "id": "f2a72af9-79e3-4e28-9cae-e063be155557",
           "name": "Get a Wire bank account",
           "request": {
             "name": "Get a Wire bank account",
@@ -494,7 +494,7 @@
           }
         },
         {
-          "id": "75ff1191-7ca5-4af1-9e3a-396a564ac56e",
+          "id": "03feff38-a53d-4367-9286-22c6049bf2f4",
           "name": "Get Wire instructions",
           "request": {
             "name": "Get Wire instructions",
@@ -550,7 +550,7 @@
       "event": []
     },
     {
-      "id": "01c14a9d-3c23-4c35-a3a6-f1edd3d10016",
+      "id": "cc27d0f8-84e4-41e6-8119-2b34d8dd1576",
       "name": "Signet",
       "description": {
         "content": "Create and get information on Signet accounts.",
@@ -558,7 +558,7 @@
       },
       "item": [
         {
-          "id": "9e332ffc-6e47-4316-8dfa-445f75d5639a",
+          "id": "89dc57cd-640e-4b01-a7b1-83c09a458cb8",
           "name": "Create a Signet bank account (Production Only)",
           "request": {
             "name": "Create a Signet bank account (Production Only)",
@@ -606,7 +606,7 @@
           }
         },
         {
-          "id": "375212fd-5b2c-4e7f-bd56-4bd5ef231931",
+          "id": "0194ad3b-70ad-4b0a-9835-e8a12e51d906",
           "name": "List all Signet bank accounts (Production Only).",
           "request": {
             "name": "List all Signet bank accounts (Production Only).",
@@ -639,7 +639,7 @@
           }
         },
         {
-          "id": "4255c50d-eb00-442d-9c8a-6337c3c6c28d",
+          "id": "5a38c849-74a6-4a2e-81ec-b3c7101dc8d3",
           "name": "Get a Signet bank account (Production Only)",
           "request": {
             "name": "Get a Signet bank account (Production Only)",
@@ -681,7 +681,7 @@
           }
         },
         {
-          "id": "3eece225-9fb2-43ab-b307-ccd2a61c3a57",
+          "id": "1bad7e06-7294-44a2-8b4c-e3e1dc60cfca",
           "name": "Get Signet instructions (Production Only)",
           "request": {
             "name": "Get Signet instructions (Production Only)",
@@ -730,7 +730,7 @@
       "event": []
     },
     {
-      "id": "ccbec458-9216-4b97-bc66-a03ed64394ab",
+      "id": "9e1ce6b8-473b-44a1-accc-6ca99fb9ea68",
       "name": "SEN",
       "description": {
         "content": "Create and get information on SEN accounts.",
@@ -738,7 +738,7 @@
       },
       "item": [
         {
-          "id": "0a47a2a3-5153-456b-9bc9-2420d934242d",
+          "id": "8962ff93-6e56-4510-8e57-b5f20ad4011a",
           "name": "Create a Silvergate SEN bank account (BETA)",
           "request": {
             "name": "Create a Silvergate SEN bank account (BETA)",
@@ -786,7 +786,7 @@
           }
         },
         {
-          "id": "86050457-cd2d-4796-b079-48b4abfce182",
+          "id": "66921ae8-4b49-4aa7-9666-743d6c613f32",
           "name": "List all Silvergate SEN bank accounts (BETA).",
           "request": {
             "name": "List all Silvergate SEN bank accounts (BETA).",
@@ -819,7 +819,7 @@
           }
         },
         {
-          "id": "8459da2d-812d-4b3f-9fa2-8ef4a73b66d4",
+          "id": "3ff09ecb-9448-4ded-bae9-cbabfd60964b",
           "name": "Get a Silvergate SEN bank account (BETA)",
           "request": {
             "name": "Get a Silvergate SEN bank account (BETA)",
@@ -861,7 +861,7 @@
           }
         },
         {
-          "id": "e2c723d4-7822-4d0a-bfeb-96f3aaede5b6",
+          "id": "7b8fb06e-8e9b-4e65-9f89-a7ab4698fe25",
           "name": "Get Silvergate SEN instructions (BETA)",
           "request": {
             "name": "Get Silvergate SEN instructions (BETA)",
@@ -910,7 +910,7 @@
       "event": []
     },
     {
-      "id": "5d9dd796-5708-442a-8a37-c71156ee70c2",
+      "id": "e8d1ef0a-8a45-48c5-90fd-c7405e4d1c7c",
       "name": "Transfers",
       "description": {
         "content": "Create and get information on 1st party transfers.",
@@ -918,7 +918,7 @@
       },
       "item": [
         {
-          "id": "eabbf2c4-c56a-43cf-b229-927fbda11343",
+          "id": "2ec978f0-36ea-4ed8-9bf0-e32959796047",
           "name": "Create a transfer",
           "request": {
             "name": "Create a transfer",
@@ -966,7 +966,7 @@
           }
         },
         {
-          "id": "ccf11e56-9d19-401d-8c17-ad5e90213e82",
+          "id": "df1dd317-8c56-456b-a67f-9166cd8c3f3b",
           "name": "List all transfers",
           "request": {
             "name": "List all transfers",
@@ -999,13 +999,13 @@
                 {
                   "disabled": true,
                   "key": "pageBefore",
-                  "value": "amet do",
+                  "value": "esse est reprehenderit veniam",
                   "description": "A collection ID value used for pagination.\n\nIt marks the exclusive end of a page. When provided, the collection resource will return the next `n` items before\nthe id, with `n` being specified by `pageSize`.\n\nThe items will be returned in the natural order of the collection.\n\nThe resource will return the first page if neither `pageAfter` nor `pageBefore` are specified.\n\nSHOULD NOT be used in conjuction with pageAfter.\n"
                 },
                 {
                   "disabled": true,
                   "key": "pageAfter",
-                  "value": "amet do",
+                  "value": "esse est reprehenderit veniam",
                   "description": "A collection ID value used for pagination.\n\nIt marks the exclusive begin of a page. When provided, the collection resource will return the next `n` items after\nthe id, with `n` being specified by `pageSize`.\n\nThe items will be returned in the natural order of the collection.\n\nThe resource will return the first page if neither `pageAfter` nor `pageBefore` are specified.\n\nSHOULD NOT be used in conjuction with pageBefore.\n"
                 },
                 {
@@ -1032,7 +1032,7 @@
           }
         },
         {
-          "id": "06b00b53-8b4b-4c1d-a693-d4e0d1161cc3",
+          "id": "0344f384-fc98-4c74-a9d5-bff2eaf7d448",
           "name": "Get a transfer",
           "request": {
             "name": "Get a transfer",
@@ -1076,7 +1076,7 @@
       "event": []
     },
     {
-      "id": "ad1e1bed-6f1a-48b6-bd87-054864356aa9",
+      "id": "13bf84f9-34f9-4636-86e6-39c2e57458e1",
       "name": "Addresses",
       "description": {
         "content": "Generate and get information on blockchain addresses.",
@@ -1084,7 +1084,7 @@
       },
       "item": [
         {
-          "id": "ba505431-f551-42cb-b9e7-ca90e9beb5e6",
+          "id": "8c3688d1-b058-488c-8e49-451062a29856",
           "name": "Create a deposit address",
           "request": {
             "name": "Create a deposit address",
@@ -1119,7 +1119,7 @@
             "method": "POST",
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"idempotencyKey\": \"{{$guid}}\",\n  \"currency\": \"BTC\",\n  \"chain\": \"HBAR\"\n}",
+              "raw": "{\n  \"idempotencyKey\": \"{{$guid}}\",\n  \"currency\": \"USD\",\n  \"chain\": \"ETH\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -1134,7 +1134,7 @@
           }
         },
         {
-          "id": "9b1594f7-27ff-4adb-a9a8-e45745611467",
+          "id": "9fa839b4-dd95-463a-af4a-b098bfeda96c",
           "name": "List all deposit addresses",
           "request": {
             "name": "List all deposit addresses",
@@ -1168,7 +1168,7 @@
           }
         },
         {
-          "id": "d29b3462-73ff-4ac8-88ca-2e99e631ab90",
+          "id": "c2d2f054-82c2-48e2-9328-7320b981b145",
           "name": "Create a recipient address",
           "request": {
             "name": "Create a recipient address",
@@ -1203,7 +1203,7 @@
             "method": "POST",
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"idempotencyKey\": \"{{$guid}}\",\n  \"address\": \"0x8381470ED67C3802402dbbFa0058E8871F017A6F\",\n  \"chain\": \"MATIC\",\n  \"description\": \"My USDC address at a cryptocurrency exchange\",\n  \"addressTag\": \"123456789\",\n  \"currency\": \"ETH\"\n}",
+              "raw": "{\n  \"idempotencyKey\": \"{{$guid}}\",\n  \"address\": \"0x8381470ED67C3802402dbbFa0058E8871F017A6F\",\n  \"chain\": \"TRX\",\n  \"description\": \"My USDC address at a cryptocurrency exchange\",\n  \"addressTag\": \"123456789\",\n  \"currency\": \"EUR\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -1218,7 +1218,7 @@
           }
         },
         {
-          "id": "3e8ee885-5636-4c81-8d82-4d7c4fc53f7e",
+          "id": "69dbb8d5-da90-4e82-93df-38083bc9e74f",
           "name": "List all recipient addresses",
           "request": {
             "name": "List all recipient addresses",
@@ -1253,13 +1253,13 @@
                 {
                   "disabled": true,
                   "key": "pageBefore",
-                  "value": "amet do",
+                  "value": "esse est reprehenderit veniam",
                   "description": "A collection ID value used for pagination.\n\nIt marks the exclusive end of a page. When provided, the collection resource will return the next `n` items before\nthe id, with `n` being specified by `pageSize`.\n\nThe items will be returned in the natural order of the collection.\n\nThe resource will return the first page if neither `pageAfter` nor `pageBefore` are specified.\n\nSHOULD NOT be used in conjuction with pageAfter.\n"
                 },
                 {
                   "disabled": true,
                   "key": "pageAfter",
-                  "value": "amet do",
+                  "value": "esse est reprehenderit veniam",
                   "description": "A collection ID value used for pagination.\n\nIt marks the exclusive begin of a page. When provided, the collection resource will return the next `n` items after\nthe id, with `n` being specified by `pageSize`.\n\nThe items will be returned in the natural order of the collection.\n\nThe resource will return the first page if neither `pageAfter` nor `pageBefore` are specified.\n\nSHOULD NOT be used in conjuction with pageBefore.\n"
                 },
                 {
@@ -1289,7 +1289,7 @@
       "event": []
     },
     {
-      "id": "ee3dce40-b90d-43c6-bf5a-59dc95e00e52",
+      "id": "f5f55e60-078c-498d-bbe8-3f496231fb64",
       "name": "Deposits",
       "description": {
         "content": "Get information on 1st party deposits.",
@@ -1297,7 +1297,7 @@
       },
       "item": [
         {
-          "id": "acb0160b-d112-453f-bc7a-c96c1c543b8b",
+          "id": "0323c3dd-9781-4441-ba0e-5dba7ef234bb",
           "name": "List all deposits",
           "request": {
             "name": "List all deposits",
@@ -1336,13 +1336,13 @@
                 {
                   "disabled": true,
                   "key": "pageBefore",
-                  "value": "amet do",
+                  "value": "esse est reprehenderit veniam",
                   "description": "A collection ID value used for pagination.\n\nIt marks the exclusive end of a page. When provided, the collection resource will return the next `n` items before\nthe id, with `n` being specified by `pageSize`.\n\nThe items will be returned in the natural order of the collection.\n\nThe resource will return the first page if neither `pageAfter` nor `pageBefore` are specified.\n\nSHOULD NOT be used in conjuction with pageAfter.\n"
                 },
                 {
                   "disabled": true,
                   "key": "pageAfter",
-                  "value": "amet do",
+                  "value": "esse est reprehenderit veniam",
                   "description": "A collection ID value used for pagination.\n\nIt marks the exclusive begin of a page. When provided, the collection resource will return the next `n` items after\nthe id, with `n` being specified by `pageSize`.\n\nThe items will be returned in the natural order of the collection.\n\nThe resource will return the first page if neither `pageAfter` nor `pageBefore` are specified.\n\nSHOULD NOT be used in conjuction with pageBefore.\n"
                 },
                 {
@@ -1369,7 +1369,7 @@
           }
         },
         {
-          "id": "bbeba3a0-252e-4534-81c7-9b3040096e9e",
+          "id": "371b766f-01e5-4be8-b6ea-b84c04c038be",
           "name": "Create a mock Silvergate SEN payment",
           "request": {
             "name": "Create a mock Silvergate SEN payment",
@@ -1435,7 +1435,7 @@
     }
   ],
   "info": {
-    "_postman_id": "fd2e558b-0f01-4747-910f-e88d7470d752",
+    "_postman_id": "2a51df47-cc40-4a41-b64d-578a51103779",
     "name": "Core Functionality",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
     "description": {

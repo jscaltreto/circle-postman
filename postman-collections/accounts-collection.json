@@ -1,7 +1,7 @@
 {
   "item": [
     {
-      "id": "c1e5d026-f7e9-45c4-a71c-ed08d3920522",
+      "id": "e1f95245-a0fa-40f2-bd88-677bf235d4cc",
       "name": "Wallets",
       "description": {
         "content": "Create digital wallets and get information on their activity.",
@@ -9,7 +9,7 @@
       },
       "item": [
         {
-          "id": "d61f727c-78c4-4725-8cef-f5dbe6cde9a0",
+          "id": "5e43a036-c8b9-4a34-bca5-1bccf50c8e03",
           "name": "Create a wallet",
           "request": {
             "name": "Create a wallet",
@@ -56,7 +56,7 @@
           }
         },
         {
-          "id": "4a0f6569-6ab8-4349-938b-f020e5a2d9a9",
+          "id": "a8390d1c-4576-424e-9536-c9ad83253718",
           "name": "List all wallets",
           "request": {
             "name": "List all wallets",
@@ -88,13 +88,13 @@
                 {
                   "disabled": true,
                   "key": "pageBefore",
-                  "value": "pariatur enim laborum cupidatat",
+                  "value": "sunt anim",
                   "description": "A collection ID value used for pagination.\n\nIt marks the exclusive end of a page. When provided, the collection resource will return the next `n` items before\nthe id, with `n` being specified by `pageSize`.\n\nThe items will be returned in the natural order of the collection.\n\nThe resource will return the first page if neither `pageAfter` nor `pageBefore` are specified.\n\nSHOULD NOT be used in conjuction with pageAfter.\n"
                 },
                 {
                   "disabled": true,
                   "key": "pageAfter",
-                  "value": "pariatur enim laborum cupidatat",
+                  "value": "sunt anim",
                   "description": "A collection ID value used for pagination.\n\nIt marks the exclusive begin of a page. When provided, the collection resource will return the next `n` items after\nthe id, with `n` being specified by `pageSize`.\n\nThe items will be returned in the natural order of the collection.\n\nThe resource will return the first page if neither `pageAfter` nor `pageBefore` are specified.\n\nSHOULD NOT be used in conjuction with pageBefore.\n"
                 },
                 {
@@ -121,7 +121,7 @@
           }
         },
         {
-          "id": "7185152a-5a15-4b9a-a831-e9829969dd49",
+          "id": "c1cbafd4-810e-4e44-bf4f-2e6bb8f7de3b",
           "name": "Get a wallet",
           "request": {
             "name": "Get a wallet",
@@ -161,7 +161,7 @@
           }
         },
         {
-          "id": "1c54e0bc-b78a-4e2f-af9c-253718f96b89",
+          "id": "29cf8c43-ece2-4aeb-b803-daeef4a7ca0f",
           "name": "Create a blockchain address",
           "request": {
             "name": "Create a blockchain address",
@@ -203,7 +203,7 @@
             "method": "POST",
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"idempotencyKey\": \"{{$guid}}\",\n  \"currency\": \"USD\",\n  \"chain\": \"XLM\"\n}",
+              "raw": "{\n  \"idempotencyKey\": \"{{$guid}}\",\n  \"currency\": \"EUR\",\n  \"chain\": \"SOL\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -218,7 +218,7 @@
           }
         },
         {
-          "id": "c3787bf6-cee2-4313-b3c6-9b5a8378d5d3",
+          "id": "1ab045dd-8c61-422f-9b88-8bc31d98fba3",
           "name": "List all addresses",
           "request": {
             "name": "List all addresses",
@@ -252,13 +252,13 @@
                 {
                   "disabled": true,
                   "key": "pageBefore",
-                  "value": "pariatur enim laborum cupidatat",
+                  "value": "sunt anim",
                   "description": "A collection ID value used for pagination.\n\nIt marks the exclusive end of a page. When provided, the collection resource will return the next `n` items before\nthe id, with `n` being specified by `pageSize`.\n\nThe items will be returned in the natural order of the collection.\n\nThe resource will return the first page if neither `pageAfter` nor `pageBefore` are specified.\n\nSHOULD NOT be used in conjuction with pageAfter.\n"
                 },
                 {
                   "disabled": true,
                   "key": "pageAfter",
-                  "value": "pariatur enim laborum cupidatat",
+                  "value": "sunt anim",
                   "description": "A collection ID value used for pagination.\n\nIt marks the exclusive begin of a page. When provided, the collection resource will return the next `n` items after\nthe id, with `n` being specified by `pageSize`.\n\nThe items will be returned in the natural order of the collection.\n\nThe resource will return the first page if neither `pageAfter` nor `pageBefore` are specified.\n\nSHOULD NOT be used in conjuction with pageBefore.\n"
                 },
                 {
@@ -296,7 +296,7 @@
       "event": []
     },
     {
-      "id": "6547e780-caf5-425a-87d0-b0f7ff820fef",
+      "id": "72c1761b-8789-47e9-8dcb-73140cf6b8e9",
       "name": "Transfers",
       "description": {
         "content": "Create transfers to another wallet or blockchain address, and get information on those transfers.",
@@ -304,7 +304,7 @@
       },
       "item": [
         {
-          "id": "fd2f6cf4-4ccc-4815-b851-419d3b639398",
+          "id": "a6adf477-61c3-4dc1-a884-f7c6efbca077",
           "name": "Create a transfer",
           "request": {
             "name": "Create a transfer",
@@ -351,7 +351,7 @@
           }
         },
         {
-          "id": "aff206b6-b0f9-4aad-af7b-66a7a6a8f389",
+          "id": "fd7bfa15-733d-4c28-a83d-285cf8c58ede",
           "name": "List all transfers",
           "request": {
             "name": "List all transfers",
@@ -407,13 +407,13 @@
                 {
                   "disabled": true,
                   "key": "pageBefore",
-                  "value": "pariatur enim laborum cupidatat",
+                  "value": "sunt anim",
                   "description": "A collection ID value used for pagination.\n\nIt marks the exclusive end of a page. When provided, the collection resource will return the next `n` items before\nthe id, with `n` being specified by `pageSize`.\n\nThe items will be returned in the natural order of the collection.\n\nThe resource will return the first page if neither `pageAfter` nor `pageBefore` are specified.\n\nSHOULD NOT be used in conjuction with pageAfter.\n"
                 },
                 {
                   "disabled": true,
                   "key": "pageAfter",
-                  "value": "pariatur enim laborum cupidatat",
+                  "value": "sunt anim",
                   "description": "A collection ID value used for pagination.\n\nIt marks the exclusive begin of a page. When provided, the collection resource will return the next `n` items after\nthe id, with `n` being specified by `pageSize`.\n\nThe items will be returned in the natural order of the collection.\n\nThe resource will return the first page if neither `pageAfter` nor `pageBefore` are specified.\n\nSHOULD NOT be used in conjuction with pageBefore.\n"
                 },
                 {
@@ -440,7 +440,7 @@
           }
         },
         {
-          "id": "722503c0-71ee-4847-8a76-ecfe8fbf6fa3",
+          "id": "580c80a1-1044-4955-a748-ca47f0a8b1e1",
           "name": "Get a transfer",
           "request": {
             "name": "Get a transfer",
@@ -504,7 +504,7 @@
     }
   ],
   "info": {
-    "_postman_id": "43b86dae-2e54-4434-a945-7ba8aa56172e",
+    "_postman_id": "bda13fbf-250c-4fb0-8735-c22ffb195455",
     "name": "Accounts API",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
     "description": {

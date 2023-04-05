@@ -1,7 +1,7 @@
 {
   "item": [
     {
-      "id": "78d23498-f16e-48ee-a544-f3754e116500",
+      "id": "eae0e9b9-5781-455f-9f48-ff8ad907f1b1",
       "name": "Balances",
       "description": {
         "content": "Get information on settled and unsettled balances.",
@@ -9,7 +9,7 @@
       },
       "item": [
         {
-          "id": "0e519e04-891a-4c8a-84f1-9543332d62b7",
+          "id": "b8d4d426-0509-4929-a875-91ef7ef24005",
           "name": "List all balances",
           "request": {
             "name": "List all balances",
@@ -47,7 +47,7 @@
       "event": []
     },
     {
-      "id": "39dcd195-cc47-4deb-952c-b60beb376fae",
+      "id": "1ca72050-917c-412a-b9b3-f6af70749052",
       "name": "Payouts",
       "description": {
         "content": "Create and get information on 1st party payouts.",
@@ -55,7 +55,7 @@
       },
       "item": [
         {
-          "id": "6e9034e8-4228-4ff7-9356-005702e08e07",
+          "id": "c5cc4344-e8e9-4e8c-90c1-9bb02ee4424b",
           "name": "Create a payout",
           "request": {
             "name": "Create a payout",
@@ -102,7 +102,7 @@
           }
         },
         {
-          "id": "7085e05d-c53b-4287-8007-37aac067fa68",
+          "id": "bf7305ce-8c4d-4968-9348-ba4db04db2a1",
           "name": "List all payouts",
           "request": {
             "name": "List all payouts",
@@ -132,7 +132,7 @@
                 {
                   "disabled": true,
                   "key": "status",
-                  "value": "complete",
+                  "value": "pending",
                   "description": "Queries items with the specified status. Matches any status if unspecified."
                 },
                 {
@@ -156,13 +156,13 @@
                 {
                   "disabled": true,
                   "key": "pageBefore",
-                  "value": "ullamco eu commodo aute",
+                  "value": "commodo qui aliqua",
                   "description": "A collection ID value used for pagination.\n\nIt marks the exclusive end of a page. When provided, the collection resource will return the next `n` items before\nthe id, with `n` being specified by `pageSize`.\n\nThe items will be returned in the natural order of the collection.\n\nThe resource will return the first page if neither `pageAfter` nor `pageBefore` are specified.\n\nSHOULD NOT be used in conjuction with pageAfter.\n"
                 },
                 {
                   "disabled": true,
                   "key": "pageAfter",
-                  "value": "ullamco eu commodo aute",
+                  "value": "commodo qui aliqua",
                   "description": "A collection ID value used for pagination.\n\nIt marks the exclusive begin of a page. When provided, the collection resource will return the next `n` items after\nthe id, with `n` being specified by `pageSize`.\n\nThe items will be returned in the natural order of the collection.\n\nThe resource will return the first page if neither `pageAfter` nor `pageBefore` are specified.\n\nSHOULD NOT be used in conjuction with pageBefore.\n"
                 },
                 {
@@ -189,7 +189,7 @@
           }
         },
         {
-          "id": "bc0f48c4-2d1e-40a4-a0ee-60d5efc840d5",
+          "id": "0dc81ec3-5d2b-4b30-a35e-8f992fdef457",
           "name": "Get a payout",
           "request": {
             "name": "Get a payout",
@@ -233,7 +233,7 @@
       "event": []
     },
     {
-      "id": "0d1c7b73-f265-4474-a778-78737dc177f8",
+      "id": "2c86cb46-dcb4-4702-904d-edef7fe3f2de",
       "name": "Wires",
       "description": {
         "content": "Create, get instructions, and get information on 1st party bank accounts for wire transfers.",
@@ -241,7 +241,7 @@
       },
       "item": [
         {
-          "id": "85dcd8cc-450f-4218-9297-aaec273fde83",
+          "id": "e1270652-cd30-45cb-93f0-ac12aff82b22",
           "name": "Create a Wire bank account",
           "request": {
             "name": "Create a Wire bank account",
@@ -324,7 +324,8 @@
               "header": [],
               "cookie": [],
               "responseTime": null,
-              "body": ""
+              "body": "",
+              "uid": "23086364-99e086a6-ea0d-471d-9293-37387b54b5a1"
             },
             {
               "id": "6971b2d5-902b-4be6-83da-6da5531c2073",
@@ -367,7 +368,8 @@
               "header": [],
               "cookie": [],
               "responseTime": null,
-              "body": ""
+              "body": "",
+              "uid": "23086364-6971b2d5-902b-4be6-83da-6da5531c2073"
             },
             {
               "id": "38a4cdec-9472-4446-b9a0-dc4dc49bbf9d",
@@ -410,7 +412,8 @@
               "header": [],
               "cookie": [],
               "responseTime": null,
-              "body": ""
+              "body": "",
+              "uid": "23086364-38a4cdec-9472-4446-b9a0-dc4dc49bbf9d"
             }
           ],
           "event": [],
@@ -419,7 +422,7 @@
           }
         },
         {
-          "id": "3ff255a6-f0fe-4f07-b592-0f4dbefe134c",
+          "id": "552ecce8-864e-48e1-9f27-23854b63f2b9",
           "name": "List all Wire bank accounts",
           "request": {
             "name": "List all Wire bank accounts",
@@ -452,7 +455,7 @@
           }
         },
         {
-          "id": "5009afcf-6734-4c1c-81e3-94bd583df76a",
+          "id": "c27204a8-ffc5-4675-9dfd-ea9ec5f60625",
           "name": "Get a Wire bank account",
           "request": {
             "name": "Get a Wire bank account",
@@ -494,7 +497,7 @@
           }
         },
         {
-          "id": "8d4949d7-4317-4d4d-8d4e-be822731eaf5",
+          "id": "c984a0cb-4cea-4ca6-948c-75f85a167336",
           "name": "Get Wire instructions",
           "request": {
             "name": "Get Wire instructions",
@@ -550,7 +553,7 @@
       "event": []
     },
     {
-      "id": "50de50e4-a8ce-4041-b0cc-1f87a7fc3088",
+      "id": "4c342462-51df-48c5-babe-87e166a0959d",
       "name": "Signet",
       "description": {
         "content": "Create and get information on Signet accounts.",
@@ -558,7 +561,7 @@
       },
       "item": [
         {
-          "id": "f6711cb7-28ed-4f8a-9123-8b1ac585c52f",
+          "id": "ddbb54b5-8703-4052-b170-138d21536ff3",
           "name": "Create a Signet bank account (Production Only)",
           "request": {
             "name": "Create a Signet bank account (Production Only)",
@@ -606,7 +609,7 @@
           }
         },
         {
-          "id": "44ec4a33-e41f-406d-acd3-9058ef48caf3",
+          "id": "edb0f82d-fd25-4802-9712-ed654daef928",
           "name": "List all Signet bank accounts (Production Only).",
           "request": {
             "name": "List all Signet bank accounts (Production Only).",
@@ -639,7 +642,7 @@
           }
         },
         {
-          "id": "19058fb7-ae54-4415-befc-11a2d1f18a26",
+          "id": "552272e6-867c-4cc3-b876-2f6d7e14ad57",
           "name": "Get a Signet bank account (Production Only)",
           "request": {
             "name": "Get a Signet bank account (Production Only)",
@@ -681,7 +684,7 @@
           }
         },
         {
-          "id": "7faafcc1-ee8e-411a-9438-348ef808f150",
+          "id": "129d8b53-65d0-4769-ad5f-b3359c1cc7c2",
           "name": "Get Signet instructions (Production Only)",
           "request": {
             "name": "Get Signet instructions (Production Only)",
@@ -730,7 +733,7 @@
       "event": []
     },
     {
-      "id": "417285f1-2634-454b-a178-e054e9b57a8d",
+      "id": "022a32e8-5da5-42cb-8920-cdeed6e19eca",
       "name": "SEN",
       "description": {
         "content": "Create and get information on SEN accounts.",
@@ -738,7 +741,7 @@
       },
       "item": [
         {
-          "id": "39faa73c-7dae-4b3a-b2a5-8eea4a157cbb",
+          "id": "50b34c37-eb83-4e9f-a11b-c18b56c518f2",
           "name": "Create a Silvergate SEN bank account (BETA)",
           "request": {
             "name": "Create a Silvergate SEN bank account (BETA)",
@@ -786,7 +789,7 @@
           }
         },
         {
-          "id": "4636bb71-4497-4dd2-a12d-365100b45e4b",
+          "id": "ed77ade3-b975-4dbc-b63c-437fece52552",
           "name": "List all Silvergate SEN bank accounts (BETA).",
           "request": {
             "name": "List all Silvergate SEN bank accounts (BETA).",
@@ -819,7 +822,7 @@
           }
         },
         {
-          "id": "68ebcf46-1fca-4f47-a305-d883601a2920",
+          "id": "bfe632e5-b8da-4dae-b41a-64a0cb540031",
           "name": "Get a Silvergate SEN bank account (BETA)",
           "request": {
             "name": "Get a Silvergate SEN bank account (BETA)",
@@ -861,7 +864,7 @@
           }
         },
         {
-          "id": "6f2ac81a-f562-4c72-94b7-79b35463c0f7",
+          "id": "e7bc01b0-a916-4dad-b9e9-3bc893bf95a3",
           "name": "Get Silvergate SEN instructions (BETA)",
           "request": {
             "name": "Get Silvergate SEN instructions (BETA)",
@@ -910,7 +913,187 @@
       "event": []
     },
     {
-      "id": "daf329a6-7d17-4144-b572-01e61f44d5c2",
+      "id": "0bf72ade-74ac-40ed-9ac0-e63c73e818c6",
+      "name": "CBIT",
+      "description": {
+        "content": "Create and get information on CBIT accounts.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "dd840015-84c1-4128-8eca-6c7350174d5d",
+          "name": "Create a CBIT bank account",
+          "request": {
+            "name": "Create a CBIT bank account",
+            "description": {
+              "content": "\n#### Body Params\n\n**idempotencyKey** *string* (REQUIRED)\nUniversally unique identifier (UUID v4) idempotency key. This key is utilized to ensure exactly-once execution of mutating requests.\n\n**walletAddress** *string* (REQUIRED)\nCBIT wallet address.\n\n"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "businessAccount",
+                "banks",
+                "cbit"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"idempotencyKey\": \"{{$guid}}\",\n  \"walletAddress\": \"0x7d8da35e03ef3a5ec5d5edbb961ef399dfb42d1e\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3fea2391-163f-406c-bc16-5cf7e0d4e5ac",
+          "name": "List all CBIT bank accounts.",
+          "request": {
+            "name": "List all CBIT bank accounts.",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "businessAccount",
+                "banks",
+                "cbit"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6868f987-1f75-4037-a907-db9227391454",
+          "name": "Get a CBIT bank account",
+          "request": {
+            "name": "Get a CBIT bank account",
+            "description": {},
+            "url": {
+              "path": [
+                "v1",
+                "businessAccount",
+                "banks",
+                "cbit",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "b3d9d2d5-4c12-4946-a09d-953e82fae2b0",
+                  "key": "id",
+                  "description": "(Required) Universally unique identifier (UUID v4) of a resource."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "08861045-3291-4f78-87f8-551b0e48f2b5",
+          "name": "Get CBIT instructions",
+          "request": {
+            "name": "Get CBIT instructions",
+            "description": {
+              "content": "Get the CBIT transfer instructions into the Circle bank account given your bank account id.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "businessAccount",
+                "banks",
+                "cbit",
+                ":id",
+                "instructions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "b3d9d2d5-4c12-4946-a09d-953e82fae2b0",
+                  "key": "id",
+                  "description": "(Required) Universally unique identifier (UUID v4) of a resource."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "843bbc3c-e36c-4700-b4bb-80cc5fc3a095",
       "name": "Transfers",
       "description": {
         "content": "Create and get information on 1st party transfers.",
@@ -918,7 +1101,7 @@
       },
       "item": [
         {
-          "id": "c1a55cfc-fa34-4d33-b2a6-d49237d79325",
+          "id": "930ad62b-0a0c-437a-9c95-0c620dfd09dc",
           "name": "Create a transfer",
           "request": {
             "name": "Create a transfer",
@@ -951,7 +1134,7 @@
             "method": "POST",
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"idempotencyKey\": \"{{$guid}}\",\n  \"destination\": {\n    \"type\": \"verified_blockchain\",\n    \"addressId\": \"f1f36b85-cafe-484e-a46b-02340bfdb927\"\n  },\n  \"amount\": {\n    \"amount\": \"3.14\",\n    \"currency\": \"ETH\"\n  }\n}",
+              "raw": "{\n  \"idempotencyKey\": \"{{$guid}}\",\n  \"destination\": {\n    \"type\": \"verified_blockchain\",\n    \"addressId\": \"f1f36b85-cafe-484e-a46b-02340bfdb927\"\n  },\n  \"amount\": {\n    \"amount\": \"3.14\",\n    \"currency\": \"USD\"\n  }\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -966,7 +1149,7 @@
           }
         },
         {
-          "id": "731faace-4e50-4abe-aabf-5cbe9c83423a",
+          "id": "0ca8b993-c467-4728-a7ec-c9000759a4b9",
           "name": "List all transfers",
           "request": {
             "name": "List all transfers",
@@ -999,13 +1182,13 @@
                 {
                   "disabled": true,
                   "key": "pageBefore",
-                  "value": "ullamco eu commodo aute",
+                  "value": "commodo qui aliqua",
                   "description": "A collection ID value used for pagination.\n\nIt marks the exclusive end of a page. When provided, the collection resource will return the next `n` items before\nthe id, with `n` being specified by `pageSize`.\n\nThe items will be returned in the natural order of the collection.\n\nThe resource will return the first page if neither `pageAfter` nor `pageBefore` are specified.\n\nSHOULD NOT be used in conjuction with pageAfter.\n"
                 },
                 {
                   "disabled": true,
                   "key": "pageAfter",
-                  "value": "ullamco eu commodo aute",
+                  "value": "commodo qui aliqua",
                   "description": "A collection ID value used for pagination.\n\nIt marks the exclusive begin of a page. When provided, the collection resource will return the next `n` items after\nthe id, with `n` being specified by `pageSize`.\n\nThe items will be returned in the natural order of the collection.\n\nThe resource will return the first page if neither `pageAfter` nor `pageBefore` are specified.\n\nSHOULD NOT be used in conjuction with pageBefore.\n"
                 },
                 {
@@ -1032,7 +1215,7 @@
           }
         },
         {
-          "id": "99133d40-c774-4937-bde5-d471bd54d415",
+          "id": "98e16d7b-2b2d-4889-8279-14aaed7fdfe0",
           "name": "Get a transfer",
           "request": {
             "name": "Get a transfer",
@@ -1076,7 +1259,7 @@
       "event": []
     },
     {
-      "id": "66324e24-a793-4e10-ba1a-2adc7ac42f6d",
+      "id": "57998c58-c51c-46c2-bb70-00ba3f85c3b7",
       "name": "Addresses",
       "description": {
         "content": "Generate and get information on blockchain addresses.",
@@ -1084,7 +1267,7 @@
       },
       "item": [
         {
-          "id": "f2ad0fe6-98f6-4f1b-9649-910a7f8fd45b",
+          "id": "d9f902ea-1d1f-45ac-b0f7-05acc632a354",
           "name": "Create a deposit address",
           "request": {
             "name": "Create a deposit address",
@@ -1119,7 +1302,7 @@
             "method": "POST",
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"idempotencyKey\": \"{{$guid}}\",\n  \"currency\": \"ETH\",\n  \"chain\": \"XLM\"\n}",
+              "raw": "{\n  \"idempotencyKey\": \"{{$guid}}\",\n  \"currency\": \"BTC\",\n  \"chain\": \"MATIC\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -1134,7 +1317,7 @@
           }
         },
         {
-          "id": "15cb9e6a-5814-4ee6-9c1e-6a7b34dc8590",
+          "id": "876bcb46-3822-4db4-983c-87f3c1b3beb1",
           "name": "List all deposit addresses",
           "request": {
             "name": "List all deposit addresses",
@@ -1168,7 +1351,7 @@
           }
         },
         {
-          "id": "5fdd05e5-40db-4aaf-b0ea-3992e42e2920",
+          "id": "46bbe80f-cd6c-4154-bd46-cc0c34253384",
           "name": "Create a recipient address",
           "request": {
             "name": "Create a recipient address",
@@ -1203,7 +1386,7 @@
             "method": "POST",
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"idempotencyKey\": \"{{$guid}}\",\n  \"address\": \"0x8381470ED67C3802402dbbFa0058E8871F017A6F\",\n  \"chain\": \"FLOW\",\n  \"description\": \"My USDC address at a cryptocurrency exchange\",\n  \"addressTag\": \"123456789\",\n  \"currency\": \"BTC\"\n}",
+              "raw": "{\n  \"idempotencyKey\": \"{{$guid}}\",\n  \"address\": \"0x8381470ED67C3802402dbbFa0058E8871F017A6F\",\n  \"chain\": \"BTC\",\n  \"description\": \"My USDC address at a cryptocurrency exchange\",\n  \"addressTag\": \"123456789\",\n  \"currency\": \"ETH\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -1218,7 +1401,7 @@
           }
         },
         {
-          "id": "f54db6be-ae9c-4d61-a55a-07e78ec9c804",
+          "id": "3180a8e4-e3f6-4d67-a5f1-8f2e6be264a8",
           "name": "List all recipient addresses",
           "request": {
             "name": "List all recipient addresses",
@@ -1253,13 +1436,13 @@
                 {
                   "disabled": true,
                   "key": "pageBefore",
-                  "value": "ullamco eu commodo aute",
+                  "value": "commodo qui aliqua",
                   "description": "A collection ID value used for pagination.\n\nIt marks the exclusive end of a page. When provided, the collection resource will return the next `n` items before\nthe id, with `n` being specified by `pageSize`.\n\nThe items will be returned in the natural order of the collection.\n\nThe resource will return the first page if neither `pageAfter` nor `pageBefore` are specified.\n\nSHOULD NOT be used in conjuction with pageAfter.\n"
                 },
                 {
                   "disabled": true,
                   "key": "pageAfter",
-                  "value": "ullamco eu commodo aute",
+                  "value": "commodo qui aliqua",
                   "description": "A collection ID value used for pagination.\n\nIt marks the exclusive begin of a page. When provided, the collection resource will return the next `n` items after\nthe id, with `n` being specified by `pageSize`.\n\nThe items will be returned in the natural order of the collection.\n\nThe resource will return the first page if neither `pageAfter` nor `pageBefore` are specified.\n\nSHOULD NOT be used in conjuction with pageBefore.\n"
                 },
                 {
@@ -1289,7 +1472,7 @@
       "event": []
     },
     {
-      "id": "295189b7-6d53-4892-9ed2-7840d4b50f3b",
+      "id": "0b50929d-0d90-4d14-a246-b7de1b9e7887",
       "name": "Deposits",
       "description": {
         "content": "Get information on 1st party deposits.",
@@ -1297,7 +1480,7 @@
       },
       "item": [
         {
-          "id": "47e3cdf5-0a2f-4217-82d5-007d461e4edc",
+          "id": "2ca427d4-617b-4d06-8677-dc6d3039cf86",
           "name": "List all deposits",
           "request": {
             "name": "List all deposits",
@@ -1336,13 +1519,13 @@
                 {
                   "disabled": true,
                   "key": "pageBefore",
-                  "value": "ullamco eu commodo aute",
+                  "value": "commodo qui aliqua",
                   "description": "A collection ID value used for pagination.\n\nIt marks the exclusive end of a page. When provided, the collection resource will return the next `n` items before\nthe id, with `n` being specified by `pageSize`.\n\nThe items will be returned in the natural order of the collection.\n\nThe resource will return the first page if neither `pageAfter` nor `pageBefore` are specified.\n\nSHOULD NOT be used in conjuction with pageAfter.\n"
                 },
                 {
                   "disabled": true,
                   "key": "pageAfter",
-                  "value": "ullamco eu commodo aute",
+                  "value": "commodo qui aliqua",
                   "description": "A collection ID value used for pagination.\n\nIt marks the exclusive begin of a page. When provided, the collection resource will return the next `n` items after\nthe id, with `n` being specified by `pageSize`.\n\nThe items will be returned in the natural order of the collection.\n\nThe resource will return the first page if neither `pageAfter` nor `pageBefore` are specified.\n\nSHOULD NOT be used in conjuction with pageBefore.\n"
                 },
                 {
@@ -1369,7 +1552,7 @@
           }
         },
         {
-          "id": "d5fbd4b7-3ce8-471b-8d42-38335bfe18e5",
+          "id": "363b0313-f9e3-413d-9e34-d6cf5ceb1f80",
           "name": "Create a mock Silvergate SEN payment",
           "request": {
             "name": "Create a mock Silvergate SEN payment",
@@ -1435,7 +1618,7 @@
     }
   ],
   "info": {
-    "_postman_id": "245b5172-6d97-40e3-b708-976638dd6c9b",
+    "_postman_id": "25107e1c-2838-4617-96a2-9a8ba4e00db0",
     "name": "Core Functionality",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
     "description": {

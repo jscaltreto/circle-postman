@@ -1,7 +1,7 @@
 {
   "item": [
     {
-      "id": "5eb6d2cd-dd30-4321-9c53-b5a6af0a86de",
+      "id": "75b12c71-16fe-489c-a901-b63f09123216",
       "name": "Payouts",
       "description": {
         "content": "Create and get information on address book payouts.",
@@ -9,7 +9,7 @@
       },
       "item": [
         {
-          "id": "d7280097-6f77-4f49-8a78-35f563a840df",
+          "id": "b515153b-ed35-47f6-9ff3-deae36c2c32d",
           "name": "Create a payout",
           "request": {
             "name": "Create a payout",
@@ -41,7 +41,7 @@
             "method": "POST",
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"idempotencyKey\": \"{{$guid}}\",\n  \"destination\": {\n    \"type\": \"address_book\",\n    \"id\": \"b8627ae8-732b-4d25-b947-1df8f4007a29\"\n  },\n  \"amount\": {\n    \"amount\": \"3.14\",\n    \"currency\": \"BTC\"\n  },\n  \"source\": {\n    \"type\": \"wallet\",\n    \"id\": \"12345\",\n    \"identities\": [\n      {\n        \"type\": \"business\",\n        \"name\": \"Satoshi Nakamoto\",\n        \"addresses\": [\n          {\n            \"line1\": \"100 Money Street\",\n            \"city\": \"Boston\",\n            \"district\": \"MA\",\n            \"postalCode\": \"01234\",\n            \"country\": \"US\",\n            \"line2\": \"Suite 1\"\n          },\n          {\n            \"line1\": \"100 Money Street\",\n            \"city\": \"Boston\",\n            \"district\": \"MA\",\n            \"postalCode\": \"01234\",\n            \"country\": \"US\",\n            \"line2\": \"Suite 1\"\n          }\n        ]\n      },\n      {\n        \"type\": \"business\",\n        \"name\": \"Satoshi Nakamoto\",\n        \"addresses\": [\n          {\n            \"line1\": \"100 Money Street\",\n            \"city\": \"Boston\",\n            \"district\": \"MA\",\n            \"postalCode\": \"01234\",\n            \"country\": \"US\",\n            \"line2\": \"Suite 1\"\n          },\n          {\n            \"line1\": \"100 Money Street\",\n            \"city\": \"Boston\",\n            \"district\": \"MA\",\n            \"postalCode\": \"01234\",\n            \"country\": \"US\",\n            \"line2\": \"Suite 1\"\n          }\n        ]\n      }\n    ]\n  },\n  \"toAmount\": {\n    \"currency\": \"BTC\"\n  }\n}",
+              "raw": "{\n  \"idempotencyKey\": \"{{$guid}}\",\n  \"destination\": {\n    \"type\": \"address_book\",\n    \"id\": \"b8627ae8-732b-4d25-b947-1df8f4007a29\"\n  },\n  \"amount\": {\n    \"amount\": \"3.14\",\n    \"currency\": \"USD\"\n  },\n  \"source\": {\n    \"type\": \"wallet\",\n    \"id\": \"12345\",\n    \"identities\": [\n      {\n        \"type\": \"individual\",\n        \"name\": \"Satoshi Nakamoto\",\n        \"addresses\": [\n          {\n            \"line1\": \"100 Money Street\",\n            \"city\": \"Boston\",\n            \"district\": \"MA\",\n            \"postalCode\": \"01234\",\n            \"country\": \"US\",\n            \"line2\": \"Suite 1\"\n          },\n          {\n            \"line1\": \"100 Money Street\",\n            \"city\": \"Boston\",\n            \"district\": \"MA\",\n            \"postalCode\": \"01234\",\n            \"country\": \"US\",\n            \"line2\": \"Suite 1\"\n          }\n        ]\n      },\n      {\n        \"type\": \"individual\",\n        \"name\": \"Satoshi Nakamoto\",\n        \"addresses\": [\n          {\n            \"line1\": \"100 Money Street\",\n            \"city\": \"Boston\",\n            \"district\": \"MA\",\n            \"postalCode\": \"01234\",\n            \"country\": \"US\",\n            \"line2\": \"Suite 1\"\n          },\n          {\n            \"line1\": \"100 Money Street\",\n            \"city\": \"Boston\",\n            \"district\": \"MA\",\n            \"postalCode\": \"01234\",\n            \"country\": \"US\",\n            \"line2\": \"Suite 1\"\n          }\n        ]\n      }\n    ]\n  },\n  \"toAmount\": {\n    \"currency\": \"MTC\"\n  }\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -183,7 +183,7 @@
           }
         },
         {
-          "id": "97db6a81-abb9-4d03-b0a1-9ff1a796a782",
+          "id": "14890a72-a659-47cd-8c6b-4d6ba5baee72",
           "name": "List all payouts",
           "request": {
             "name": "List all payouts",
@@ -224,25 +224,25 @@
                 {
                   "disabled": true,
                   "key": "status",
-                  "value": "failed",
+                  "value": "complete",
                   "description": "Queries items with the specified status. Matches any status if unspecified."
                 },
                 {
                   "disabled": true,
                   "key": "sourceCurrency",
-                  "value": "ETH",
+                  "value": "MAN",
                   "description": "Queries items with the specified source currency `amount.currency`. Matches any source currency if unspecified."
                 },
                 {
                   "disabled": true,
                   "key": "destinationCurrency",
-                  "value": "ETH",
+                  "value": "MAN",
                   "description": "Queries items with the specified destination currency `toAmount.currency`. Matches any destination currency if unspecified."
                 },
                 {
                   "disabled": true,
                   "key": "chain",
-                  "value": "TRX",
+                  "value": "BTC",
                   "description": "Queries items with the specified chain. Matches any chain if unspecified"
                 },
                 {
@@ -260,13 +260,13 @@
                 {
                   "disabled": true,
                   "key": "pageBefore",
-                  "value": "non officia",
+                  "value": "mollit cupida",
                   "description": "A collection ID value used for pagination.\n\nIt marks the exclusive end of a page. When provided, the collection resource will return the next `n` items before\nthe id, with `n` being specified by `pageSize`.\n\nThe items will be returned in the natural order of the collection.\n\nThe resource will return the first page if neither `pageAfter` nor `pageBefore` are specified.\n\nSHOULD NOT be used in conjuction with pageAfter.\n"
                 },
                 {
                   "disabled": true,
                   "key": "pageAfter",
-                  "value": "non officia",
+                  "value": "mollit cupida",
                   "description": "A collection ID value used for pagination.\n\nIt marks the exclusive begin of a page. When provided, the collection resource will return the next `n` items after\nthe id, with `n` being specified by `pageSize`.\n\nThe items will be returned in the natural order of the collection.\n\nThe resource will return the first page if neither `pageAfter` nor `pageBefore` are specified.\n\nSHOULD NOT be used in conjuction with pageBefore.\n"
                 },
                 {
@@ -293,7 +293,7 @@
           }
         },
         {
-          "id": "c3923cec-e106-43cf-87ee-c239232f9ea7",
+          "id": "bb441a94-473e-4c9f-92de-363b53b42b4e",
           "name": "Get a payout",
           "request": {
             "name": "Get a payout",
@@ -336,7 +336,7 @@
       "event": []
     },
     {
-      "id": "ba6581b9-ba7e-43ac-8bb0-af3f2d3c0e60",
+      "id": "da607148-4657-4053-968f-244be717b236",
       "name": "Crypto Address Book",
       "description": {
         "content": "Manage blockchain addresses with metadata.",
@@ -344,7 +344,7 @@
       },
       "item": [
         {
-          "id": "9ec7f4c4-6fa4-4a31-8411-a77860cbee74",
+          "id": "631a93c4-6243-42b3-aab3-4f5dc36ea2b8",
           "name": "Create a recipient",
           "request": {
             "name": "Create a recipient",
@@ -376,7 +376,7 @@
             "method": "POST",
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"idempotencyKey\": \"{{$guid}}\",\n  \"chain\": \"FLOW\",\n  \"address\": \"0x8381470ED67C3802402dbbFa0058E8871F017A6F\",\n  \"metadata\": {\n    \"nickname\": \"sample nickname\",\n    \"email\": \"satoshi@circle.com\",\n    \"bns\": \"sample.circle\"\n  },\n  \"addressTag\": \"123456789\"\n}",
+              "raw": "{\n  \"idempotencyKey\": \"{{$guid}}\",\n  \"chain\": \"XLM\",\n  \"address\": \"0x8381470ED67C3802402dbbFa0058E8871F017A6F\",\n  \"metadata\": {\n    \"nickname\": \"sample nickname\",\n    \"email\": \"satoshi@circle.com\",\n    \"bns\": \"sample.circle\"\n  },\n  \"addressTag\": \"123456789\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -391,7 +391,7 @@
           }
         },
         {
-          "id": "799a1062-0e11-46a9-850e-9bcf91e8e305",
+          "id": "c4ec3338-ac01-4ca0-9d01-59d2325cfbd8",
           "name": "List all recipients",
           "request": {
             "name": "List all recipients",
@@ -409,25 +409,25 @@
                 {
                   "disabled": true,
                   "key": "address",
-                  "value": "non officia",
+                  "value": "mollit cupida",
                   "description": "Filters results to fetch only address book recipients with the provided address."
                 },
                 {
                   "disabled": true,
                   "key": "chain",
-                  "value": "non officia",
+                  "value": "mollit cupida",
                   "description": "Filters results to fetch only address book recipients with the provided chain."
                 },
                 {
                   "disabled": true,
                   "key": "email",
-                  "value": "non officia",
+                  "value": "mollit cupida",
                   "description": "Filters results to fetch only address book recipients that have the provided email in their metadata."
                 },
                 {
                   "disabled": true,
                   "key": "status",
-                  "value": "active",
+                  "value": "denied",
                   "description": "Filters results to fetch only address book recipients that have the provided status."
                 },
                 {
@@ -445,13 +445,13 @@
                 {
                   "disabled": true,
                   "key": "pageBefore",
-                  "value": "non officia",
+                  "value": "mollit cupida",
                   "description": "A collection ID value used for pagination.\n\nIt marks the exclusive end of a page. When provided, the collection resource will return the next `n` items before\nthe id, with `n` being specified by `pageSize`.\n\nThe items will be returned in the natural order of the collection.\n\nThe resource will return the first page if neither `pageAfter` nor `pageBefore` are specified.\n\nSHOULD NOT be used in conjuction with pageAfter.\n"
                 },
                 {
                   "disabled": true,
                   "key": "pageAfter",
-                  "value": "non officia",
+                  "value": "mollit cupida",
                   "description": "A collection ID value used for pagination.\n\nIt marks the exclusive begin of a page. When provided, the collection resource will return the next `n` items after\nthe id, with `n` being specified by `pageSize`.\n\nThe items will be returned in the natural order of the collection.\n\nThe resource will return the first page if neither `pageAfter` nor `pageBefore` are specified.\n\nSHOULD NOT be used in conjuction with pageBefore.\n"
                 },
                 {
@@ -478,7 +478,7 @@
           }
         },
         {
-          "id": "2031624d-c410-4134-b5d1-57f85168bb60",
+          "id": "40338f1d-3c1c-46c6-a67f-54711cbd4799",
           "name": "Get a recipient",
           "request": {
             "name": "Get a recipient",
@@ -519,7 +519,7 @@
           }
         },
         {
-          "id": "e32ffab1-da74-4a42-a6c0-95e8f0095b74",
+          "id": "bafcc4c8-b817-4fa1-b9c6-05627d640a0d",
           "name": "Modify a recipient",
           "request": {
             "name": "Modify a recipient",
@@ -575,7 +575,7 @@
           }
         },
         {
-          "id": "d3ccc61a-6ce1-4825-8a44-cf97ff074eae",
+          "id": "caf78bb9-4504-468c-9a2e-1f963f403abf",
           "name": "Delete a recipient",
           "request": {
             "name": "Delete a recipient",
@@ -619,7 +619,7 @@
       "event": []
     },
     {
-      "id": "e3b42339-3dc6-4f65-a66e-248215424ade",
+      "id": "6047e08e-e04d-4e94-a92a-de855ab41e7e",
       "name": "Crypto Exchange Rates",
       "description": {
         "content": "Pull estimated exchange rate for crypto currencies.",
@@ -627,7 +627,7 @@
       },
       "item": [
         {
-          "id": "1fd6bf6e-6395-4bff-89c5-ebef3fb860f5",
+          "id": "8504ee2b-d271-4221-8a6b-f930ce02fed0",
           "name": "Get a exchange rate",
           "request": {
             "name": "Get a exchange rate",
@@ -688,7 +688,7 @@
     }
   ],
   "info": {
-    "_postman_id": "a67f36ef-0483-4800-aa54-0c1114e787ca",
+    "_postman_id": "e8e75cd4-9d33-4a94-9a25-7672b3f001c9",
     "name": "Payouts API",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
     "description": {

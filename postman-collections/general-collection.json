@@ -1,7 +1,7 @@
 {
   "item": [
     {
-      "id": "ff86ef3a-29f6-41ac-bdf9-76c118cdd3ab",
+      "id": "b8fac453-e7a8-47ac-a5a1-182a084662cc",
       "name": "Health",
       "description": {
         "content": "Inspect the health of the API.",
@@ -9,7 +9,7 @@
       },
       "item": [
         {
-          "id": "2f442c65-c1ae-488e-832b-2c3b51a51b51",
+          "id": "81284615-ff45-4707-8165-a545e98341f2",
           "name": "Ping",
           "request": {
             "name": "Ping",
@@ -45,7 +45,7 @@
       "event": []
     },
     {
-      "id": "c5e164e4-032c-4ba8-9c3e-5589d842fc98",
+      "id": "f324ff44-709e-4a1f-ba37-25bf9f39bd8b",
       "name": "Management",
       "description": {
         "content": "General account and management information.",
@@ -53,7 +53,7 @@
       },
       "item": [
         {
-          "id": "53e53531-d629-41c9-acdb-9f87c3d2ea33",
+          "id": "bfec5b5b-e387-4ee3-b5a8-5f540408e974",
           "name": "Get configuration info",
           "request": {
             "name": "Get configuration info",
@@ -90,7 +90,7 @@
       "event": []
     },
     {
-      "id": "869a5cba-e269-4cd5-b4e4-aa7e052d0616",
+      "id": "e8fcae12-f758-408e-9da7-83a30b98dd5f",
       "name": "Encryption",
       "description": {
         "content": "Encrypt sensitive data.",
@@ -98,7 +98,7 @@
       },
       "item": [
         {
-          "id": "3dc85def-f924-4ab2-9977-0dc381a03152",
+          "id": "bcb03f5c-f7cd-4150-910d-b970be334fe2",
           "name": "Get public key",
           "request": {
             "name": "Get public key",
@@ -136,7 +136,7 @@
       "event": []
     },
     {
-      "id": "3335eba5-6b7a-4836-ab75-15f90096d6f1",
+      "id": "f88054e0-4f26-4447-8d03-9e6b79416a9e",
       "name": "Subscriptions",
       "description": {
         "content": "Manage subscriptions to notifications.",
@@ -144,7 +144,7 @@
       },
       "item": [
         {
-          "id": "82651ec6-9017-4ff2-9757-6b66376509f0",
+          "id": "cf8458fe-323e-4726-b690-67fa0a7bfe4b",
           "name": "Create a notification subscription",
           "request": {
             "name": "Create a notification subscription",
@@ -192,7 +192,7 @@
           }
         },
         {
-          "id": "2d0d5eba-609e-4012-8e08-3985ff9ee618",
+          "id": "134e1af1-cfe1-400f-be2a-8af9b68c9093",
           "name": "List all notification subscriptions",
           "request": {
             "name": "List all notification subscriptions",
@@ -227,7 +227,7 @@
           }
         },
         {
-          "id": "2879cb43-0886-4485-a54f-643862fe7b00",
+          "id": "c72fe4c3-9be3-45e6-8ddc-d23c2b0186cf",
           "name": "Remove a notification subscription",
           "request": {
             "name": "Remove a notification subscription",
@@ -274,7 +274,7 @@
       "event": []
     },
     {
-      "id": "485fd035-a995-4d69-9e35-49f25d04c0f7",
+      "id": "bbab6769-4000-4dc0-8476-c5bf9a7f83e5",
       "name": "Stablecoins",
       "description": {
         "content": "Retrieve stablecoins and their respective names, symbols, circulating total and per-chain amounts.",
@@ -282,7 +282,7 @@
       },
       "item": [
         {
-          "id": "00b1711b-e51a-42d7-86b0-31e2198d3c70",
+          "id": "a7cb608a-c298-4b48-bb2d-441f3aba4b9e",
           "name": "List all stablecoins",
           "request": {
             "name": "List all stablecoins",
@@ -319,7 +319,7 @@
       "event": []
     },
     {
-      "id": "22f065d3-f5cf-4d8a-8022-69bb7a47c028",
+      "id": "2683763b-d0f6-400c-ac70-731b1ab93690",
       "name": "Channels",
       "description": {
         "content": "View a list of channels.",
@@ -327,7 +327,7 @@
       },
       "item": [
         {
-          "id": "ed60ed59-ad98-485e-8d69-9209bf58a0b3",
+          "id": "5be5ebd5-e61a-48f8-b654-3caf306d04c6",
           "name": "List all channels",
           "request": {
             "name": "List all channels",
@@ -378,7 +378,7 @@
     }
   ],
   "info": {
-    "_postman_id": "2f476ba8-3430-4f99-ac2c-5edec42baa2c",
+    "_postman_id": "7674f4b3-1829-49a3-abeb-691f48600a9f",
     "name": "API Overview",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
     "description": {
